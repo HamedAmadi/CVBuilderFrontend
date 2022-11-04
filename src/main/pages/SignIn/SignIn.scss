@@ -1,0 +1,28 @@
+.signin-form {
+  max-width: 400px;
+  margin: 0 auto;
+
+  .error-message {
+    font-size: 12px;
+    color: #ff0000;
+    margin: 0;
+    padding: 0;
+  }
+
+  .solid {
+    width: 100%;
+    padding: 6px;
+    margin-top: 24px;
+  }
+
+  .password-checkbox {
+    display: flex;
+    margin-top: 8px;
+
+    label {
+      font-size: 14px;
+      margin-right: 4px;
+      user-select: none
+    }
+  }
+}

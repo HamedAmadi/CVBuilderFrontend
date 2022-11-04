@@ -1,0 +1,39 @@
+.user-setting {
+  background-color: var(--seventh-color);
+  padding-bottom: 60px;
+
+  .verify-email-banner {
+    background-color: #ffffcc;
+    // border: solid 1px #ffeb3b;
+    border-radius: 10px;
+    max-width: 600px;
+    padding: 16px;
+
+    @media(max-width: 575px) {
+      padding: 12px 8px;
+      font-size: 14px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .user-info-wrapper {
+    // box-shadow: 0 0 17px 1px rgb(0 0 0 / 8%);
+    // border: solid 1px var(--second-color);
+    max-width: 600px;
+    margin: 32px auto 0 auto;
+
+    .user-info-form {
+      background-color: white;
+      border-radius: 10px;
+      padding-top: 20px;
+      padding-bottom: 30px;
+
+      @media(max-width: 575px) {
+        padding: 20px 8px;
+      }
+    }
+  }
+}

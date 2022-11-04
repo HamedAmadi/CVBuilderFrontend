@@ -1,0 +1,65 @@
+$enable-negative-margins: true;
+$first-color: #ffffff;
+$second-color: #00695c;
+$second-color-hover: #008f7e;
+$third-color: #ffeb3b;
+$third-color-hover: #7450fe;
+$fourth-color: #f1f1f1;
+$fifth-color: #6c7d6d;
+$sixth-color: #59665a;
+$seventh-color: #ebf7e9;
+$eighth-color: #454545;
+
+// $first-color: #ffffff;
+// $second-color: #C4D7E0;
+// $third-color: #6E85B7;
+// $third-color-hover: #1572A1;
+// $fourth-color: #f2f5fa;
+// $fifth-color: #6c757d;
+// $sixth-color: #192a56;
+// 6E85B7
+:root {
+  --first-color: #{$first-color};
+  --second-color: #{$second-color};
+  --second-color-hover: #{$second-color-hover};
+  --third-color: #{$third-color};
+  --third-color-hover: #{$third-color-hover};
+  --fourth-color: #{$fourth-color};
+  --fifth-color: #{$fifth-color};
+  --sixth-color: #{$sixth-color};
+  --seventh-color: #{$seventh-color};
+  --eighth-color: #{$eighth-color};
+}
+
+@font-face {
+  font-family: IRANSans-FaNum;
+  font-style: normal;
+  font-weight: 500;
+  src: url('./assets/fonts/IRANSans/_persian-number/eot/IRANSansWeb\(FaNum\)_Light.eot');
+  src: url('./assets/fonts/IRANSans/_persian-number/eot/IRANSansWeb(FaNum)_Light.eot?#iefix') format('embedded-opentype'),
+    /* IE6-8 */
+    url('./assets/fonts/IRANSans/_persian-number/woff2/IRANSansWeb(FaNum)_Light.woff2') format('woff2'),
+    /* FF39+,Chrome36+, Opera24+*/
+    url('./assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum)_Light.woff') format('woff'),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('./assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum)_Light.ttf') format('truetype');
+}
+
+body {
+  direction: rtl !important;
+  margin: 0 !important;
+  font-family: IRANSans-FaNum, sans-serif !important;
+  overflow-x: hidden !important;
+
+  a {
+    text-decoration: none !important;
+  }
+}
+
+#root {
+  font-family: IRANSans-FaNum, sans-serif !important;
+}
+
+button {
+  font-family: inherit
+}

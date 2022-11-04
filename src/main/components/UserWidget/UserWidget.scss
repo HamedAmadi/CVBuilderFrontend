@@ -1,0 +1,108 @@
+.user-widget {
+  font-size: 18px;
+  color: var(--first-color);
+
+  a {
+    text-decoration: none;
+    color: var(--first-color);
+
+    &:hover {
+      color: var(--third-color);
+    }
+  }
+
+  .profile-button {
+    position: relative;
+    display: flex;
+    padding: 6px 0;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--third-color);
+    }
+
+    div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 160px;
+      // text-align: left;
+      white-space: nowrap;
+      direction: ltr;
+
+      @media(max-width: 575px) {
+        max-width: 120px;
+      }
+    }
+
+    .nav-dropdown {
+      position: absolute;
+      display: none;
+      left: 0;
+      top: 38px;
+      min-width: 180px;
+      background-color: var(--first-color);
+      list-style: none;
+      padding: 16px 0;
+      margin-top: 4px;
+      border-radius: 10px;
+      font-size: 16px;
+      // transform: translate3d(0, 15px, 0);
+      // transition: all 0.25s;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.18);
+      z-index: 101 !important;
+
+      li {
+        padding: 6px 16px;
+        position: relative;
+
+        &:hover {
+          background-color: var(--second-color);
+          color: var(--first-color) !important;
+        }
+
+        &:hover>a {
+          color: var(--third-color);
+        }
+
+        a {
+          text-decoration: none;
+          color: var(--eighth-color);
+
+          svg {
+            margin-top: -2px;
+          }
+        }
+
+        @media (max-width: 575px) {
+          padding: 4px 16px;
+        }
+      }
+
+      @media (max-width: 575px) {
+        padding: 8px 0;
+        width: 160px;
+        font-size: 14px;
+      }
+    }
+
+    // @media (max-width: 768px) {
+    //   min-width: 120px;
+    // }
+    // @media (max-width: 575px) {
+    //   min-width: 90px;
+    //   font-size: 14px;
+    // }
+  }
+
+  .show {
+    display: block !important;
+  }
+
+  .backdrop {
+    background-color: transparent;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px !important;
+  }
+}
