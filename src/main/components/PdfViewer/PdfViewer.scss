@@ -1,0 +1,50 @@
+.pdf-viewer {
+  width: 100%;
+
+  .rpv-default-layout__container {
+    background-color: var(--fifth-color) !important;
+    border: none !important;
+
+    .rpv-default-layout__toolbar {
+      background-color: var(--fifth-color) !important;
+      height: 50px !important;
+      border: none !important;
+    }
+
+    .rpv-default-layout__body {
+      background-color: var(--fifth-color);
+      padding-top: 50px;
+    }
+
+    .rpv-core__inner-page {
+      background-color: var(--fifth-color) !important;
+      // -ms-overflow-style: none !important;
+      // scrollbar-width: none !important;
+      // &::-webkit-scrollbar {
+      //   display: none !important;
+      // }
+      // div {
+      //   -ms-overflow-style: none !important;
+      //   scrollbar-width: none !important;
+      //   &::-webkit-scrollbar {
+      //     display: none !important;
+      //   }
+      // }
+    }
+
+    .rpv-core__canvas-layer {
+      height: 99.6% !important;
+      border-radius: 8px;
+    }
+
+    .rpv-core__page-layer:after {
+      box-shadow: none !important;
+      bottom: 0 !important;
+      content: "";
+      left: 0 !important;
+      position: absolute;
+      right: 0 !important;
+      top: 0 !important;
+    }
+  }
+}
