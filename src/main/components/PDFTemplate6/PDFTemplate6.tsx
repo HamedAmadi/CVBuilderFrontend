@@ -524,7 +524,7 @@ const PDFTemplate6: FC<Props> = ( {resume} ) => {
                       <Fragment>
                         <PersianText text={`لینک پروژه:`} fontStyle={"normal"} fontSize={10} marginTop={4} marginBottom={0} />
                         <Link style={styles.projectLink} src={projectItem.link}>
-                          {projectItem.link}
+                          <Text>{projectItem.link}</Text>
                         </Link>
                       </Fragment>
                     }
