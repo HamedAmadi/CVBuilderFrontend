@@ -82,7 +82,9 @@ const ChangeTemplate: FC = () => {
         </div>
         <div className="left-section">
           <div className="pdf-wrapper">
-            {getIsLoading ? <Skeleton borderRadius={0} width='100%' height='100%'></Skeleton> : <PdfEditViewer templateNumber={resume.templateNumber} resume={resume} width={1600} isChangeTemplate={true} />}
+            {/* {getIsLoading ? <Skeleton borderRadius={0} width='100%' height='100%'></Skeleton> : <PdfEditViewer templateNumber={resume.templateNumber} resume={resume} width={1600} isChangeTemplate={true} />} */}
+            {!getIsLoading && <PdfEditViewer templateNumber={resume.templateNumber} resume={resume} width={1600} isChangeTemplate={true} />}
+            {/* <Skeleton borderRadius={0} width='100%' height='100%'></Skeleton> */}
           </div>
         </div>
       </div>

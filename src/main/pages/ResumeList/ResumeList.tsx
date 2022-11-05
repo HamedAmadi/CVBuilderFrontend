@@ -7,7 +7,7 @@ import PdfViewerAsImage from '../../components/PdfViewerAsImage/PdfViewerAsImage
 import {useUserContext} from '../../context/UserContext';
 import {Resume} from '../../components/PDFTemplate6/PDFTemplate6';
 import Skeleton from 'react-loading-skeleton';
-
+import {TbPlus} from "react-icons/tb";
 
 const ResumeList: FC = () => {
   const {state} = useUserContext()
@@ -37,7 +37,7 @@ const ResumeList: FC = () => {
       <div className="container">
         <div className="d-flex justify-content-between mt-4 mb-3 pb-2 border-bottom">
           <h3 className='fw-bold'>رزومه ها</h3>
-          <Link to='/choose-templates'><Button size={"small"} style={"solid"} borderRadius={"normal"}>+ ساخت رزومه جدید</Button></Link>
+          <Link to='/choose-templates'><Button size={"small"} style={"solid"} borderRadius={"normal"}><TbPlus className="fw-bold ms-1" />ساخت رزومه جدید</Button></Link>
         </div>
         <div className="row">
           {

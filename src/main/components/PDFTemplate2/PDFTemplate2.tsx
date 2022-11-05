@@ -157,39 +157,40 @@ const PDFTemplate2: FC<Props> = ( {resume} ) => {
       <Page size="A4" style={styles.page}>
         {resume.basicInformation &&
           <View style={styles.basicInfoView}>
-            {( resume.basicInformation.lastName || resume.basicInformation.firstName ) &&
-              <View style={styles.name}>
-                <PersianText text={`${resume.basicInformation.firstName}  ${resume.basicInformation.lastName}`} fontStyle={"bold"} fontSize={17} marginTop={0} marginBottom={0} />
+            {( resume.basicInformation.lastName !== '' || resume.basicInformation.firstName !== '' ) &&
+              <View style={styles.info}>
+                {resume.basicInformation.firstName !== '' && <PersianText text={resume.basicInformation.firstName} fontStyle={"bold"} fontSize={19} marginTop={0} marginBottom={0} />}
+                {resume.basicInformation.lastName !== '' && <PersianText text={resume.basicInformation.lastName} fontStyle={"bold"} fontSize={19} marginTop={0} marginBottom={0} />}
               </View>
             }
-            {resume.basicInformation.jobTitle &&
+            {resume.basicInformation.jobTitle !== '' &&
               <View style={styles.info}>
                 <PersianText text={resume.basicInformation.jobTitle} fontStyle={"normal"} fontSize={12} marginTop={0} marginBottom={0} />
               </View>
             }
             <View style={styles.info}>
-              {resume.basicInformation.birthDate && <PersianText text={`متولد: ${resume.basicInformation.birthDate}`} fontStyle={"light"} fontSize={9} marginTop={4} marginBottom={0} />}
-              {resume.basicInformation.birthDate && resume.basicInformation.maritalStatus && <PersianText text={' ، '} fontStyle={"light"} fontSize={9} marginTop={4} marginBottom={0} />}
-              {resume.basicInformation.maritalStatus && <PersianText text={`وضعیت تأهل: ${resume.basicInformation.maritalStatus}`} fontStyle={"light"} fontSize={9} marginTop={4} marginBottom={0} />}
-              {resume.basicInformation.maritalStatus && resume.basicInformation.soldieringStatus && <PersianText text={' ، '} fontStyle={"light"} fontSize={9} marginTop={4} marginBottom={0} />}
-              {resume.basicInformation.birthDate && resume.basicInformation.soldieringStatus && !resume.basicInformation.maritalStatus && < PersianText text={' ، '} fontStyle={"light"} fontSize={9} marginTop={4} marginBottom={0} />}
-              {resume.basicInformation.soldieringStatus && <PersianText text={`وضعیت سربازی: ${resume.basicInformation.soldieringStatus}`} fontStyle={"light"} fontSize={9} marginTop={4} marginBottom={0} />}
+              {resume.basicInformation.birthDate !== '' && <PersianText text={`متولد: ${resume.basicInformation.birthDate}`} fontStyle={"light"} fontSize={9} marginTop={4} marginBottom={0} />}
+              {resume.basicInformation.birthDate !== '' && resume.basicInformation.maritalStatus !== '' && <PersianText text={' ، '} fontStyle={"light"} fontSize={9} marginTop={4} marginBottom={0} />}
+              {resume.basicInformation.maritalStatus !== '' && <PersianText text={`وضعیت تأهل: ${resume.basicInformation.maritalStatus}`} fontStyle={"light"} fontSize={9} marginTop={4} marginBottom={0} />}
+              {resume.basicInformation.maritalStatus !== '' && resume.basicInformation.soldieringStatus !== '' && <PersianText text={' ، '} fontStyle={"light"} fontSize={9} marginTop={4} marginBottom={0} />}
+              {resume.basicInformation.birthDate !== '' && resume.basicInformation.soldieringStatus !== '' && resume.basicInformation.maritalStatus === '' && < PersianText text={' ، '} fontStyle={"light"} fontSize={9} marginTop={4} marginBottom={0} />}
+              {resume.basicInformation.soldieringStatus !== '' && <PersianText text={`وضعیت سربازی: ${resume.basicInformation.soldieringStatus}`} fontStyle={"light"} fontSize={9} marginTop={4} marginBottom={0} />}
             </View>
             <View style={styles.info}>
-              {resume.basicInformation.city && <PersianText text={resume.basicInformation.city} fontStyle={"light"} fontSize={9} marginTop={2} marginBottom={0} />}
-              {resume.basicInformation.city && resume.basicInformation.address && <PersianText text={' - '} fontStyle={"light"} fontSize={9} marginTop={2} marginBottom={0} />}
-              {resume.basicInformation.address && <PersianText text={`${resume.basicInformation.address}`} fontStyle={"light"} fontSize={9} marginTop={2} marginBottom={0} />}
+              {resume.basicInformation.city !== '' && <PersianText text={resume.basicInformation.city} fontStyle={"light"} fontSize={9} marginTop={2} marginBottom={0} />}
+              {resume.basicInformation.city !== '' && resume.basicInformation.address !== '' && <PersianText text={' - '} fontStyle={"light"} fontSize={9} marginTop={2} marginBottom={0} />}
+              {resume.basicInformation.address !== '' && <PersianText text={`${resume.basicInformation.address}`} fontStyle={"light"} fontSize={9} marginTop={2} marginBottom={0} />}
             </View>
             <View style={styles.info}>
-              {resume.basicInformation.email && <PersianText text={resume.basicInformation.email} fontStyle={"normal"} fontSize={10} marginTop={2} marginBottom={0} />}
-              {resume.basicInformation.email && resume.basicInformation.mobileNumber && <PersianText text={' ، '} fontStyle={"normal"} fontSize={10} marginTop={2} marginBottom={0} />}
-              {resume.basicInformation.mobileNumber && <PersianText text={`${resume.basicInformation.mobileNumber}`} fontStyle={"normal"} fontSize={10} marginTop={2} marginBottom={0} />}
+              {resume.basicInformation.email !== '' && <PersianText text={resume.basicInformation.email} fontStyle={"normal"} fontSize={10} marginTop={2} marginBottom={0} />}
+              {resume.basicInformation.email !== '' && resume.basicInformation.mobileNumber !== '' && <PersianText text={' ، '} fontStyle={"normal"} fontSize={10} marginTop={2} marginBottom={0} />}
+              {resume.basicInformation.mobileNumber !== '' && <PersianText text={resume.basicInformation.mobileNumber} fontStyle={"normal"} fontSize={10} marginTop={2} marginBottom={0} />}
             </View>
           </View>}
         <View style={styles.line}></View>
         <View style={styles.line}></View>
         <View>
-          {resume.aboutMe && resume.aboutMe.description &&
+          {resume.aboutMe && resume.aboutMe.description !== '' &&
             <View>
               <View style={styles.title}>
                 <Text>درباره من</Text>

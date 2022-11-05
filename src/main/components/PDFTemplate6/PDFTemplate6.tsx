@@ -69,8 +69,9 @@ const styles = StyleSheet.create( {
     borderRadius: '50%',
   },
   name: {
+    flexDirection: 'row-reverse',
     alignSelf: 'center',
-    marginLeft: -8
+    // marginLeft: -8
   },
   position: {
     width: '100%',
@@ -243,18 +244,21 @@ const PDFTemplate6: FC<Props> = ( {resume} ) => {
           {resume.basicInformation &&
             <Fragment>
               <View style={styles.name}>
-                {( resume.basicInformation.firstName || resume.basicInformation.lastName ) &&
-                  <PersianText text={`${resume.basicInformation.firstName}  ${resume.basicInformation.lastName}`} fontStyle={"bold"} fontSize={16} marginTop={0} marginBottom={0} />
+                {( resume.basicInformation.lastName !== '' || resume.basicInformation.firstName !== '' ) &&
+                  <View style={styles.name}>
+                    {resume.basicInformation.firstName !== '' && <PersianText text={resume.basicInformation.firstName} fontStyle={"bold"} fontSize={16} marginTop={0} marginBottom={0} />}
+                    {resume.basicInformation.lastName !== '' && <PersianText text={resume.basicInformation.lastName} fontStyle={"bold"} fontSize={16} marginTop={0} marginBottom={0} />}
+                  </View>
                 }
               </View>
               <View style={styles.position}>
                 {
-                  resume.basicInformation.jobTitle &&
+                  resume.basicInformation.jobTitle !== '' &&
                   <PersianText text={resume.basicInformation.jobTitle} fontStyle={"bold"} fontSize={11} marginTop={0} marginBottom={0} />
                 }
               </View>
               <View style={styles.infoItem}>
-                {resume.basicInformation.birthDate &&
+                {resume.basicInformation.birthDate !== '' &&
                   <Fragment>
                     <View style={styles.infoBox} />
                     <PersianText text={`متولد: ${resume.basicInformation.birthDate}`} fontStyle={"lightnormal"} fontSize={9} marginTop={0} marginBottom={0} />
@@ -262,7 +266,7 @@ const PDFTemplate6: FC<Props> = ( {resume} ) => {
                 }
               </View>
               <View style={styles.infoItem}>
-                {resume.basicInformation.maritalStatus &&
+                {resume.basicInformation.maritalStatus !== '' &&
                   <Fragment>
                     <View style={styles.infoBox} />
                     <PersianText text={`وضعیت تاهل: ${resume.basicInformation.maritalStatus}`} fontStyle={"lightnormal"} fontSize={9} marginTop={0} marginBottom={0} />
@@ -270,7 +274,7 @@ const PDFTemplate6: FC<Props> = ( {resume} ) => {
                 }
               </View>
               <View style={styles.infoItem}>
-                {resume.basicInformation.soldieringStatus &&
+                {resume.basicInformation.soldieringStatus !== '' &&
                   <Fragment>
                     <View style={styles.infoBox} />
                     <PersianText text={`وضعیت سربازی: ${resume.basicInformation.soldieringStatus}`} fontStyle={"lightnormal"} fontSize={9} marginTop={0} marginBottom={0} />
@@ -278,7 +282,7 @@ const PDFTemplate6: FC<Props> = ( {resume} ) => {
                 }
               </View>
               <View style={styles.contactSection}>
-                {resume.basicInformation.email &&
+                {resume.basicInformation.email !== '' &&
                   <View style={styles.contactItem}>
                     <View style={styles.contactBox} >
                       <Image style={styles.contactImg} src={EnvelopeIcon} />
@@ -286,7 +290,7 @@ const PDFTemplate6: FC<Props> = ( {resume} ) => {
                     <PersianText text={resume.basicInformation.email} fontStyle={"lightnormal"} fontSize={9} marginTop={3} marginBottom={0} />
                   </View>
                 }
-                {resume.basicInformation.mobileNumber &&
+                {resume.basicInformation.mobileNumber !== '' &&
                   <View style={styles.contactItem}>
                     <View style={styles.contactBox} >
                       <Image style={styles.contactImg} src={MobileIcon} />
@@ -294,13 +298,13 @@ const PDFTemplate6: FC<Props> = ( {resume} ) => {
                     <PersianText text={resume.basicInformation.mobileNumber} fontStyle={"lightnormal"} fontSize={9} marginTop={3} marginBottom={0} />
                   </View>
                 }
-                {( resume.basicInformation.city || resume.basicInformation.address ) &&
+                {( resume.basicInformation.city !== '' || resume.basicInformation.address !== '' ) &&
                   <View style={styles.contactItem}>
                     <View style={styles.contactBox} >
                       <Image style={styles.contactImg} src={LocationIcon} />
                     </View>
                     <View style={{flexWrap: 'wrap', width: '85%'}}>
-                      <PersianText text={`${resume.basicInformation.city && resume.basicInformation.city}${resume.basicInformation.city && resume.basicInformation.address && ' - '}${resume.basicInformation.address && resume.basicInformation.address}`} fontStyle={"lightnormal"} fontSize={9} marginTop={3} marginBottom={0} />
+                      <PersianText text={`${resume.basicInformation.city !== '' && resume.basicInformation.city}${resume.basicInformation.city !== '' && resume.basicInformation.address !== '' && ' - '}${resume.basicInformation.address !== '' && resume.basicInformation.address}`} fontStyle={"lightnormal"} fontSize={9} marginTop={3} marginBottom={0} />
                     </View>
                   </View>
                 }
@@ -421,7 +425,7 @@ const PDFTemplate6: FC<Props> = ( {resume} ) => {
         <View style={styles.leftSection}>
           <View>
             {
-              resume.aboutMe && resume.aboutMe.description &&
+              resume.aboutMe && resume.aboutMe.description !== '' &&
               <View style={styles.bio}>
                 {resume.aboutMe.description.split( '\n' ).map( ( line: string, i: number ) => <PersianText key={i} text={line} fontStyle={"light"} fontSize={10} marginTop={0} marginBottom={0} /> )}
               </View>
@@ -444,7 +448,7 @@ const PDFTemplate6: FC<Props> = ( {resume} ) => {
                   <View style={styles.mainSection}>
                     <PersianText text={`${educationItem.degree} ${educationItem.study}`} fontStyle={"bold"} fontSize={10} marginTop={0} marginBottom={0} />
                     <PersianText text={educationItem.university} fontStyle={"lightnormal"} fontSize={10} marginTop={2} marginBottom={0} />
-                    <PersianText text={`${educationItem.startDate}${educationItem.startDate && educationItem.startDate && ' - '}${educationItem.endDate}`} fontStyle={"ultralight"} fontSize={9} marginTop={2} marginBottom={0} />
+                    <PersianText text={`${educationItem.startDate}${educationItem.startDate && educationItem.endDate && ' - '}${educationItem.endDate}`} fontStyle={"ultralight"} fontSize={9} marginTop={2} marginBottom={0} />
                   </View>
                 </View>
               )

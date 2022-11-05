@@ -138,7 +138,10 @@ const SignUp: React.FC = () => {
                 )
               } )
             }
-            <Button size={'medium'} style={'solid'} borderRadius={'normal'}>ورود به رزومه ساز</Button>
+            <Button disabled={isLoading} size={'medium'} style={'solid'} borderRadius={'normal'}>
+              {isLoading && <div className="spinner-border spinner-border-sm ms-2" role="status" />}
+              ورود به رزومه ساز
+            </Button>
           </form>
           {
             errorMessage === 'حساب کاربری با این ایمیل وجود دارد' &&

@@ -40,6 +40,9 @@ const styles = StyleSheet.create( {
     height: 10,
     margin: '2 0 auto 8',
   },
+  name: {
+    flexDirection: 'row-reverse',
+  },
   section: {
     flexDirection: 'row-reverse',
     // marginBottom: 20,
@@ -150,8 +153,11 @@ const PDFTemplate4: FC<Props> = ( {resume} ) => {
         {resume.basicInformation &&
           <View style={{flexDirection: 'row-reverse', marginTop: 22}}>
             <View style={{width: '46%', backgroundColor: '#064c80', height: 80, marginRight: -2, color: 'white', paddingRight: 24, paddingTop: 12}}>
-              {( resume.basicInformation.firstName !== '' || resume.basicInformation.lastName !== '' ) &&
-                <PersianText text={`${resume.basicInformation.firstName !== '' && resume.basicInformation.firstName} ${resume.basicInformation.lastName !== '' && resume.basicInformation.lastName}`} fontStyle={"bold"} fontSize={19} marginTop={0} marginBottom={0} />
+              {( resume.basicInformation.lastName !== '' || resume.basicInformation.firstName !== '' ) &&
+                <View style={styles.name}>
+                  {resume.basicInformation.firstName !== '' && <PersianText text={resume.basicInformation.firstName} fontStyle={"bold"} fontSize={19} marginTop={0} marginBottom={0} />}
+                  {resume.basicInformation.lastName !== '' && <PersianText text={resume.basicInformation.lastName} fontStyle={"bold"} fontSize={19} marginTop={0} marginBottom={0} />}
+                </View>
               }
               <View style={{color: '#cdcdcd'}}>
                 {resume.basicInformation.jobTitle !== '' &&
@@ -159,7 +165,7 @@ const PDFTemplate4: FC<Props> = ( {resume} ) => {
                 }
               </View>
             </View>
-            {( resume.basicInformation.email || resume.basicInformation.mobileNumber || resume.basicInformation.city || resume.basicInformation.address ) &&
+            {( resume.basicInformation.email !== '' || resume.basicInformation.mobileNumber !== '' || resume.basicInformation.city !== '' || resume.basicInformation.address !== '' ) &&
               <View style={{width: '30%', marginRight: 10}}>
                 <View>
                   {resume.basicInformation.email !== '' &&

@@ -114,7 +114,10 @@ const SignIn: FC = () => {
               <input type="checkbox" id='withoutPassword' checked={withoutPassword} onChange={() => setWithoutPassword( !withoutPassword )} />
               <label htmlFor="withoutPassword">ورود بدون رمز عبور</label>
             </div>
-            <Button size={'medium'} style={'solid'} borderRadius={'normal'}>ورود</Button>
+            <Button disabled={signInIsLoading} size={'medium'} style={'solid'} borderRadius={'normal'}>
+              {signInIsLoading && <div className="spinner-border spinner-border-sm ms-2" role="status" />}
+              ورود
+            </Button>
           </form>
           {
             errorMessage === 'ایمیل یا رمز عبور وارد شده اشتباه است' &&

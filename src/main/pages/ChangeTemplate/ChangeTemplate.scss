@@ -48,18 +48,19 @@
         }
       }
 
+      scrollbar-width: thin;
+      scrollbar-color: var(--eighth-color) var(--fourth-color);
+
       &::-webkit-scrollbar {
         width: 5px;
       }
 
       &::-webkit-scrollbar-track {
-        // right: 0;
         background: var(--fourth-color);
       }
 
       &::-webkit-scrollbar-thumb {
         background: var(--eighth-color);
-        // border-radius: 4px;
       }
     }
 
@@ -75,54 +76,78 @@
       .pdf-wrapper {
         overflow-y: auto;
         width: 100%;
+        // scrollbar-width: 5px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--eighth-color) var(--fourth-color);
 
         .change-template-btn {
           display: none;
         }
 
         &::-webkit-scrollbar {
-          width: 5px;
-          // border-radius: 6px;
+          width: 8px;
         }
 
         &::-webkit-scrollbar-track {
           background: var(--fourth-color);
-          // border-radius: 6px;
         }
 
         &::-webkit-scrollbar-thumb {
           background: var(--eighth-color);
-          // border-radius: 3px;
-          // border: 2px solid white;
         }
 
-        // .react-pdf__Page {
-        //   height: 100%;
-        canvas {
+        .react-pdf__Document {
           border-radius: 0;
           width: 80% !important;
           height: auto !important;
-          padding-bottom: 100px;
 
           @media (max-width: 768px) {
             width: 100% !important;
             height: auto !important;
           }
+
+          .react-pdf__Page {
+            height: 100% !important;
+
+            canvas {
+              border-radius: 0;
+              width: 100% !important;
+              height: auto !important;
+              padding-bottom: 100px;
+            }
+          }
         }
 
         .pdf-skeleton {
-          border-radius: 0;
-          width: 80% !important;
-          // height: auto !important;
-          // padding-bottom: 100px;
-          aspect-ratio: 600 / 848;
-
-          @media (max-width: 768px) {
-            width: 100% !important;
-            aspect-ratio: 600 / 848;
-            // height: auto !important;
-          }
+          border-radius: 0 !important;
+          width: 100% !important;
+          height: auto !important;
         }
+
+        // .react-pdf__Page {
+        //   height: 100%;
+        // canvas {
+        //   border-radius: 0;
+        //   width: 80% !important;
+        //   height: auto !important;
+        //   padding-bottom: 100px;
+        //   @media (max-width: 768px) {
+        //     width: 100% !important;
+        //     height: auto !important;
+        //   }
+        // }
+        // .pdf-skeleton {
+        //   border-radius: 0;
+        //   width: 80% !important;
+        //   // height: auto !important;
+        //   // padding-bottom: 100px;
+        //   aspect-ratio: 600 / 848;
+        //   @media (max-width: 768px) {
+        //     width: 100% !important;
+        //     aspect-ratio: 600 / 848;
+        //     // height: auto !important;
+        //   }
+        // }
       }
     }
   }

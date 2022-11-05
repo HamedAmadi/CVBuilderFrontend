@@ -19,74 +19,83 @@
     }
   }
 
-  .react-pdf__Page {
+  .pdf-wrapper-x {
     height: 100%;
+    position: relative;
 
-    canvas {
+    .react-pdf__Document {
       border-radius: 8px;
-      width: auto !important;
       height: calc(100% - 150px) !important;
+      aspect-ratio: 600 / 848;
       margin: auto;
 
       @media (max-width: 575px) {
         width: 100% !important;
-        height: auto !important;
+        // height: auto !important;
+      }
+
+      .react-pdf__Page {
+        height: 100% !important;
+
+        canvas {
+          border-radius: 8px;
+          width: 100% !important;
+          height: auto !important;
+        }
       }
     }
-  }
 
-  .pdf-skeleton {
-    border-radius: 8px;
-    height: calc(100% - 150px) !important;
-    // width: height/1.413 !important;
-    aspect-ratio: 600 / 848;
-    margin: auto;
-
-    @media (max-width: 575px) {
-      width: 100% !important;
-      // height: auto !important;
-    }
-  }
-
-  .pdf-view-button {
-    position: absolute;
-    background-color: #00000020;
-    border-radius: 10px;
-    height: calc(100% - 150px) !important;
-    aspect-ratio: 600/848;
-    right: 50%;
-    transform: translateX(50%);
-    z-index: 200;
-    text-align: center;
-    opacity: 0;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 1;
-    }
-
-    .svg-wrapper {
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 60px;
-      height: 60px;
-      padding: 16px;
-      border-radius: 50%;
-      background-color: var(--first-color);
+    .pdf-skeleton {
+      border-radius: 0 !important;
+      height: calc(100% - 150px) !important;
+      aspect-ratio: 600 / 848;
       margin: auto;
 
-      svg {
-        font-size: 28;
-        margin: auto;
-        color: var(--second-color);
+      @media (max-width: 575px) {
+        width: 100% !important;
       }
     }
 
-    // margin: auto !important;
-    @media (max-width: 575px) {
-      width: 100% !important;
-      // height: auto !important;
+    .pdf-view-button {
+      position: absolute;
+      background-color: #00000020;
+      border-radius: 10px;
+      height: calc(100% - 150px) !important;
+      aspect-ratio: 600/848;
+      right: 0;
+      left: 0;
+      z-index: 200;
+      text-align: center;
+      opacity: 0;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      .svg-wrapper {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 60px;
+        height: 60px;
+        padding: 16px;
+        border-radius: 50%;
+        background-color: var(--first-color);
+        margin: auto;
+
+        svg {
+          font-size: 28;
+          margin: auto;
+          color: var(--second-color);
+        }
+      }
+
+      // margin: auto !important;
+      @media (max-width: 575px) {
+        width: 100% !important;
+        height: auto !important;
+      }
     }
   }
 }

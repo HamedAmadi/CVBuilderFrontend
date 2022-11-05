@@ -64,63 +64,63 @@ const PdfEditViewer: FC<PdfAsImageProps> = ( props ) => {
               }
             </PDFDownloadLink>
           </div>
-          <div className='pdf-arrow-buttons d-flex mb-2'>
-            <div className="d-flex mx-auto">
-              <button
-                type="button"
-                disabled={pageNumber >= numPages}
-                onClick={nextPage}
-              >
-                <TbChevronRight className="" />
-              </button>
-              <div className="page-number">
-                {numPages} / {pageNumber}
+          <div className="pdf-wrapper-x">
+            <div className='pdf-arrow-buttons d-flex mb-2'>
+              <div className="d-flex mx-auto">
+                <button
+                  type="button"
+                  disabled={pageNumber >= numPages}
+                  onClick={nextPage}
+                >
+                  <TbChevronRight className="" />
+                </button>
+                <div className="page-number">
+                  {numPages} / {pageNumber}
+                </div>
+                <button
+                  type="button"
+                  disabled={pageNumber <= 1}
+                  onClick={previousPage}
+                >
+                  <TbChevronLeft className="" />
+                </button>
               </div>
-              <button
-                type="button"
-                disabled={pageNumber <= 1}
-                onClick={previousPage}
-              >
-                <TbChevronLeft className="" />
-              </button>
             </div>
-          </div>
-          <BlobProvider document={Component}>
-            {( {url, loading} ) => {
-              if ( loading )
+            <BlobProvider document={Component}>
+              {( {url, loading} ) => {
+                // if ( loading )
+                //   return (
+                //     <div className='pdf-skeleton'> <Skeleton height='100%' /></div>
+                //   )
                 return (
-                  <div className='pdf-skeleton'> <Skeleton height='100%' /></div>
-                )
-              return (
-                <Fragment>
-                  <Document
-                    file={url}
-                    loading={<div className='pdf-skeleton'> <Skeleton height='100%' /></div>}
-                    noData={<div className='pdf-skeleton'> <Skeleton height='100%' /></div>}
-                    onLoadSuccess={onDocumentLoadSuccess}
-                  >
-                    {
-                      !props.isChangeTemplate &&
-                      <Link to='/change-template'>
-
-                        <div className='pdf-view-button mx-auto'>
-                          <div className="svg-wrapper">
-                            <TbMaximize />
-                          </div>
-                        </div>
-                      </Link>
-                    }
-                    <Page width={props.width}
+                  <Fragment>
+                    <Document
+                      file={url}
                       loading={<div className='pdf-skeleton'> <Skeleton height='100%' /></div>}
                       noData={<div className='pdf-skeleton'> <Skeleton height='100%' /></div>}
-                      renderAnnotationLayer={false}
-                      renderTextLayer={false}
-                      pageNumber={pageNumber} />
-                  </Document>
-                </Fragment>
-              )
-            }}
-          </BlobProvider>
+                      onLoadSuccess={onDocumentLoadSuccess}
+                    >
+                      {
+                        !props.isChangeTemplate &&
+                        <Link to='/change-template'>
+
+                          <div className='pdf-view-button mx-auto'>
+                            <div className="svg-wrapper">
+                              <TbMaximize />
+                            </div>
+                          </div>
+                        </Link>
+                      }
+                      <Page width={props.width}
+                        renderAnnotationLayer={false}
+                        renderTextLayer={false}
+                        pageNumber={pageNumber} />
+                    </Document>
+                  </Fragment>
+                )
+              }}
+            </BlobProvider>
+          </div>
         </div>
 
       </div>
