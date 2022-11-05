@@ -150,11 +150,11 @@ const PDFTemplate4: FC<Props> = ( {resume} ) => {
         {resume.basicInformation &&
           <View style={{flexDirection: 'row-reverse', marginTop: 22}}>
             <View style={{width: '46%', backgroundColor: '#064c80', height: 80, marginRight: -2, color: 'white', paddingRight: 24, paddingTop: 12}}>
-              {( resume.basicInformation.firstName || resume.basicInformation.lastName ) &&
-                <PersianText text={`${resume.basicInformation.firstName}  ${resume.basicInformation.lastName}`} fontStyle={"bold"} fontSize={19} marginTop={0} marginBottom={0} />
+              {( resume.basicInformation.firstName !== '' || resume.basicInformation.lastName !== '' ) &&
+                <PersianText text={`${resume.basicInformation.firstName !== '' && resume.basicInformation.firstName} ${resume.basicInformation.lastName !== '' && resume.basicInformation.lastName}`} fontStyle={"bold"} fontSize={19} marginTop={0} marginBottom={0} />
               }
               <View style={{color: '#cdcdcd'}}>
-                {resume.basicInformation.jobTitle &&
+                {resume.basicInformation.jobTitle !== '' &&
                   <PersianText text={resume.basicInformation.jobTitle} fontStyle={"bold"} fontSize={10} marginTop={2} marginBottom={0} />
                 }
               </View>
@@ -162,39 +162,39 @@ const PDFTemplate4: FC<Props> = ( {resume} ) => {
             {( resume.basicInformation.email || resume.basicInformation.mobileNumber || resume.basicInformation.city || resume.basicInformation.address ) &&
               <View style={{width: '30%', marginRight: 10}}>
                 <View>
-                  {resume.basicInformation.email &&
+                  {resume.basicInformation.email !== '' &&
                     <View style={{flexDirection: 'row-reverse', marginBottom: 8}}>
                       <Image style={styles.img} src={EnvelopeIcon} />
                       <PersianText text={resume.basicInformation.email} fontStyle={"lightnormal"} fontSize={9} marginTop={0} marginBottom={0} />
                     </View>}
-                  {resume.basicInformation.mobileNumber &&
+                  {resume.basicInformation.mobileNumber !== '' &&
                     <View style={{flexDirection: 'row-reverse', marginBottom: 8}}>
                       <Image style={styles.img} src={MobileIcon} />
                       <PersianText text={resume.basicInformation.mobileNumber} fontStyle={"lightnormal"} fontSize={9} marginTop={0} marginBottom={0} />
                     </View>}
-                  {( resume.basicInformation.city || resume.basicInformation.address ) &&
+                  {( resume.basicInformation.city !== '' || resume.basicInformation.address !== '' ) &&
                     <View style={{flexDirection: 'row-reverse'}}>
                       <Image style={styles.img} src={LocationIcon} />
-                      {resume.basicInformation.city && <PersianText text={resume.basicInformation.city} fontStyle={"light"} fontSize={9} marginTop={0} marginBottom={0} />}
-                      {resume.basicInformation.city && resume.basicInformation.address && <PersianText text={'- '} fontStyle={"light"} fontSize={9} marginTop={0} marginBottom={0} />}
-                      {resume.basicInformation.address && <PersianText text={`${resume.basicInformation.address}`} fontStyle={"light"} fontSize={9} marginTop={0} marginBottom={0} />}
+                      {resume.basicInformation.city !== '' && <PersianText text={resume.basicInformation.city} fontStyle={"light"} fontSize={9} marginTop={0} marginBottom={0} />}
+                      {resume.basicInformation.city !== '' && resume.basicInformation.address !== '' && <PersianText text={'- '} fontStyle={"light"} fontSize={9} marginTop={0} marginBottom={0} />}
+                      {resume.basicInformation.address !== '' && <PersianText text={`${resume.basicInformation.address}`} fontStyle={"light"} fontSize={9} marginTop={0} marginBottom={0} />}
                     </View>
                   }
                 </View>
               </View>
             }
             <View style={{width: '24%', marginRight: 10}}>
-              {resume.basicInformation.birthDate &&
+              {resume.basicInformation.birthDate !== '' &&
                 <View style={{flexDirection: 'row-reverse', marginBottom: 2}}>
                   <View style={{width: 7, height: 2.2, backgroundColor: '#013c68', marginTop: 7, marginLeft: 4}}></View>
                   <PersianText text={`متولد: ${resume.basicInformation.birthDate}`} fontStyle={"lightnormal"} fontSize={8} marginTop={0} marginBottom={0} />
                 </View>}
-              {resume.basicInformation.maritalStatus &&
+              {resume.basicInformation.maritalStatus !== '' &&
                 <View style={{flexDirection: 'row-reverse', marginBottom: 2}}>
                   <View style={{width: 7, height: 2.2, backgroundColor: '#013c68', marginTop: 7, marginLeft: 4}}></View>
                   <PersianText text={`وضعیت تاهل: ${resume.basicInformation.maritalStatus}`} fontStyle={"lightnormal"} fontSize={8} marginTop={0} marginBottom={0} />
                 </View>}
-              {resume.basicInformation.soldieringStatus &&
+              {resume.basicInformation.soldieringStatus !== '' &&
                 <View style={{flexDirection: 'row-reverse', }}>
                   <View style={{width: 7, height: 2.2, backgroundColor: '#013c68', marginTop: 7, marginLeft: 4}}></View>
                   <PersianText text={`وضعیت سربازی: ${resume.basicInformation.soldieringStatus}`} fontStyle={"lightnormal"} fontSize={8} marginTop={0} marginBottom={0} />
@@ -205,7 +205,7 @@ const PDFTemplate4: FC<Props> = ( {resume} ) => {
         <View style={{marginTop: 20}}>
           <View style={{marginBottom: 20}}>
             {
-              resume.aboutMe && resume.aboutMe.description &&
+              resume.aboutMe && resume.aboutMe.description !== '' &&
               <View style={styles.section}>
                 <View style={styles.sectionTitle}>
                   <PersianText text={"درباره من"} fontStyle={"bold"} fontSize={12} marginTop={0} marginBottom={0} />
