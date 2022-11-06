@@ -3,11 +3,13 @@ import {SocialMedia} from "../../components/SocialMediaForm/SocialMediaForm"
 
 
 const client = axios.create( {
-  baseURL: "https://api.rezoomesaz.ir/socialMedia/",
+  baseURL: "https://rezoomesaz.ir/socialMedia/",
 } )
 
 export const insertSocialMedia = async ( _data: SocialMedia ) => {
-  const {data} = await client.post( `/insertSocialMedia/${_data.resumeId}`, _data, {withCredentials: true} )
+  const {data} = await client.post( `/insertSocialMedia/${_data.resumeId}`, _data, {
+    withCredentials: true
+  } )
   return data
 }
 
