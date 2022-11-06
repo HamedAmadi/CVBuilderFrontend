@@ -96,8 +96,8 @@ const PdfEditViewer: FC<PdfAsImageProps> = ( props ) => {
                   <Fragment>
                     <Document
                       file={url}
-                      loading={<div className='pdf-skeleton'> <Skeleton height='100%' /></div>}
-                      noData={<div className='pdf-skeleton'> <Skeleton height='100%' /></div>}
+                      loading={<div className='pdf-skeleton'><Skeleton height='100%' /></div>}
+                      noData={<div className='pdf-skeleton'><Skeleton height='100%' /></div>}
                       onLoadSuccess={onDocumentLoadSuccess}
                     >
                       {
