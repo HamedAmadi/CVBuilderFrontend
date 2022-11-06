@@ -4,6 +4,9 @@ import {Education} from "../../components/EducationForm/EducationForm"
 
 const client = axios.create( {
   baseURL: "https://api.rezoomesaz.ir/education/",
+  headers: {
+    'Content-Type': 'application/json'
+  }
 } )
 
 export const insertEducation = async ( _data: Education ) => {

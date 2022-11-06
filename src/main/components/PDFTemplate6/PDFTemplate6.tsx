@@ -337,16 +337,16 @@ const PDFTemplate6: FC<Props> = ( {resume} ) => {
                               </View>
                               :
                               languageItem.level === 'پایین تر متوسط' ?
-                                <View style={styles.ratingStar}> <Star color="#ffc107" /> <Star color="#ffc107" /></View>
+                                <View style={styles.ratingStar}><Star color="#ffc107" /><Star color="#ffc107" /></View>
                                 :
                                 languageItem.level === 'متوسط' ?
-                                  <View style={styles.ratingStar}> <Star color="#ffc107" /> <Star color="#ffc107" /> <Star color="#ffc107" /></View>
+                                  <View style={styles.ratingStar}><Star color="#ffc107" /><Star color="#ffc107" /><Star color="#ffc107" /></View>
                                   :
                                   languageItem.level === 'بالا تر از متوسط' ?
-                                    <View style={styles.ratingStar}> <Star color="#ffc107" /> <Star color="#ffc107" /> <Star color="#ffc107" /> <Star color="#ffc107" /></View>
+                                    <View style={styles.ratingStar}><Star color="#ffc107" /><Star color="#ffc107" /><Star color="#ffc107" /><Star color="#ffc107" /></View>
                                     :
                                     languageItem.level === 'پیشرفته' ?
-                                      <View style={styles.ratingStar}> <Star color="#ffc107" /> <Star color="#ffc107" /> <Star color="#ffc107" /> <Star color="#ffc107" /> <Star color="#ffc107" /></View>
+                                      <View style={styles.ratingStar}><Star color="#ffc107" /><Star color="#ffc107" /><Star color="#ffc107" /><Star color="#ffc107" /><Star color="#ffc107" /></View>
                                       :
                                       <Fragment></Fragment>
                         }
@@ -518,13 +518,13 @@ const PDFTemplate6: FC<Props> = ( {resume} ) => {
                   <View style={styles.mainSection}>
                     <PersianText text={`${projectItem.title}${projectItem.title && projectItem.employer && ' - '}${projectItem.employer}`} fontStyle={"normal"} fontSize={11} marginTop={0} marginBottom={0} />
                     <PersianText text={`${projectItem.startDate}${projectItem.startDate && projectItem.endDate && ' - '}${projectItem.endDate}`} fontStyle={"ultralight"} fontSize={9} marginTop={2} marginBottom={0} />
-                    {projectItem.description &&
+                    {projectItem.description && projectItem.description !== '' &&
                       <Fragment>
                         <PersianText text={'توضیحات:'} fontStyle={"normal"} fontSize={10} marginTop={4} marginBottom={0} />
                         {projectItem.description && projectItem.description.split( '\n' ).map( ( line: string, i: number ) => <PersianText key={i} text={line} fontStyle={"light"} fontSize={10} marginTop={1} marginBottom={0} /> )}
                       </Fragment>
                     }
-                    {projectItem.link &&
+                    {projectItem.link && projectItem.link !== '' &&
                       <Fragment>
                         <PersianText text={`لینک پروژه:`} fontStyle={"normal"} fontSize={10} marginTop={4} marginBottom={0} />
                         <Link style={styles.projectLink} src={projectItem.link}>

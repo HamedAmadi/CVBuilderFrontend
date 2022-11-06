@@ -6,6 +6,9 @@ import {SignUp} from "../../pages/SignUp/SignUp"
 
 const client = axios.create( {
   baseURL: "https://api.rezoomesaz.ir/auth/",
+  headers: {
+    'Content-Type': 'application/json'
+  }
 } )
 
 export const signUp = async ( _data: SignUp ) => {

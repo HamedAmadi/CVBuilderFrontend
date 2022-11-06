@@ -47,7 +47,7 @@
 
     .pdf-skeleton {
       border-radius: 0 !important;
-      height: calc(100% - 150px) !important;
+      height: 100% !important;
       aspect-ratio: 600 / 848;
       margin: auto;
 
@@ -85,7 +85,7 @@
         margin: auto;
 
         svg {
-          font-size: 28;
+          font-size: 28px;
           margin: auto;
           color: var(--second-color);
         }

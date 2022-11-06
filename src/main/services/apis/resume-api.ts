@@ -2,6 +2,9 @@ import axios from "axios"
 
 const client = axios.create( {
   baseURL: "https://api.rezoomesaz.ir/resume/",
+  headers: {
+    'Content-Type': 'application/json'
+  }
 } )
 
 export const createResume = async (templateNumber: string) => {

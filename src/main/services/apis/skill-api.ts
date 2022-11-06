@@ -4,6 +4,9 @@ import {Skill} from "../../components/SkillForm/SkillForm"
 
 const client = axios.create( {
   baseURL: "https://api.rezoomesaz.ir/skill/",
+  headers: {
+    'Content-Type': 'application/json'
+  }
 } )
 
 export const insertSkill = async ( _data: Skill ) => {

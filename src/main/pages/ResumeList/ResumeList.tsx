@@ -8,6 +8,7 @@ import {useUserContext} from '../../context/UserContext';
 import {Resume} from '../../components/PDFTemplate6/PDFTemplate6';
 import Skeleton from 'react-loading-skeleton';
 import {TbPlus} from "react-icons/tb";
+import Loading from '../../components/Loading/Loading';
 
 const ResumeList: FC = () => {
   const {state} = useUserContext()
@@ -41,9 +42,9 @@ const ResumeList: FC = () => {
         </div>
         <div className="row">
           {
-            data && data.map( ( resume: Resume ) => {
+            data ? data.map( ( resume: Resume ) => {
               return (
-                <div key={resume._id} className="col-lg-4 col-md-6 px-lg-4 my-3">
+                <div key={resume._id} className="col-lg-4 col-md-6 px-lg-4 my-4">
                   <div className="template-img mx-auto shadow">
                     {ResumeListIsLoading ? <Skeleton height='100%' width='100%' /> : <PdfViewerAsImage templateNumber={parseInt( resume.templateNumber )} resume={resume} width={600} />}
                     <div className="d-flex justify-content-around py-3">
@@ -56,6 +57,8 @@ const ResumeList: FC = () => {
                 </div>
               )
             } )
+              :
+              <Loading />
           }
         </div>
       </div>
