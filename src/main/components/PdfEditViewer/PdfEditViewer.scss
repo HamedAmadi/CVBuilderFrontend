@@ -51,7 +51,7 @@
       aspect-ratio: 600 / 848;
 
       .react-loading-skeleton {
-        line-height: 0 !important;
+        line-height: unset !important;
       }
 
       @media (max-width: 575px) {
