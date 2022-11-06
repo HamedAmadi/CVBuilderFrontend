@@ -109,8 +109,8 @@ const ResumeCompletion: FC = () => {
             </div>
           </div>
           <div className="d-none d-lg-block left-section">
-            {/* {getIsLoading ? <Skeleton borderRadius={0} width='100%' height='100%'></Skeleton> : <PdfEditViewer templateNumber={resume.templateNumber} resume={resume} width={600} isChangeTemplate={false} />} */}
-            <Skeleton borderRadius={0} width='100%' height='100%'></Skeleton>
+            {getIsLoading ? <Skeleton borderRadius={0} width='100%' height='100%'></Skeleton> : <PdfEditViewer templateNumber={resume.templateNumber} resume={resume} width={600} isChangeTemplate={false} />}
+            {/* <Skeleton borderRadius={0} width='100%' height='100%'></Skeleton> */}
           </div>
         </div>
         <div className="review-button d-lg-none">
