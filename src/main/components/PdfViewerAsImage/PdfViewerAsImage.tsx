@@ -39,8 +39,8 @@ const PdfViewerAsImage: FC<PdfAsImageProps> = ( props ) => {
           return (
             <Document
               file={url}
-              loading={<div className='pdf-skeleton'> <Skeleton height='100%' /></div>}
-              noData={<div className='pdf-skeleton'> <Skeleton height='100%' /></div>}
+              loading={<div className='pdf-skeleton'> <Skeleton borderRadius={0} height='100%' /></div>}
+              noData={<div className='pdf-skeleton'> <Skeleton borderRadius={0} height='100%' /></div>}
             >
               <Page width={props.width}
                 renderAnnotationLayer={false}

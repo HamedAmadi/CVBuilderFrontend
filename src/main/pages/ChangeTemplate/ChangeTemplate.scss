@@ -8,7 +8,7 @@
 
     .close-btn {
       color: var(--first-color) !important;
-      font-size: 24;
+      font-size: 24px;
       cursor: pointer;
       margin: auto;
       margin-left: 0;
@@ -121,7 +121,7 @@
         .pdf-skeleton {
           border-radius: 0 !important;
           width: 100% !important;
-          height: auto !important;
+          height: 100% !important;
         }
 
         // .react-pdf__Page {
