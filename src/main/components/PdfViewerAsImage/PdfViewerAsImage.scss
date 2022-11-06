@@ -1,38 +1,16 @@
 .pdf-viewer-as-image {
-
-  // .react-pdf__Page {
-  //     max-width: calc(100% - 140px);
-  //     // box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-  //     margin: auto
-  //   }
-  //   .react-pdf__Page canvas {
-  //     max-width: 100%;
-  //     height: auto !important;
-  //   }
-  //   // width: calc(100% - 20%);
-  //   // margin-left: auto;
-  //   // margin-right: auto;
-  //   // height: 90%;
-  //   .react-pdf__Document {
-  //     border-radius: 8px;
-  //     max-width: 100%;
-  //     position: relative;
-  //     // background-color: white;
-  //   }
   .react-pdf__Page {
-
-    // height: 100%;
     canvas {
       width: 100% !important;
       height: auto !important;
       margin: auto;
     }
+  }
 
-    .pdf-skeleton {
-      width: 100% !important;
-      height: auto !important;
-      margin: auto;
-      aspect-ratio: 600/848;
-    }
+  .pdf-skeleton {
+    width: 100% !important;
+    height: 100% !important;
+    margin: auto;
+    aspect-ratio: 600/848;
   }
 }

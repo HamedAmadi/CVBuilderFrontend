@@ -32,10 +32,10 @@ const PdfViewerAsImage: FC<PdfAsImageProps> = ( props ) => {
     <div className="pdf-viewer-as-image h-100">
       <BlobProvider document={Component}>
         {( {url, loading} ) => {
-          if ( loading )
-            return (
-              <div className='pdf-skeleton'> <Skeleton height='100%' /></div>
-            )
+          // if ( loading )
+          //   return (
+          //     <div className='pdf-skeleton'> <Skeleton height='100%' /></div>
+          //   )
           return (
             <Document
               file={url}
@@ -43,8 +43,6 @@ const PdfViewerAsImage: FC<PdfAsImageProps> = ( props ) => {
               noData={<div className='pdf-skeleton'> <Skeleton height='100%' /></div>}
             >
               <Page width={props.width}
-                loading={<div className='pdf-skeleton'> <Skeleton height='100%' /></div>}
-                noData={<div className='pdf-skeleton'> <Skeleton height='100%' /></div>}
                 renderAnnotationLayer={false}
                 renderTextLayer={false}
                 pageNumber={1} />
@@ -52,15 +50,6 @@ const PdfViewerAsImage: FC<PdfAsImageProps> = ( props ) => {
           )
         }}
       </BlobProvider>
-      {/* <Document
-        file={instance.url}
-        loading={<div className='pdf-skeleton'> <Skeleton height='100%' /></div>}
-      >
-        <Page
-          renderAnnotationLayer={false}
-          renderTextLayer={false}
-          pageNumber={1} />
-      </Document> */}
     </div>
   );
 };
