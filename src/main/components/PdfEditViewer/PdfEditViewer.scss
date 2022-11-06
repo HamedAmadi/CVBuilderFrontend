@@ -49,7 +49,10 @@
       border-radius: 0 !important;
       height: 100% !important;
       aspect-ratio: 600 / 848;
-      margin-top: 0px;
+
+      .react-loading-skeleton {
+        line-height: 0 !important;
+      }
 
       @media (max-width: 575px) {
         width: 100% !important;

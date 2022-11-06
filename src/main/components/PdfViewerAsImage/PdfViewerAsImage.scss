@@ -10,7 +10,10 @@
   .pdf-skeleton {
     width: 100% !important;
     height: 100% !important;
-    margin-top: 0px;
     aspect-ratio: 600/848;
+
+    .react-loading-skeleton {
+      line-height: 0 !important;
+    }
   }
 }
