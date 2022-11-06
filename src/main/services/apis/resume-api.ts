@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const client = axios.create( {
-  baseURL: "https://rezoomesaz.ir/resume/",
+  baseURL: "https://api.rezoomesaz.ir/resume/",
 } )
 
 export const createResume = async (templateNumber: string) => {

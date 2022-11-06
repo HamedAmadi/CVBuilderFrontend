@@ -3,7 +3,7 @@ import {Education} from "../../components/EducationForm/EducationForm"
 
 
 const client = axios.create( {
-  baseURL: "https://rezoomesaz.ir/education/",
+  baseURL: "https://api.rezoomesaz.ir/education/",
 } )
 
 export const insertEducation = async ( _data: Education ) => {

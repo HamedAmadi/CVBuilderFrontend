@@ -3,7 +3,7 @@ import {UserAboutUs} from "../../components/UserAboutUs/UserAboutUs"
 
 
 const client = axios.create( {
-  baseURL: "https://rezoomesaz.ir/aboutMe/",
+  baseURL: "https://api.rezoomesaz.ir/aboutMe/",
   headers: {
     'Content-Type': 'application/json'
   }

@@ -3,7 +3,7 @@ import {JobExperience} from "../../components/JobExperienceForm/JobExperienceFor
 
 
 const client = axios.create( {
-  baseURL: "https://rezoomesaz.ir/jobExperience/",
+  baseURL: "https://api.rezoomesaz.ir/jobExperience/",
 } )
 
 export const insertJobExperience = async ( _data: JobExperience ) => {

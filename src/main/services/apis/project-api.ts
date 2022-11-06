@@ -3,7 +3,7 @@ import {Project} from "../../components/ProjectForm/ProjectForm"
 
 
 const client = axios.create( {
-  baseURL: "https://rezoomesaz.ir/project/",
+  baseURL: "https://api.rezoomesaz.ir/project/",
 } )
 
 export const insertProject = async ( _data: Project ) => {

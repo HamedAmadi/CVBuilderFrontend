@@ -5,7 +5,7 @@ import {SignIn} from "../../pages/SignIn/SignIn"
 import {SignUp} from "../../pages/SignUp/SignUp"
 
 const client = axios.create( {
-  baseURL: "https://rezoomesaz.ir/auth/",
+  baseURL: "https://api.rezoomesaz.ir/auth/",
 } )
 
 export const signUp = async ( _data: SignUp ) => {
@@ -20,11 +20,7 @@ export const signIn = async ( _data: SignIn ) => {
 }
 
 export const checkSignIn = async () => {
-  const {data} = await client.get( '/checkSignIn', {
-    withCredentials: true,
-    headers: {
-    }
-  } )
+  const {data} = await client.get( '/checkSignIn', {withCredentials: true} )
   console.log(data)
   return data
 }

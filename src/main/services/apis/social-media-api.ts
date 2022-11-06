@@ -3,7 +3,7 @@ import {SocialMedia} from "../../components/SocialMediaForm/SocialMediaForm"
 
 
 const client = axios.create( {
-  baseURL: "https://rezoomesaz.ir/socialMedia/",
+  baseURL: "https://api.rezoomesaz.ir/socialMedia/",
 } )
 
 export const insertSocialMedia = async ( _data: SocialMedia ) => {

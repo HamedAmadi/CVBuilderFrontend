@@ -3,7 +3,7 @@ import {Certificate} from "../../components/CertificateForm/CertificateForm"
 
 
 const client = axios.create( {
-  baseURL: "https://rezoomesaz.ir/certificate/",
+  baseURL: "https://api.rezoomesaz.ir/certificate/",
 } )
 
 export const insertCertificate = async ( _data: Certificate ) => {
