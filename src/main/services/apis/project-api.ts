@@ -4,10 +4,6 @@ import {Project} from "../../components/ProjectForm/ProjectForm"
 
 const client = axios.create( {
   baseURL: "https://api.rezoomesaz.ir/project/",
-  headers: {
-    // 'Authorization': 'Bearer ' + token,
-    'Content-Type': 'application/json'
-  }
 } )
 
 export const insertProject = async ( _data: Project ) => {

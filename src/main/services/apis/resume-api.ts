@@ -2,10 +2,6 @@ import axios from "axios"
 
 const client = axios.create( {
   baseURL: "https://api.rezoomesaz.ir/resume/",
-  headers: {
-    // 'Authorization': 'Bearer ' + token,
-    'Content-Type': 'application/json'
-  }
 } )
 
 export const createResume = async (templateNumber: string) => {
@@ -23,7 +19,7 @@ export const getResume = async ( id: string | null ) => {
 
 export const getResumeList = async () => {
   console.log('getResumeList Call')
-    const {data} = await client.get( `/getResumeList`, {withCredentials: true} )
+    const {data} = await client.get( `/getResumeList`, {withCredentials: true, } )
     return data.data
 }
 

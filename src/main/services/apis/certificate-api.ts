@@ -4,10 +4,6 @@ import {Certificate} from "../../components/CertificateForm/CertificateForm"
 
 const client = axios.create( {
   baseURL: "https://api.rezoomesaz.ir/certificate/",
-  headers: {
-    // 'Authorization': 'Bearer ' + token,
-    'Content-Type': 'application/json'
-  }
 } )
 
 export const insertCertificate = async ( _data: Certificate ) => {

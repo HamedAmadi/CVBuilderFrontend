@@ -4,10 +4,6 @@ import {Education} from "../../components/EducationForm/EducationForm"
 
 const client = axios.create( {
   baseURL: "https://api.rezoomesaz.ir/education/",
-  headers: {
-    // 'Authorization': 'Bearer ' + token,
-    'Content-Type': 'application/json'
-  }
 } )
 
 export const insertEducation = async ( _data: Education ) => {

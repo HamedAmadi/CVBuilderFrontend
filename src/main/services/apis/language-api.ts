@@ -4,9 +4,6 @@ import {Language} from "../../components/LanguageForm/LanguageForm"
 
 const client = axios.create( {
   baseURL: "https://api.rezoomesaz.ir/language/",
-  headers: {
-    'Content-Type': 'application/json'
-  }
 } )
 
 export const insertLanguage = async ( _data: Language ) => {
