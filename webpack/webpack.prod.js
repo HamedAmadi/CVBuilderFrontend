@@ -31,9 +31,9 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new BundleAnalyzerPlugin()
+  // plugins: [
+    // new BundleAnalyzerPlugin()
     // new MiniCssExtractPlugin(),
     // new BundleAnalyzerPlugin(),
-  ],
+  // ],
 }
