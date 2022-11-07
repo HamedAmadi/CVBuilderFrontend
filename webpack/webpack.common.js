@@ -24,9 +24,27 @@ module.exports = {
       asset: require.resolve("assert"),
     }
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        default: {
+          minChunks: 20,
+          reuseExistingChunk: true,
+        },
+        vendor_react: {
+          test: /.*\/node_modules\/react\/index\.js/,
+          name: 'vendor-react',
+          chunks: 'initial',
+          enforce: true,
+        },
+      },
+    },
+  },
   output: {
     publicPath: '/',
-    filename: 'bundle.js',
+    // filename: 'bundle.js',
+    filename: '[name].[contenthash].js',
     path: path.resolve( __dirname, '..', 'build' ),
   },
   plugins: [
