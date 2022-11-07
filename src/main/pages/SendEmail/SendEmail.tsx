@@ -11,6 +11,7 @@ const SendEmail: FC = () => {
         </div>
         <h2 className="text-center">ایمیل خود را بررسی کنید</h2>
         <p className="text-center">لینک تایید را به آدرس ایمیل {localStorage.getItem( 'email' )} ارسال کردیم.</p>
+        <p className="text-center">(ایمیل ارسال شده ممکن است داخل پوشه spam شما باشد.)</p>
       </div>
     </div>
   );
