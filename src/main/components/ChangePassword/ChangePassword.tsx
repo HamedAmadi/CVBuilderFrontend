@@ -1,3 +1,4 @@
+import './ChangePassword.scss'
 import {FC, Fragment, useState} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useChangePassword} from "../../services/hooks/user-hooks";
@@ -34,11 +35,11 @@ const ChangePassword: FC = () => {
   };
 
   return (
-    <div className="signup">
+    <div className="change-password">
       <Toaster />
       <div className="container">
         <p className='text-danger text-center'>{errorMessage}</p>
-        <form onSubmit={handleSubmit( onSubmit )} className='signin-form' noValidate>
+        <form onSubmit={handleSubmit( onSubmit )} className='change-password-form' noValidate>
           <Input
             errors={errors}
             {...register( 'password',

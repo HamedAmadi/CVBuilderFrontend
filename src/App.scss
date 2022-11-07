@@ -35,14 +35,15 @@ $eighth-color: #454545;
   font-family: IRANSans-FaNum;
   font-style: normal;
   font-weight: 500;
-  src: url('./assets/fonts/IRANSans/_persian-number/eot/IRANSansWeb\(FaNum\)_Light.eot');
-  src: url('./assets/fonts/IRANSans/_persian-number/eot/IRANSansWeb(FaNum)_Light.eot?#iefix') format('embedded-opentype'),
+  // src: url('./assets/fonts/IRANSans/_persian-number/eot/IRANSansWeb\(FaNum\)_Light.eot');
+  src:
+    // url('./assets/fonts/IRANSans/_persian-number/eot/IRANSansWeb(FaNum)_Light.eot?#iefix') format('embedded-opentype'),
     /* IE6-8 */
     url('./assets/fonts/IRANSans/_persian-number/woff2/IRANSansWeb(FaNum)_Light.woff2') format('woff2'),
     /* FF39+,Chrome36+, Opera24+*/
     url('./assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum)_Light.woff') format('woff'),
     /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-    url('./assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum)_Light.ttf') format('truetype');
+    // url('./assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum)_Light.ttf') format('truetype');
 }
 
 body {

@@ -1,3 +1,4 @@
+import './UserInfo.scss'
 import {FC, useEffect} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useUserContext} from "../../context/UserContext";
@@ -53,7 +54,7 @@ const UserInfo: FC = () => {
 
   return (
     <div className="user-info">
-      <form onSubmit={handleSubmit( onSubmit )} className='signin-form' noValidate>
+      <form onSubmit={handleSubmit( onSubmit )} className='user-info-form' noValidate>
         <Input
           isLoading={getIsLoading}
           errors={errors}
