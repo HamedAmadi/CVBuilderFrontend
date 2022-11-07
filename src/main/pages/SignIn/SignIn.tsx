@@ -114,8 +114,8 @@ const SignIn: FC = () => {
               <input type="checkbox" id='withoutPassword' checked={withoutPassword} onChange={() => setWithoutPassword( !withoutPassword )} />
               <label htmlFor="withoutPassword">ورود بدون رمز عبور</label>
             </div>
-            <Button disabled={signInIsLoading} size={'medium'} style={'solid'} borderRadius={'normal'}>
-              {signInIsLoading && <div className="spinner-border spinner-border-sm ms-2" role="status" />}
+            <Button disabled={signInIsLoading || signInWithoutPasswordIsLoading} size={'medium'} style={'solid'} borderRadius={'normal'}>
+              {( signInIsLoading || signInWithoutPasswordIsLoading ) && <div className="spinner-border spinner-border-sm ms-2" role="status" />}
               ورود
             </Button>
           </form>

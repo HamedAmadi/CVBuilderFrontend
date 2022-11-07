@@ -1,4 +1,6 @@
 .resume-complation {
+  position: relative;
+
   .right-section {
     width: 50%;
     background-color: var(--seventh-color);
@@ -44,8 +46,8 @@
 
   .review-button {
     position: fixed;
-    left: 10;
-    bottom: 10;
+    left: 10px;
+    bottom: 10px;
     z-index: 900;
   }
 }
@@ -53,8 +55,8 @@
 .pdf-modal-content {
   .review-button {
     position: fixed;
-    left: 10;
-    bottom: 10;
+    left: 10px;
+    bottom: 10px;
     z-index: 1001;
   }
 }

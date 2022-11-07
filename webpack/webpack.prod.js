@@ -1,5 +1,5 @@
-// const BundleAnalyzerPlugin = require( 'webpack-bundle-analyzer' ).BundleAnalyzerPlugin;
-const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
+const BundleAnalyzerPlugin = require( 'webpack-bundle-analyzer' ).BundleAnalyzerPlugin;
+// const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 
 module.exports = {
   mode: 'production',
@@ -18,7 +18,8 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/i,
-        use: [MiniCssExtractPlugin.loader,'css-loader', 'sass-loader'],
+        use: ['css-loader', 'sass-loader'],
+        // use: [MiniCssExtractPlugin.loader,'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|pdf)$/i,
@@ -31,7 +32,8 @@ module.exports = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin(),
+    new BundleAnalyzerPlugin()
+    // new MiniCssExtractPlugin(),
     // new BundleAnalyzerPlugin(),
   ],
 }

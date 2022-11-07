@@ -1,6 +1,6 @@
 import "./Home.scss";
 import {Fragment} from "react";
-import Banner from "../../../assets/banner3.png"
+import Banner from "../../../assets/banner3-2.png"
 import Button from "../../components/Button/Button";
 import {Link} from "react-router-dom";
 

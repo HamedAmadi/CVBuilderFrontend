@@ -35,11 +35,7 @@ module.exports = {
       template: `public/index.html`,
       favicon: "public/favicon.ico",
       name: 'index',
-      // inject: tru/e
     } ),
-    // new HtmlWebpackPlugin({
-    //   template: './public/index.html',
-    // } ),
     new webpack.ProvidePlugin({
       Buffer: ["buffer", "Buffer"],
       process: "process/browser",

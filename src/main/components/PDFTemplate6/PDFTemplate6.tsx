@@ -98,6 +98,9 @@ const styles = StyleSheet.create( {
     borderColor: '#393836'
   },
   contactSection: {
+    width: '90%',
+    marginRight: 0,
+    marginLeft: 'auto',
     marginTop: 10,
     marginBottom: 10
   },
@@ -106,9 +109,10 @@ const styles = StyleSheet.create( {
     marginBottom: 8,
   },
   contactBox: {
-    width: 26,
+    width: '14%',
+    // width: 26,
     height: 22,
-    marginLeft: 4,
+    marginLeft: '4px',
     backgroundColor: '#393836',
   },
   contactImg: {
@@ -300,11 +304,16 @@ const PDFTemplate6: FC<Props> = ( {resume} ) => {
                 }
                 {( resume.basicInformation.city !== '' || resume.basicInformation.address !== '' ) &&
                   <View style={styles.contactItem}>
-                    <View style={styles.contactBox} >
+                    <View style={styles.contactBox}>
                       <Image style={styles.contactImg} src={LocationIcon} />
                     </View>
-                    <View style={{flexWrap: 'wrap', width: '85%'}}>
-                      <PersianText text={`${resume.basicInformation.city !== '' && resume.basicInformation.city}${resume.basicInformation.city !== '' && resume.basicInformation.address !== '' && ' - '}${resume.basicInformation.address !== '' && resume.basicInformation.address}`} fontStyle={"lightnormal"} fontSize={9} marginTop={3} marginBottom={0} />
+                    <View style={{flexDirection: 'row-reverse', width: '84%', marginRight: '4px', marginLeft: 'auto'}}>
+                      {/* <PersianText text={`${resume.basicInformation.city !== '' && resume.basicInformation.city}${resume.basicInformation.city !== '' && resume.basicInformation.address !== '' && ' - '}${resume.basicInformation.address !== '' && resume.basicInformation.address}`} fontStyle={"lightnormal"} fontSize={9} marginTop={3} marginBottom={0} /> */}
+                      {/* <View style={{flexDirection: 'row-reverse', }}> */}
+                      {resume.basicInformation.city !== '' && <PersianText text={resume.basicInformation.city} fontStyle={"lightnormal"} fontSize={9} marginTop={3} marginBottom={0} />}
+                      {resume.basicInformation.city !== '' && resume.basicInformation.address !== '' && <PersianText text={'- '} fontStyle={"lightnormal"} fontSize={9} marginTop={3} marginBottom={0} />}
+                      {resume.basicInformation.address !== '' && <PersianText text={`${resume.basicInformation.address}`} fontStyle={"lightnormal"} fontSize={9} marginTop={3} marginBottom={0} />}
+                      {/* </View> */}
                     </View>
                   </View>
                 }

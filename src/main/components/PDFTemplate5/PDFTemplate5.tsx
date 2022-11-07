@@ -91,7 +91,7 @@ const styles = StyleSheet.create( {
     width: 10,
     height: 10,
     color: '#007baa',
-    margin: '2 0 auto 8',
+    marginTop: 2,
   },
   title: {
     flexDirection: 'row-reverse',
@@ -211,22 +211,33 @@ const PDFTemplate5: FC<Props> = ( {resume} ) => {
               {
                 resume.basicInformation.email !== '' &&
                 <View style={{flexDirection: 'row-reverse', marginBottom: 4}}>
-                  <Image style={styles.contactICon} src={EnvelopeIcon} />
+                  <View style={{marginLeft: '8px', width: 10}}>
+                    <Image style={styles.contactICon} src={EnvelopeIcon} />
+                  </View>
                   <PersianText text={resume.basicInformation.email} fontStyle={"lightnormal"} fontSize={8} marginTop={1} marginBottom={0} />
                 </View>
               }
               {
                 resume.basicInformation.mobileNumber !== '' &&
                 <View style={{flexDirection: 'row-reverse', marginBottom: 4}}>
-                  <Image style={styles.contactICon} src={MobileIcon} />
+                  <View style={{marginLeft: '8px', width: 10}}>
+                    <Image style={styles.contactICon} src={MobileIcon} />
+                  </View>
                   <PersianText text={resume.basicInformation.mobileNumber} fontStyle={"lightnormal"} fontSize={8} marginTop={1} marginBottom={0} />
                 </View>
               }
               {
                 ( resume.basicInformation.city !== '' || resume.basicInformation.address !== '' ) &&
-                <View style={{flexDirection: 'row-reverse', }}>
-                  <Image style={styles.contactICon} src={LocationIcon} />
-                  <PersianText text={`${resume.basicInformation.city !== '' && resume.basicInformation.city}${resume.basicInformation.city !== '' && resume.basicInformation.address !== '' && ' - '}${resume.basicInformation.address !== '' && resume.basicInformation.address}`} fontStyle={"lightnormal"} fontSize={8} marginTop={1} marginBottom={0} />
+                <View style={{flexDirection: 'row-reverse'}}>
+                  <View style={{marginLeft: '8px', width: 10}}>
+                    <Image style={styles.contactICon} src={LocationIcon} />
+                  </View>
+                  {/* <PersianText text={`${resume.basicInformation.city !== '' && resume.basicInformation.city}${resume.basicInformation.city !== '' && resume.basicInformation.address !== '' && ' - '}${resume.basicInformation.address !== '' && resume.basicInformation.address}`} fontStyle={"lightnormal"} fontSize={8} marginTop={1} marginBottom={0} /> */}
+                  <View style={{flexDirection: 'row-reverse', width: '84%', marginRight: 2}}>
+                    {resume.basicInformation.city !== '' && <PersianText text={resume.basicInformation.city} fontStyle={"lightnormal"} fontSize={8} marginTop={1} marginBottom={0} />}
+                    {resume.basicInformation.city !== '' && resume.basicInformation.address !== '' && <PersianText text={'- '} fontStyle={"lightnormal"} fontSize={8} marginTop={1} marginBottom={0} />}
+                    {resume.basicInformation.address !== '' && <PersianText text={`${resume.basicInformation.address}`} fontStyle={"lightnormal"} fontSize={8} marginTop={1} marginBottom={0} />}
+                  </View>
                 </View>
               }
             </View>

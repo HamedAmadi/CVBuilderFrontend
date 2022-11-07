@@ -1,6 +1,6 @@
 import './ChooseTemplates.scss'
 import {Fragment, useState, useCallback} from "react";
-import TemplateImage1 from '../../../assets/MyTemplateImage1.png'
+import TemplateImage1 from '../../../assets/1-1.png'
 import TemplateImage2 from '../../../assets/2-1.png'
 import TemplateImage3 from '../../../assets/3-1.png'
 import TemplateImage4 from '../../../assets/4-1.png'
