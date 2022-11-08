@@ -136,6 +136,8 @@ interface Props {
 }
 
 const PDFTemplate1: FC<Props> = ( {resume} ) => {
+
+  console.log( resume )
   return (
     <Document>
       <Page size="A4" style={styles.page}>

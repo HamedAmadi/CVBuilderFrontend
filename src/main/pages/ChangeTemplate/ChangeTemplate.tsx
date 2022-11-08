@@ -14,7 +14,7 @@ import SideDrawer from '../../components/SideDrawer/SideDrawer';
 import Backdrop from '../../components/Backdrop/Backdrop';
 import Button from '../../components/Button/Button';
 import Skeleton from 'react-loading-skeleton';
-import toast from 'react-hot-toast';
+import toast, {Toaster} from 'react-hot-toast';
 
 const images = [
   TemplateImage1,
@@ -64,6 +64,7 @@ const ChangeTemplate: FC = () => {
 
   return (
     <div className="change-template">
+      <Toaster />
       <div className="change-template-header">
         <div className="side-drawer-btn my-auto d-lg-none">
           <Button onClick={sideDrawerToggle} size={'small'} style={'solid'} borderRadius={'normal'}>قالب ها</Button>
