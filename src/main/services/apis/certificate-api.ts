@@ -16,7 +16,6 @@ export const insertCertificate = async ( _data: Certificate ) => {
 
 export const getCertificate = async ( id: string | null) => {
   const {data} = await client.get( `getCertificate/${id}`, {withCredentials: true} )
-    console.log(data)
   return data.data
 }
 

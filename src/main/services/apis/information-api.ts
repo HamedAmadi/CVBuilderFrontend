@@ -10,7 +10,6 @@ const client = axios.create( {
 } )
 
 export const insertBasicInformation = async ( _data: BasicInformation ) => {
-  console.log( _data )
     const {data} = await client.post( `insertBasicInformation/${_data.resumeId}`, _data, {withCredentials: true} )
     return data
 }

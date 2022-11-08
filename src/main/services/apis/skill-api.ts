@@ -11,7 +11,6 @@ const client = axios.create( {
 
 export const insertSkill = async ( _data: Skill ) => {
   const {data} = await client.post( `/insertSkill/${_data.resumeId}`, _data, {withCredentials: true} )
-  console.log(data)
     return data
 }
 
@@ -22,6 +21,5 @@ export const deleteSkill = async (_data: {resumeId: string | null, skillId: stri
 
 export const getSkill = async ( id: string | null) => {
   const {data} = await client.get( `getSkill/${id}`, {withCredentials: true} )
-    console.log(data)
   return data.data
 }

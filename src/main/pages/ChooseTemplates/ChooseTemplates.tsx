@@ -1,15 +1,16 @@
 import './ChooseTemplates.scss'
 import {Fragment, useState, useCallback} from "react";
-import TemplateImage1 from '../../../assets/1-1.png'
-import TemplateImage2 from '../../../assets/2-1.png'
-import TemplateImage3 from '../../../assets/3-1.png'
-import TemplateImage4 from '../../../assets/4-1.png'
-import TemplateImage5 from '../../../assets/5-1.png'
-import TemplateImage6 from '../../../assets/6-1.png'
+import TemplateImage1 from '../../../assets/1-1.webp'
+import TemplateImage2 from '../../../assets/2-1.webp'
+import TemplateImage3 from '../../../assets/3-1.webp'
+import TemplateImage4 from '../../../assets/4-1.webp'
+import TemplateImage5 from '../../../assets/5-1.webp'
+import TemplateImage6 from '../../../assets/6-1.webp'
 import Button from "../../components/Button/Button";
 import {Link, useNavigate} from "react-router-dom";
 import {useUserContext} from '../../context/UserContext';
 import {useCreateResume} from '../../services/hooks/resume-hooks';
+import toast from 'react-hot-toast';
 
 const images = [
   TemplateImage1,
@@ -24,7 +25,6 @@ const ChooseTemplates: React.FC = () => {
   const {state} = useUserContext()
   const navigate = useNavigate()
   const {mutate: crResume, isLoading: createResumeIsLoading} = useCreateResume()
-  // console.log( localStorage.getItem( 'templateNumber' ) )
 
   const selectTemplateHandler = ( templateId: number ) => {
     if ( !state.isSignIn ) {
@@ -36,13 +36,11 @@ const ChooseTemplates: React.FC = () => {
       crResume( templateNumber, {
         onSuccess: ( res ) => {
           if ( res.isSuccess ) {
-            console.log( res )
             localStorage.setItem( 'resumeId', res.resumeId )
             navigate( '/resume-completion' )
           }
           else {
-            console.log( res )
-            // setErrorMessage( 'خطایی در سرور رخ داده است! لطفا مجددا تلاش کنید' )
+            toast.error( 'خطایی در سرور رخ داده است! لطفا مجددا تلاش کنید' )
           }
         }
       } )

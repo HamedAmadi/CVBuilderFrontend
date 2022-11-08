@@ -1,9 +1,13 @@
 import {FC, Fragment} from "react";
 import {Page, Text, View, Document, StyleSheet, Font, Link, Image} from '@react-pdf/renderer';
-import IranSanseL from '../../../assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum)_Light.ttf'
-import IranSanseB from '../../../assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum)_Bold.ttf'
-import IranSanseUL from '../../../assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum)_UltraLight.ttf'
-import IranSanse from '../../../assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum).ttf'
+// import IranSanseL from '../../../assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum)_Light.ttf'
+// import IranSanseB from '../../../assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum)_Bold.ttf'
+// import IranSanseUL from '../../../assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum)_UltraLight.ttf'
+// import IranSanse from '../../../assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum).ttf'
+import IranSanseL from '../../../assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum)_Light.woff'
+import IranSanseB from '../../../assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum)_Bold.woff'
+import IranSanseUL from '../../../assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum)_UltraLight.woff'
+import IranSanse from '../../../assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum).woff'
 import MobileIcon from '../../../assets/smartphone.png'
 import EnvelopeIcon from '../../../assets/envelope.png'
 import LocationIcon from '../../../assets/location-pin.png'

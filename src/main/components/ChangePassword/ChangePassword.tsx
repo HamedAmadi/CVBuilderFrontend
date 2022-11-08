@@ -16,11 +16,9 @@ const ChangePassword: FC = () => {
   const [errorMessage, setErrorMessage] = useState<string>();
   const {mutate, isLoading} = useChangePassword()
   const onSubmit: SubmitHandler<ChangePassword> = ( data ) => {
-    console.log( data )
     mutate( data, {
       onSuccess: ( res ) => {
         toast.success( res.message )
-        console.log( res )
         reset()
       },
       onError: ( error ) => {

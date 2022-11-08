@@ -30,8 +30,6 @@ const SocialMediaForm: FC = () => {
     control
   } );
 
-  // console.log( socialMedia )
-
   useEffect( () => {
     if ( !getIsLoading ) {
       reset()
@@ -54,16 +52,13 @@ const SocialMediaForm: FC = () => {
     mutate( values, {
       onSuccess: ( res ) => {
         if ( res.isSuccess ) {
-          console.log( res )
           toast.success( res.message )
         }
         else {
-          console.log( res )
           toast.error( 'خطایی در سرور رخ داده است! لطفا مجددا تلاش کنید' )
         }
       }
     } )
-    console.log( data )
   };
 
   const deleteSocialMedia = ( resumeId: string | null, socialMediaId: string | undefined ) => {

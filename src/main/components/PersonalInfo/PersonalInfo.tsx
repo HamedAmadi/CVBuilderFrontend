@@ -1,6 +1,6 @@
 import {FC, Fragment, useEffect, useState} from 'react';
 import './PersonalInfo.scss'
-import Image from '../../../assets/images.png'
+import Image from '../../../assets/images.webp'
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import {FieldValues, SubmitHandler, useForm, ValidationRule} from 'react-hook-form';
@@ -11,7 +11,6 @@ import Select from '../Select/Select';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import toast, {Toaster} from 'react-hot-toast';
-import {Navigate, useNavigate} from 'react-router-dom';
 
 export interface BasicInformation {
   firstName: string
@@ -77,14 +76,12 @@ const PersonalInfo: FC = () => {
 
   const onSubmit: SubmitHandler<BasicInformation> = ( data ) => {
     const values = {...data, userImageBase64, resumeId}
-    console.log( values )
     mutate( values, {
       onSuccess: ( res ) => {
         if ( res.isSuccess ) {
           toast.success( res.message )
         }
         else {
-          console.log( res )
           toast.error( 'خطایی در سرور رخ داده است! لطفا مجددا تلاش کنید' )
         }
       }

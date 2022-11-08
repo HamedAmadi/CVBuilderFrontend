@@ -18,7 +18,6 @@ const UserWidget: FC = () => {
     dropdownClasses = 'nav-dropdown show'
   }
 
-  console.log( state )
 
   const toggleDate = () => {
     dropdownIsVisibleToggleHandler( !dropdownIsVisible )
@@ -27,7 +26,6 @@ const UserWidget: FC = () => {
   const logoutHandler = () => {
     logout( undefined, {
       onSuccess: ( res ) => {
-        console.log( res )
         dispatch( {type: 'reset'} )
         localStorage.removeItem( 'resumeId' )
         localStorage.removeItem( 'templateNumber' )

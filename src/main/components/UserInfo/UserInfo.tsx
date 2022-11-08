@@ -32,14 +32,10 @@ const UserInfo: FC = () => {
     }
   }, [userInfo] )
 
-  console.log( userInfo )
-
   const onSubmit: SubmitHandler<UserInfo> = ( data ) => {
-    console.log( data )
     mutate( data, {
       onSuccess: ( res ) => {
         toast.success( res.message )
-        console.log( res )
       },
       onError: ( error ) => {
         if ( error.response?.status === 401 ) {

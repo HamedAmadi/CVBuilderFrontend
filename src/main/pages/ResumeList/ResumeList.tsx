@@ -9,6 +9,7 @@ import {Resume} from '../../components/PDFTemplate6/PDFTemplate6';
 import Skeleton from 'react-loading-skeleton';
 import {TbPlus} from "react-icons/tb";
 import Loading from '../../components/Loading/Loading';
+import toast, {Toaster} from 'react-hot-toast';
 
 const ResumeList: FC = () => {
   const {state} = useUserContext()
@@ -18,16 +19,22 @@ const ResumeList: FC = () => {
   const deleteResume = ( resumeId: string ) => {
     delResume( resumeId, {
       onSuccess: ( res ) => {
-        console.log( res )
+        if ( res.isSuccess ) {
+          toast.success( res.message )
+        }
+        else (
+          toast.error( 'خطایی در سرور رخ داده است! لطفا مجددا تلاش کنید' )
+        )
       },
       onError: ( err ) => {
-        console.log( err )
+        toast.error( 'خطایی در سرور رخ داده است! لطفا مجددا تلاش کنید' )
       }
     } )
   }
 
   return (
     <div className="resume-list">
+      <Toaster />
       {
         !state.isVerified &&
         <div className="warning-banner">
@@ -48,7 +55,9 @@ const ResumeList: FC = () => {
                   <div className="template-img mx-auto shadow">
                     {ResumeListIsLoading ? <Skeleton height='100%' width='100%' /> : <PdfViewerAsImage templateNumber={parseInt( resume.templateNumber )} resume={resume} width={600} />}
                     <div className="d-flex justify-content-around py-3">
-                      <Button onClick={() => deleteResume( resume._id )} size={"small"} style={"outline"} borderRadius={"rounded-pill"}>حذف</Button>
+                      <Button disabled={deleteResumeIsLoading} onClick={() => deleteResume( resume._id )} size={"small"} style={"outline"} borderRadius={"rounded-pill"}>
+                        حذف
+                      </Button>
                       <Link to="/resume-completion">
                         <Button size={"small"} style={"solid"} borderRadius={"rounded-pill"} onClick={() => {localStorage.setItem( 'resumeId', resume._id )}}>ویرایش</Button>
                       </Link>

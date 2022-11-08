@@ -81,15 +81,11 @@ const SignUp: React.FC = () => {
     },
   ]
 
-  console.log( localStorage.getItem( 'templateNumber' ) )
-
   const onSubmit: SubmitHandler<SignUp> = ( data ) => {
     const templateNumber = localStorage.getItem( 'templateNumber' )
-    console.log( data )
     const values = {...data, templateNumber}
     mutate( values, {
       onSuccess: ( res ) => {
-        console.log( res )
         dispatch( {type: 'signIn'} )
         dispatch( {type: 'setFirstName', payload: res.data.firstName} )
         dispatch( {type: 'setLastName', payload: res.data.lastName} )

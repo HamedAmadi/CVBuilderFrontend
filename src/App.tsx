@@ -20,8 +20,6 @@ import Home from './main/pages/Home/Home';
 // import SendEmailForLogin from './main/pages/SendEmailForLogin/SendEmailForLogin';
 import {lazyWithPreload} from "react-lazy-with-preload";
 import Loading from './main/components/Loading/Loading';
-// const Home = lazyWithPreload( () => import( './main/pages/Home/Home' ) );
-// const MainLayout = lazyWithPreload( () => import( './main/layout/MainLayout' ) );
 const ResumeCompletion = lazyWithPreload( () => import( './main/pages/ResumeCompletion/ResumeCompletion' ) );
 const ChooseTemplates = lazyWithPreload( () => import( './main/pages/ChooseTemplates/ChooseTemplates' ) );
 const SignUp = lazyWithPreload( () => import( './main/pages/SignUp/SignUp' ) );
@@ -33,13 +31,22 @@ const UserSetting = lazyWithPreload( () => import( './main/pages/UserSetting/Use
 const VerifyEmail = lazyWithPreload( () => import( './main/components/VerifyEmail/VerifyEmail' ) );
 const ChangeTemplate = lazyWithPreload( () => import( './main/pages/ChangeTemplate/ChangeTemplate' ) );
 const SendEmailForLogin = lazyWithPreload( () => import( './main/pages/SendEmailForLogin/SendEmailForLogin' ) );
+// const ResumeCompletion = lazy( () => import( './main/pages/ResumeCompletion/ResumeCompletion' ) );
+// const ChooseTemplates = lazy( () => import( './main/pages/ChooseTemplates/ChooseTemplates' ) );
+// const SignUp = lazy( () => import( './main/pages/SignUp/SignUp' ) );
+// const SignIn = lazy( () => import( './main/pages/SignIn/SignIn' ) );
+// const ResumeList = lazy( () => import( './main/pages/ResumeList/ResumeList' ) );
+// const SendEmail = lazy( () => import( './main/pages/SendEmail/SendEmail' ) );
+// const SignInWithoutPassword = lazy( () => import( './main/components/SignInWithoutPassword/SignInWithoutPassword' ) );
+// const UserSetting = lazy( () => import( './main/pages/UserSetting/UserSetting' ) );
+// const VerifyEmail = lazy( () => import( './main/components/VerifyEmail/VerifyEmail' ) );
+// const ChangeTemplate = lazy( () => import( './main/pages/ChangeTemplate/ChangeTemplate' ) );
+// const SendEmailForLogin = lazy( () => import( './main/pages/SendEmailForLogin/SendEmailForLogin' ) );
 
 const App: FC = () => {
   const {data: userDetail, isLoading} = useCheckSignIn()
   const {state, dispatch} = useUserContext()
 
-  console.log( userDetail )
-  console.log( state )
   useEffect( () => {
     ResumeCompletion.preload()
     ChooseTemplates.preload()
@@ -57,7 +64,6 @@ const App: FC = () => {
   useEffect( () => {
     if ( !isLoading ) {
       if ( userDetail.isSuccess ) {
-        console.log( 'useEffect' )
         dispatch( {type: 'signIn'} )
         dispatch( {type: 'setEmail', payload: userDetail.email} )
         dispatch( {type: 'verify', payload: userDetail.verified} )
@@ -69,16 +75,11 @@ const App: FC = () => {
         }
       }
       else {
-        console.log( 'user not signed in' )
       }
     }
   }, [userDetail] );
 
-  // console.log( isLoading )
-  // console.log( userDetail )
-
   if ( isLoading ) return null
-
 
   return (
     <BrowserRouter>

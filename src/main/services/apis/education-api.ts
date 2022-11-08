@@ -21,6 +21,5 @@ export const deleteEducation = async (_data: {resumeId: string | null, education
 
 export const getEducation = async ( id: string | null) => {
   const {data} = await client.get( `getEducation/${id}`, {withCredentials: true} )
-    console.log(data)
   return data.data
 }

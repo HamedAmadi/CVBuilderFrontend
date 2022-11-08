@@ -30,9 +30,7 @@ const SignIn: FC = () => {
   const {mutate: signInWithoutPassword, isLoading: signInWithoutPasswordIsLoading} = useSendEmailForSignIn()
 
   const onSubmit: SubmitHandler<SignIn> = ( data ) => {
-    console.log( data )
     if ( !withoutPassword ) {
-      console.log( 'withPassword' )
       signIn( data, {
         onSuccess: ( res ) => {
           dispatch( {type: 'signIn'} )
@@ -58,7 +56,6 @@ const SignIn: FC = () => {
       } )
     }
     if ( withoutPassword ) {
-      console.log( 'withoutPassword' )
       signInWithoutPassword( data, {
         onSuccess: ( res ) => {
           localStorage.setItem( 'email', res.email )

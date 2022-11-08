@@ -1,6 +1,6 @@
 import './SendEmail.scss'
 import {FC} from "react";
-import SendEmailImage from '../../../assets/send-email.png'
+import SendEmailImage from '../../../assets/send-email.webp'
 
 const SendEmail: FC = () => {
   return (

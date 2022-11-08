@@ -23,6 +23,5 @@ export const deleteSocialMedia = async (_data: {resumeId: string | null, socialM
 
 export const getSocialMedia = async ( id: string | null) => {
   const {data} = await client.get( `getSocialMedia/${id}`, {withCredentials: true} )
-    console.log(data)
   return data.data
 }

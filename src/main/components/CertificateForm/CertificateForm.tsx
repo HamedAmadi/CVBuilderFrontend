@@ -33,7 +33,6 @@ const CertificateForm: FC = () => {
     control
   } );
 
-  // console.log( resume )
 
   useEffect( () => {
     if ( !getIsLoading ) {
@@ -59,11 +58,9 @@ const CertificateForm: FC = () => {
     mutate( values, {
       onSuccess: ( res ) => {
         if ( res.isSuccess ) {
-          console.log( res )
           toast.success( res.message )
         }
         else {
-          console.log( res )
           toast.error( 'خطایی در سرور رخ داده است! لطفا مجددا تلاش کنید' )
         }
       }

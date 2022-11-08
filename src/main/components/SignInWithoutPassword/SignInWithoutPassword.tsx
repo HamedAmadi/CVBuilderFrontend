@@ -8,8 +8,6 @@ const SignInWithoutPassword: FC = () => {
   const navigate = useNavigate();
   let {token} = useParams();
   const {data, isLoading, isError, error} = useSignInWithoutPassword( token )
-  // console.log( 'userId: ' + userId )
-  console.log( 'token: ' + token )
 
   useEffect( () => {
     if ( !isLoading || isError ) {

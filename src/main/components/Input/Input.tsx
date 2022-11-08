@@ -33,7 +33,6 @@ const Input = forwardRef<any, InputProps>( ( {type, errors, name, label, notice,
               errors={errors}
               name={name}
               render={( messages ) => {
-                // console.log( messages )
                 return (
                   <p className="error-message my-auto mx-0">{messages.message}</p>
                 )
@@ -53,7 +52,6 @@ const Input = forwardRef<any, InputProps>( ( {type, errors, name, label, notice,
               errors={errors}
               name={name}
               render={( messages ) => {
-                // console.log( messages )
                 return (
                   <p className="error-message my-auto mx-0">{messages.message}</p>
                 )
@@ -74,7 +72,6 @@ const Input = forwardRef<any, InputProps>( ( {type, errors, name, label, notice,
               errors={errors}
               name={name}
               render={( messages ) => {
-                // console.log( messages )
                 return (
                   <p className="error-message my-auto mx-0">{messages.message}</p>
                 )

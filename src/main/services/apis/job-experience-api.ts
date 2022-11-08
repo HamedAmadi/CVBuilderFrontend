@@ -11,7 +11,6 @@ const client = axios.create( {
 
 export const insertJobExperience = async ( _data: JobExperience ) => {
   const {data} = await client.post( `/insertjobExperience/${_data.resumeId}`, _data, {withCredentials: true} )
-  console.log(data)
     return data
 }
 
@@ -22,6 +21,5 @@ export const deleteJobExperience = async (_data: {resumeId: string | null, jobEx
 
 export const getJobExperience = async ( id: string | null) => {
   const {data} = await client.get( `getJobExperience/${id}`, {withCredentials: true} )
-    console.log(data)
   return data.data
 }

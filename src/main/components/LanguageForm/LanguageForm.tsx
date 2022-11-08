@@ -40,8 +40,6 @@ const LanguageForm: FC = () => {
     control
   } );
 
-  // console.log( language )
-
   useEffect( () => {
     if ( !getIsLoading ) {
       if ( languageItem ) {
@@ -64,11 +62,9 @@ const LanguageForm: FC = () => {
     mutate( values, {
       onSuccess: ( res ) => {
         if ( res.isSuccess ) {
-          console.log( res )
           toast.success( res.message )
         }
         else {
-          console.log( res )
           toast.error( 'خطایی در سرور رخ داده است! لطفا مجددا تلاش کنید' )
         }
       }

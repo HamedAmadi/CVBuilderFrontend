@@ -1,5 +1,5 @@
 import './Logo.scss'
-import LogoImage from '../../../assets/logo1.png'
+import LogoImage from '../../../assets/logo1.webp'
 import {Link} from 'react-router-dom'
 
 

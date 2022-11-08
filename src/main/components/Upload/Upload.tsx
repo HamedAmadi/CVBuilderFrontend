@@ -1,15 +1,13 @@
 import './Upload.scss'
 import {Fragment, useCallback, useRef, useState} from 'react'
 import BaseModalWrapper from '../Modal/BaseModalWrapper/BaseModalWrapper'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes'
-// import { faTimesCircle } from '@fortawesome/free-solid-svg-icons/faTimesCircle'
 import Cropper from 'react-easy-crop'
 import {Point, Area} from 'react-easy-crop/types'
 import {getCroppedImg} from './CanvasUtils'
 import Resizer from "react-image-file-resizer";
 import Button from '../Button/Button'
 import {TbX} from 'react-icons/tb';
+import toast from 'react-hot-toast'
 // import Button from '../Button/Button'
 interface Props {
   shape: 'rect' | 'round'
@@ -28,8 +26,8 @@ const Upload: React.FC<Props> = ( props ) => {
   const [croppedAreaPixels, setCroppedAreaPixels] = useState<any>( null )
   const imgRef = useRef<any>( null )
   const [isModalVisible, setIsModalVisible] = useState( false )
-  const [imgTypeModal, setImgTypeModal] = useState( false )
-  const [imageName, setImageName] = useState<string>( '' )
+  // const [imgTypeModal, setImgTypeModal] = useState( false )
+  // const [imageName, setImageName] = useState<string>( '' )
   const onCropComplete = useCallback(
     ( croppedArea: Area, croppedAreaPixels: Area ) => {
       setCroppedAreaPixels( croppedAreaPixels )
@@ -66,11 +64,11 @@ const Upload: React.FC<Props> = ( props ) => {
 
   const onChange = ( e: any ) => {
     if ( e.target.files[0].type !== 'image/png' && e.target.files[0].type !== 'image/jpeg' && e.target.files[0].type !== 'image/jpg' ) {
-      setImgTypeModal( true )
+      toast.error( 'فقط فرمت های png، jpeg، jpg' )
     } else {
       let files: any;
       files = e.target.files;
-      setImageName( files[0].name )
+      // setImageName( files[0].name )
       const reader = new FileReader();
       reader.onload = () => {
         setImage( reader.result as any );
@@ -103,9 +101,9 @@ const Upload: React.FC<Props> = ( props ) => {
     }
   }, [image, croppedAreaPixels, rotation] )
 
-  const toggleImageTypeModal = () => {
-    setImgTypeModal( false )
-  }
+  // const toggleImageTypeModal = () => {
+  //   setImgTypeModal( false )
+  // }
 
   const handleClick = () => {
     imgRef.current.click();
@@ -115,29 +113,6 @@ const Upload: React.FC<Props> = ( props ) => {
     <Fragment>
       <input ref={imgRef} onChange={onChange} type="file" accept="image/*" hidden />
       <Button onClick={handleClick} size={'small'} style={'solid'} borderRadius={'normal'}>آپلود</Button>
-      {/* {
-        props.buttonType === 'main' ?
-          <div className="upload">
-            <div onClick={handleClick} className="d-flex justify-content-between">
-              <div className=''>{props.children}</div>
-              <div className='media-text'>
-                {imageName}
-              </div>
-            </div>
-          </div>
-          :
-          <div className="admin-upload">
-            <div onClick={handleClick} className="admin-div text-center">
-              <div className=''>
-                {imageName ?
-                  imageName
-                  :
-                  props.children
-                }
-              </div>
-            </div>
-          </div>
-      } */}
       <BaseModalWrapper isModalVisible={isModalVisible} onBackdropClick={() => {}} >
         <div className="crop-modal p-4">
           <div className="fm-header d-flex justify-content-between border-bottom mb-1">
@@ -163,12 +138,12 @@ const Upload: React.FC<Props> = ( props ) => {
       {/* <BaseModalWrapper isModalVisible={imgTypeModal} onBackdropClick={toggleImageTypeModal} small={true} >
         <div className="text-center m-3">
           <p className="mb-3">
-            <FontAwesomeIcon className="ms-2 fa-lg text-danger" icon={faTimesCircle} />
+            <TbX className="ms-2 fa-lg text-danger" />
             فقط فرمت های png، jpeg، jpg
           </p>
-          <button onClick={toggleImageTypeModal} className="btn submit-buttun">
+          <Button onClick={toggleImageTypeModal} size={'small'} style={'solid'} borderRadius={'rounded-pill'} >
             متوجه ام
-          </button>
+          </Button>
         </div>
       </BaseModalWrapper> */}
     </Fragment>

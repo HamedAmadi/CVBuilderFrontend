@@ -1,11 +1,11 @@
 import './ChangeTemplate.scss';
 import {FC, useState} from 'react';
-import TemplateImage1 from '../../../assets/1-1.png'
-import TemplateImage2 from '../../../assets/2-1.png'
-import TemplateImage3 from '../../../assets/3-1.png'
-import TemplateImage4 from '../../../assets/4-1.png'
-import TemplateImage5 from '../../../assets/5-1.png'
-import TemplateImage6 from '../../../assets/6-1.png'
+import TemplateImage1 from '../../../assets/1-1.webp'
+import TemplateImage2 from '../../../assets/2-1.webp'
+import TemplateImage3 from '../../../assets/3-1.webp'
+import TemplateImage4 from '../../../assets/4-1.webp'
+import TemplateImage5 from '../../../assets/5-1.webp'
+import TemplateImage6 from '../../../assets/6-1.webp'
 import PdfEditViewer from '../../components/PdfEditViewer/PdfEditViewer';
 import {useChangeTemplate, useGetResume} from '../../services/hooks/resume-hooks';
 import {TbX} from 'react-icons/tb';
@@ -14,6 +14,7 @@ import SideDrawer from '../../components/SideDrawer/SideDrawer';
 import Backdrop from '../../components/Backdrop/Backdrop';
 import Button from '../../components/Button/Button';
 import Skeleton from 'react-loading-skeleton';
+import toast from 'react-hot-toast';
 
 const images = [
   TemplateImage1,
@@ -39,10 +40,15 @@ const ChangeTemplate: FC = () => {
     const resumeId = localStorage.getItem( 'resumeId' )
     changeTemplate( {resumeId, templateNumber}, {
       onSuccess: ( res ) => {
-        console.log( res )
+        if ( res.isSuccess ) {
+          toast.success( res.message )
+        }
+        else {
+          toast.error( 'خطایی در سرور رخ داده است! لطفا مجددا تلاش کنید' )
+        }
       },
       onError: ( err ) => {
-        console.log( err )
+        toast.error( 'خطایی در سرور رخ داده است! لطفا مجددا تلاش کنید' )
       }
     } )
   }

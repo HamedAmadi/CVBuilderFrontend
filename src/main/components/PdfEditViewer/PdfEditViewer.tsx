@@ -38,7 +38,6 @@ const PdfEditViewer: FC<PdfAsImageProps> = ( props ) => {
   const Component = components[props.templateNumber - 1]
 
   const onDocumentLoadSuccess = ( {numPages}: any ) => {
-    console.log( 'rneder' )
     setNumPages( numPages )
   }
 

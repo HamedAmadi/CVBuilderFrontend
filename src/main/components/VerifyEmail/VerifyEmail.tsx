@@ -8,7 +8,6 @@ const VerifyEmail: FC = () => {
   const navigate = useNavigate();
   let {token} = useParams();
   const {data, isLoading, isError, error} = useVerifyEmail( token )
-  console.log( 'token: ' + token )
 
   useEffect( () => {
     if ( !isLoading ) {
