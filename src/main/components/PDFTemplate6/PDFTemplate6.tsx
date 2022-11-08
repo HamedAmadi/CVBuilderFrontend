@@ -243,7 +243,7 @@ const PDFTemplate6: FC<Props> = ( {resume} ) => {
           <View style={styles.pictureWrapper}>
             {
               resume.basicInformation &&
-                resume.basicInformation.userImageBase64 ?
+                resume.basicInformation.userImageBase64 !== '' ?
                 <Image style={styles.picture} src={`data:image/png;base64,${resume.basicInformation.userImageBase64}`} />
                 :
                 <Image style={styles.picture} src={ProfilePicture} />

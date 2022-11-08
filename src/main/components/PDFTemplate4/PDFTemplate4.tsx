@@ -149,6 +149,7 @@ interface Props {
   resume: Resume
 }
 
+
 const PDFTemplate4: FC<Props> = ( {resume} ) => {
   return (
     <Document>
