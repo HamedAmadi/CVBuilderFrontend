@@ -6,11 +6,13 @@ import {useSignInWithoutPassword} from "../../services/hooks/user-hooks";
 const SignInWithoutPassword: FC = () => {
   const {dispatch} = useUserContext()
   const navigate = useNavigate();
-  let {token} = useParams();
-  const {data, isLoading, isError, error} = useSignInWithoutPassword( token )
+  const {token} = useParams();
+  const {data, isLoading, error} = useSignInWithoutPassword( token )
+
+  console.log( data )
 
   useEffect( () => {
-    if ( !isLoading || !isError ) {
+    if ( data ) {
       dispatch( {type: 'signIn', payload: true} )
       dispatch( {type: 'setEmail', payload: data.email} )
       dispatch( {type: 'verify', payload: data.verified} )

@@ -34,6 +34,7 @@ export const sendEmailForSignIn = async ( _data: SignIn ) => {
 
 export const signInWithoutPassword = async (token?: string ) => {
   const {data} = await client.get( `/signInWithoutPassword/${token}`, {withCredentials: true} )
+  console.log(data)
   return data
 }
 

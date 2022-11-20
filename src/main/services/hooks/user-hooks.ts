@@ -23,7 +23,8 @@ export const useSendEmailForSignIn = () => {
   return useMutation<any, AxiosError, SignIn, unknown>(api.sendEmailForSignIn )
 }
 
-export const useSignInWithoutPassword = (token?: string) => {
+export const useSignInWithoutPassword = ( token?: string ) => {
+  console.log('useSignInWithoutPassword')
   return useQuery<any, AxiosError>( [, token], () => api.signInWithoutPassword(token))
 }
 

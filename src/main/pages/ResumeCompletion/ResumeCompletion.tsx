@@ -1,5 +1,7 @@
 import './ResumeCompletion.scss'
-import {FC, Fragment, useRef, useState} from 'react';
+import {FC, Fragment, useRef} from 'react';
+import {lazyWithPreload} from "react-lazy-with-preload";
+// const ChangeTemplate = lazyWithPreload( () => import( '../ChangeTemplate/ChangeTemplate' ) );
 import PersonalInfo from '../../components/PersonalInfo/PersonalInfo';
 import UserAboutUs from '../../components/UserAboutUs/UserAboutUs';
 import EducationForm from '../../components/EducationForm/EducationForm';
@@ -10,15 +12,18 @@ import LanguageForm from '../../components/LanguageForm/LanguageForm';
 import CertificateForm from '../../components/CertificateForm/CertificateForm';
 import ProjectForm from '../../components/ProjectForm/ProjectForm';
 import Button from '../../UI Component/Button/Button';
-import {Link, useParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import PdfEditViewer from '../../components/PdfEditViewer/PdfEditViewer';
-import {useGetResume} from '../../services/hooks/resume-hooks';
 import {useUserContext} from '../../context/UserContext';
 
 
 const ResumeCompletion: FC = () => {
   const ref = useRef<HTMLDivElement | null>( null )
   const {state} = useUserContext()
+
+  // useEffect( () => {
+  //   ChangeTemplate.preload()
+  // }, [] );
 
   const showRefElement = () => {
     const span = ref.current
@@ -37,7 +42,6 @@ const ResumeCompletion: FC = () => {
 
   return (
     <Fragment>
-
       <div className="resume-complation">
         <div className="d-flex">
           <div className="right-section">

@@ -2,7 +2,7 @@ import './App.scss'
 import "bootstrap/scss/bootstrap.scss";
 import 'react-loading-skeleton/dist/skeleton.css'
 import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
-import {FC, Suspense, useEffect} from 'react';
+import {FC, Suspense, useEffect, lazy} from 'react';
 import {lazyWithPreload} from "react-lazy-with-preload";
 import MainLayout from "./main/layout/MainLayout"
 import Home from './main/pages/Home/Home';
@@ -10,32 +10,32 @@ import Loading from './main/UI Component/Loading/Loading';
 import PrivateRoutes from './main/util/PrivateRoutes';
 import CheckSignIn from './main/util/CheckSignIn';
 import {Toaster} from 'react-hot-toast';
-const ResumeCompletion = lazyWithPreload( () => import( './main/pages/ResumeCompletion/ResumeCompletion' ) );
-const ChooseTemplates = lazyWithPreload( () => import( './main/pages/ChooseTemplates/ChooseTemplates' ) );
-const SignUp = lazyWithPreload( () => import( './main/pages/SignUp/SignUp' ) );
-const SignIn = lazyWithPreload( () => import( './main/pages/SignIn/SignIn' ) );
-const ResumeList = lazyWithPreload( () => import( './main/pages/ResumeList/ResumeList' ) );
-const SendEmail = lazyWithPreload( () => import( './main/pages/SendEmail/SendEmail' ) );
-const SignInWithoutPassword = lazyWithPreload( () => import( './main/components/SignInWithoutPassword/SignInWithoutPassword' ) );
-const UserSetting = lazyWithPreload( () => import( './main/pages/UserSetting/UserSetting' ) );
-const VerifyEmail = lazyWithPreload( () => import( './main/components/VerifyEmail/VerifyEmail' ) );
+const ResumeCompletion = lazy( () => import( './main/pages/ResumeCompletion/ResumeCompletion' ) );
+const ChooseTemplates = lazy( () => import( './main/pages/ChooseTemplates/ChooseTemplates' ) );
+const SignUp = lazy( () => import( './main/pages/SignUp/SignUp' ) );
+const SignIn = lazy( () => import( './main/pages/SignIn/SignIn' ) );
+const ResumeList = lazy( () => import( './main/pages/ResumeList/ResumeList' ) );
+const SendEmail = lazy( () => import( './main/pages/SendEmail/SendEmail' ) );
+const SignInWithoutPassword = lazy( () => import( './main/components/SignInWithoutPassword/SignInWithoutPassword' ) );
+const UserSetting = lazy( () => import( './main/pages/UserSetting/UserSetting' ) );
+const VerifyEmail = lazy( () => import( './main/components/VerifyEmail/VerifyEmail' ) );
 const ChangeTemplate = lazyWithPreload( () => import( './main/pages/ChangeTemplate/ChangeTemplate' ) );
-const SendEmailForLogin = lazyWithPreload( () => import( './main/pages/SendEmailForLogin/SendEmailForLogin' ) );
+const SendEmailForLogin = lazy( () => import( './main/pages/SendEmailForLogin/SendEmailForLogin' ) );
 
 const App: FC = () => {
-  useEffect( () => {
-    ResumeCompletion.preload()
-    ChooseTemplates.preload()
-    SignUp.preload()
-    SignIn.preload()
-    ResumeList.preload()
-    SendEmail.preload()
-    SignInWithoutPassword.preload()
-    UserSetting.preload()
-    VerifyEmail.preload()
-    ChangeTemplate.preload()
-    SendEmailForLogin.preload()
-  }, [] );
+  //   useEffect( () => {
+  //     ResumeCompletion.preload()
+  //     ChooseTemplates.preload()
+  //     SignUp.preload()
+  //     SignIn.preload()
+  //     ResumeList.preload()
+  //     SendEmail.preload()
+  //     SignInWithoutPassword.preload()
+  //     UserSetting.preload()
+  //     VerifyEmail.preload()
+  // ChangeTemplate.preload()
+  //     SendEmailForLogin.preload()
+  //   }, [] );
 
   return (
     <BrowserRouter>
@@ -43,7 +43,7 @@ const App: FC = () => {
       <CheckSignIn />
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Suspense fallback={<Loading />}><Home /></Suspense>} />
           <Route path='/choose-templates' element={<Suspense fallback={<Loading />}><ChooseTemplates /></Suspense>} />
           <Route path='/signup' element={<Suspense fallback={<Loading />}><SignUp /></Suspense>} />
           <Route path='/signin' element={<Suspense fallback={<Loading />}><SignIn /></Suspense>} />
