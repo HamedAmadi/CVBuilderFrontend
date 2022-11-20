@@ -2,7 +2,6 @@ import {createRoot} from 'react-dom/client';
 import App from './App'
 import {QueryClient, QueryClientProvider} from "react-query";
 import {UserContextProvider} from './main/context/UserContext';
-import {SkeletonTheme} from 'react-loading-skeleton';
 
 export const queryClient = new QueryClient( {
   defaultOptions: {

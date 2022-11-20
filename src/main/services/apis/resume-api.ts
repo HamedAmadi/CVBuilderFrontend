@@ -12,7 +12,7 @@ export const createResume = async (templateNumber: string) => {
     return data
 }
 
-export const getResume = async ( id: string | null ) => {
+export const getResume = async ( id: string | undefined ) => {
     const {data} = await client.get( `getResume/${id}`,{withCredentials: true})
     return data.data
 }
@@ -28,7 +28,7 @@ export const deleteResume = async (id: string) => {
     return data
 }
 
-export const changeTemplate = async (_data: {resumeId: string | null, templateNumber: string}) => {
+export const changeTemplate = async (_data: {resumeId: string | undefined, templateNumber: string}) => {
     const {data} = await client.post( `/changeTemplate/${_data.resumeId}/${_data.templateNumber}`, {}, {withCredentials: true} )
     return data
 }

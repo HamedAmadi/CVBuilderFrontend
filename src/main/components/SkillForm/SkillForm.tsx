@@ -2,10 +2,11 @@ import {FC, Fragment, useEffect} from "react";
 import {SubmitHandler, useForm, useFieldArray} from 'react-hook-form';
 import {TbPlus} from "react-icons/tb";
 import {useDeleteSkill, useGetSkill, useInsertSkill} from "../../services/hooks/skill-hooks";
-import Button from "../Button/Button";
-import DeleteButton from "../DeleteButton/DeleteButton";
-import Select from "../Select/Select";
-import toast from 'react-hot-toast';
+import Button from "../../UI Component/Button/Button";
+import DeleteButton from "../../UI Component/DeleteButton/DeleteButton";
+import Select from "../../UI Component/Select/Select";
+import toast, {Toaster} from 'react-hot-toast';
+import {useParams} from "react-router-dom";
 
 export interface SkillItem {
   skillName: string
@@ -15,7 +16,7 @@ export interface SkillItem {
 
 export interface Skill {
   skillItem: SkillItem[]
-  resumeId: string | null
+  resumeId?: string
 };
 
 const levelOptions = [
@@ -28,7 +29,7 @@ const levelOptions = [
 
 
 const SkillForm: FC = () => {
-  const resumeId = localStorage.getItem( 'resumeId' )
+  const {resumeId} = useParams()
   const {data: skillItem, isLoading: getIsLoading} = useGetSkill( resumeId )
   const {mutate, isLoading: insertIsLoading} = useInsertSkill()
   const {mutate: Delete, isLoading: deleleteIsLoading} = useDeleteSkill()
@@ -71,7 +72,7 @@ const SkillForm: FC = () => {
     } )
   };
 
-  const deleteSkill = ( resumeId: string | null, skillId: string | undefined ) => {
+  const deleteSkill = ( resumeId: string | undefined, skillId: string | undefined ) => {
     const data = {resumeId, skillId}
     Delete( data, {
       onSuccess: ( res ) => {
@@ -88,12 +89,13 @@ const SkillForm: FC = () => {
 
   return (
     <Fragment>
+      {/* <Toaster /> */}
       <div className="skill-form">
         <form onSubmit={handleSubmit( onSubmit )} className='mb-0' noValidate>
           {fields.map( ( field, index ) => {
             return (
               <div className="d-flex" key={field.id}>
-                <DeleteButton onClick={() => {remove( index ); deleteSkill( localStorage.getItem( 'resumeId' ), field._id )}} />
+                <DeleteButton onClick={() => {remove( index ); deleteSkill( resumeId, field._id )}} />
                 <div className="row mb-4 w-100">
                   <div className="col-md-6">
                     <div className='input-wrapper'>

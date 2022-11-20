@@ -1,8 +1,8 @@
 import './SignIn.scss'
 import {FC, Fragment, useState} from "react";
 import {FieldValue, FieldValues, SubmitHandler, useForm, ValidationRule} from 'react-hook-form';
-import Input from '../../components/Input/Input';
-import Button from '../../components/Button/Button';
+import Input from '../../UI Component/Input/Input';
+import Button from '../../UI Component/Button/Button';
 import {Link, useNavigate} from 'react-router-dom';
 import {useSendEmailForSignIn, useSignIn} from '../../services/hooks/user-hooks';
 import {useUserContext} from '../../context/UserContext';
@@ -11,14 +11,6 @@ export interface SignIn {
   email: string
   password: string
 }
-
-// interface SignInForm {
-//   name: "email" | "password"
-//   type: string,
-//   label: string,
-//   pattern?: ValidationRule<RegExp>,
-//   reqMessage: string
-// }
 
 const SignIn: FC = () => {
   const navigate = useNavigate();
@@ -33,7 +25,7 @@ const SignIn: FC = () => {
     if ( !withoutPassword ) {
       signIn( data, {
         onSuccess: ( res ) => {
-          dispatch( {type: 'signIn'} )
+          dispatch( {type: 'signIn', payload: true} )
           dispatch( {type: 'verify', payload: res.verified} )
           if ( res.firstName ) {
             dispatch( {type: 'setFirstName', payload: res.firstName} )

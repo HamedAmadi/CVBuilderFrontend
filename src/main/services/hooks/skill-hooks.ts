@@ -19,6 +19,6 @@ export const useDeleteSkill = () => {
   }   )
 }
 
-export const useGetSkill = ( id: string | null) => {
+export const useGetSkill = ( id: string | undefined) => {
   return useQuery( ['skill', id], () => api.getSkill( id ) )
 }

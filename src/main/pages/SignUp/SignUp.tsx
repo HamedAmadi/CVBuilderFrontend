@@ -1,8 +1,8 @@
 import './SignUp.scss'
 import {Fragment, useState} from "react";
 import {FieldValues, SubmitHandler, useForm, ValidationRule} from 'react-hook-form';
-import Input from '../../components/Input/Input';
-import Button from '../../components/Button/Button';
+import Input from '../../UI Component/Input/Input';
+import Button from '../../UI Component/Button/Button';
 import {Link, useNavigate} from 'react-router-dom';
 import {useSignUp} from '../../services/hooks/user-hooks';
 import {useCookies} from "react-cookie";
@@ -77,7 +77,7 @@ const SignUp: React.FC = () => {
         message: 'رمز عبور اشتباه وارد شده'
       },
       reqMessage: 'تکرار رمز عبور را وارد کنید',
-      validate: ( value: string ) => value === getValues( 'password' ) || 'پسوزد یکسان نیست'
+      validate: ( value: string ) => value === getValues( 'password' ) || 'رمز های عبور یکسان نیستند'
     },
   ]
 
@@ -86,14 +86,13 @@ const SignUp: React.FC = () => {
     const values = {...data, templateNumber}
     mutate( values, {
       onSuccess: ( res ) => {
-        dispatch( {type: 'signIn'} )
+        dispatch( {type: 'signIn', payload: true} )
         dispatch( {type: 'setFirstName', payload: res.data.firstName} )
         dispatch( {type: 'setLastName', payload: res.data.lastName} )
         dispatch( {type: 'setEmail', payload: res.data.email} )
         dispatch( {type: 'verify', payload: res.data.isVerified} )
 
-        localStorage.setItem( 'resumeId', res.data.resumeId )
-        navigate( '/resume-completion' )
+        navigate( `/resume-completion/${res.data.resumeId}` )
       },
       onError: ( error ) => {
         if ( error.response?.status === 401 ) {
@@ -144,9 +143,6 @@ const SignUp: React.FC = () => {
             <Fragment>
               <div className="text-center mt-2">
                 <Link to='/signin'> ورود به حساب کاربری </Link>
-              </div>
-              <div className="text-center mt-2">
-                <Link to='/signin'> ورود بدون رمز عبور </Link>
               </div>
             </Fragment>
           }

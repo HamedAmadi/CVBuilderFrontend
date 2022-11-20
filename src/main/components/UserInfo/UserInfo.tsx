@@ -3,8 +3,8 @@ import {FC, useEffect} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useUserContext} from "../../context/UserContext";
 import {useCompleteProfile, useGetUserInfo} from "../../services/hooks/user-hooks";
-import Button from "../Button/Button";
-import Input from "../Input/Input";
+import Button from "../../UI Component/Button/Button";
+import Input from "../../UI Component/Input/Input";
 import toast from 'react-hot-toast';
 
 export interface UserInfo {

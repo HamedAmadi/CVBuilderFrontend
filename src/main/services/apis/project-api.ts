@@ -14,12 +14,13 @@ export const insertProject = async ( _data: Project ) => {
   return data
 }
 
-export const deleteProject = async (_data: {resumeId: string | null, projectId: string | undefined}) => {
+
+export const deleteProject = async (_data: {resumeId?: string , projectId: string | undefined}) => {
   const {data} = await client.post( `/deleteProject/${_data.resumeId}/${_data.projectId}`, {}, {withCredentials: true} )
   return data
 }
 
-export const getProject = async ( id: string | null) => {
+export const getProject = async ( id?: string) => {
   const {data} = await client.get( `getProject/${id}`, {withCredentials: true} )
   return data.data
 }

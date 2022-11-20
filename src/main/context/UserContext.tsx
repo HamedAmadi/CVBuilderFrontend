@@ -1,4 +1,5 @@
 import {createContext, ReactNode, useContext, useReducer} from "react";
+import {checkSignIn} from "../services/apis/auth-api";
 import {ActionType, UserReducer} from "./UserReducer";
 
 type UserContextType = {
@@ -7,20 +8,20 @@ type UserContextType = {
 }
 
 export type UserStateType = {
-  isSignIn: boolean
-  isVerified: boolean
+  isSignIn: boolean | null
+  isVerified: boolean | null
   email: string | null
   firstName: string | null
   lastName: string | null
 }
 
 type UserProviderProps = {
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export const initialUserState: UserStateType = {
-  isSignIn: false,
-  isVerified: false,
+  isSignIn: null,
+  isVerified: null,
   email: null,
   firstName: null,
   lastName: null,
@@ -32,7 +33,7 @@ const UserContext = createContext<UserContextType>( {
 } )
 
 
-const UserContextProvider = ( {children}: UserProviderProps ) => {
+export const UserContextProvider = ( {children}: UserProviderProps ) => {
   const [state, dispatch] = useReducer( UserReducer, initialUserState )
   const value = {state, dispatch}
 
@@ -43,7 +44,7 @@ const UserContextProvider = ( {children}: UserProviderProps ) => {
   )
 }
 
-const useUserContext = () => {
+export const useUserContext = () => {
   const context = useContext( UserContext )
   if ( context === undefined ) {
     throw new Error( 'useCount must be used within a CountProvider' )
@@ -51,4 +52,4 @@ const useUserContext = () => {
   return context
 }
 
-export {UserContextProvider, useUserContext}
+// export {UserContextProvider, useUserContext}

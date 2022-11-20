@@ -3,7 +3,7 @@ import {forwardRef, Fragment} from "react";
 import {FieldErrorsImpl, FieldValues, useForm} from 'react-hook-form';
 import {ErrorMessage} from '@hookform/error-message';
 import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+
 
 type Option = {
   label: string;

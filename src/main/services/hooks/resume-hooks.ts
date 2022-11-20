@@ -10,10 +10,8 @@ export const useCreateResume = () => {
   } )
 }
 
-export const useGetResume = ( id: string | null) => {
-  return useQuery( ['resume', id], () => api.getResume( id ), {
-    // enabled: Boolean( id )
-  } )
+export const useGetResume = ( id: string | undefined ) => {
+  return useQuery( ['resume', id], () => api.getResume( id ))
 }
 
 export const useGetResumeList = () => {

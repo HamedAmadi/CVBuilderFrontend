@@ -1,23 +1,20 @@
-import {FC, Fragment} from "react";
+import {FC, Fragment, memo} from "react";
 import {Page, Text, View, Document, StyleSheet, Font, Link} from '@react-pdf/renderer';
-// import IranSanseL from '../../../assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum)_Light.woff'
-// import IranSanseB from '../../../assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum)_Bold.ttf'
-// import IranSanseUL from '../../../assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum)_UltraLight.ttf'
-// import IranSanse from '../../../assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum).ttf'
 import IranSanseL from '../../../assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum)_Light.woff'
 import IranSanseB from '../../../assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum)_Bold.woff'
 import IranSanseUL from '../../../assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum)_UltraLight.woff'
 import IranSanse from '../../../assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum).woff'
 import PersianText from "../PersianText/PersianText";
 import Star from "./Star.jsx";
-import {EducationItem} from "../EducationForm/EducationForm";
-import {JobExperienceItem} from "../JobExperienceForm/JobExperienceForm";
-import {CertificateItem} from "../CertificateForm/CertificateForm";
-import {LanguageItem} from "../LanguageForm/LanguageForm";
-import {SkillItem} from "../SkillForm/SkillForm";
-import {SocialMediaItem} from "../SocialMediaForm/SocialMediaForm";
-import {ProjectItem} from "../ProjectForm/ProjectForm";
+import {EducationItem} from "../../components/EducationForm/EducationForm";
+import {JobExperienceItem} from "../../components/JobExperienceForm/JobExperienceForm";
+import {CertificateItem} from "../../components/CertificateForm/CertificateForm";
+import {LanguageItem} from "../../components/LanguageForm/LanguageForm";
+import {SkillItem} from "../../components/SkillForm/SkillForm";
+import {SocialMediaItem} from "../../components/SocialMediaForm/SocialMediaForm";
+import {ProjectItem} from "../../components/ProjectForm/ProjectForm";
 import {Resume} from "../PDFTemplate6/PDFTemplate6";
+import {useParams} from "react-router-dom";
 Font.register( {
   family: "IranSanse",
   fonts: [
@@ -136,8 +133,6 @@ interface Props {
 }
 
 const PDFTemplate1: FC<Props> = ( {resume} ) => {
-
-  console.log( resume )
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -387,4 +382,4 @@ const PDFTemplate1: FC<Props> = ( {resume} ) => {
   )
 };
 
-export default PDFTemplate1;
+export default memo( PDFTemplate1 );

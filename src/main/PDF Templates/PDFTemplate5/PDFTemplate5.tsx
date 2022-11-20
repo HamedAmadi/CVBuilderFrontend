@@ -1,9 +1,5 @@
-import {FC, Fragment} from "react";
+import {FC, Fragment, memo} from "react";
 import {Page, Text, View, Document, StyleSheet, Font, Link, Image} from '@react-pdf/renderer';
-// import IranSanseL from '../../../assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum)_Light.ttf'
-// import IranSanseB from '../../../assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum)_Bold.ttf'
-// import IranSanseUL from '../../../assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum)_UltraLight.ttf'
-// import IranSanse from '../../../assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum).ttf'
 import IranSanseL from '../../../assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum)_Light.woff'
 import IranSanseB from '../../../assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum)_Bold.woff'
 import IranSanseUL from '../../../assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum)_UltraLight.woff'
@@ -19,16 +15,17 @@ import MrtarboardIcon from '../../../assets/mortarboard.png'
 import PencilAndRulerIcon from '../../../assets/pencil-and-ruler.png'
 import SuitCaseIcon from '../../../assets/suitcase.png'
 import UserIcon from '../../../assets/user.png'
+// import ProfilePicture from '../../../assets/images.png'
 import ProfilePicture from '../../../assets/images.png'
 import PersianText from "../PersianText/PersianText";
 import Star from "../PDFTemplate1/Star";
-import {EducationItem} from "../EducationForm/EducationForm";
-import {JobExperienceItem} from "../JobExperienceForm/JobExperienceForm";
-import {CertificateItem} from "../CertificateForm/CertificateForm";
-import {LanguageItem} from "../LanguageForm/LanguageForm";
-import {SkillItem} from "../SkillForm/SkillForm";
-import {SocialMediaItem} from "../SocialMediaForm/SocialMediaForm";
-import {ProjectItem} from "../ProjectForm/ProjectForm";
+import {EducationItem} from "../../components/EducationForm/EducationForm";
+import {JobExperienceItem} from "../../components/JobExperienceForm/JobExperienceForm";
+import {CertificateItem} from "../../components/CertificateForm/CertificateForm";
+import {LanguageItem} from "../../components/LanguageForm/LanguageForm";
+import {SkillItem} from "../../components/SkillForm/SkillForm";
+import {SocialMediaItem} from "../../components/SocialMediaForm/SocialMediaForm";
+import {ProjectItem} from "../../components/ProjectForm/ProjectForm";
 import {Resume} from "../PDFTemplate6/PDFTemplate6";
 
 Font.register( {
@@ -203,7 +200,7 @@ const PDFTemplate5: FC<Props> = ( {resume} ) => {
           <View style={styles.rect}></View>
           <View style={styles.profilrPictureWrapper}>
             {
-              resume.basicInformation &&
+              resume.basicInformation.userImageBase64 &&
                 resume.basicInformation.userImageBase64 !== '' ?
                 <Image src={`data:image/png;base64,${resume.basicInformation.userImageBase64}`} style={styles.profilePicture} />
                 :
@@ -540,4 +537,4 @@ const PDFTemplate5: FC<Props> = ( {resume} ) => {
   )
 };
 
-export default PDFTemplate5;
+export default memo( PDFTemplate5 );

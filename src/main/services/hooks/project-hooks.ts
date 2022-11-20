@@ -19,6 +19,6 @@ export const useDeleteProject = () => {
   }   )
 }
 
-export const useGetProject = ( id: string | null) => {
+export const useGetProject = ( id?: string) => {
   return useQuery( ['project', id], () => api.getProject( id ) )
 }

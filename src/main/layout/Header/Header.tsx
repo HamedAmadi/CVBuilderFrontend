@@ -1,6 +1,6 @@
 import './Header.scss'
-import {Fragment, useState} from "react"
-import Logo from '../../components/Logo/Logo'
+import {Fragment} from "react"
+import Logo from '../../UI Component//Logo/Logo'
 import UserWidget from '../../components/UserWidget/UserWidget'
 
 

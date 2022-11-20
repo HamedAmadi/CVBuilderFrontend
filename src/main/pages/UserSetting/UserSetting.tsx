@@ -1,7 +1,6 @@
 import './UserSetting.scss'
 import {FC, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
-import Button from "../../components/Button/Button";
 import ChangePassword from "../../components/ChangePassword/ChangePassword";
 import UserInfo from "../../components/UserInfo/UserInfo";
 import {useSendVerifyEmail} from "../../services/hooks/user-hooks";

@@ -10,8 +10,8 @@ const SignInWithoutPassword: FC = () => {
   const {data, isLoading, isError, error} = useSignInWithoutPassword( token )
 
   useEffect( () => {
-    if ( !isLoading || isError ) {
-      dispatch( {type: 'signIn'} )
+    if ( !isLoading || !isError ) {
+      dispatch( {type: 'signIn', payload: true} )
       dispatch( {type: 'setEmail', payload: data.email} )
       dispatch( {type: 'verify', payload: data.verified} )
       if ( data.firstName ) {
@@ -21,7 +21,6 @@ const SignInWithoutPassword: FC = () => {
         dispatch( {type: 'setLastName', payload: data.lastName} )
       }
       navigate( '/resume-list' )
-      // }, 200 );
     }
 
   }, [data] );

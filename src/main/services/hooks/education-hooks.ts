@@ -19,6 +19,6 @@ export const useDeleteEducation = () => {
   }   )
 }
 
-export const useGetEducation = ( id: string | null) => {
+export const useGetEducation = ( id: string | undefined) => {
   return useQuery( ['education', id], () => api.getEducation( id ) )
 }

@@ -14,12 +14,12 @@ export const insertCertificate = async ( _data: Certificate ) => {
   return data
 }
 
-export const getCertificate = async ( id: string | null) => {
+export const getCertificate = async ( id: string | undefined) => {
   const {data} = await client.get( `getCertificate/${id}`, {withCredentials: true} )
   return data.data
 }
 
-export const deleteCertificate = async (_data: {resumeId: string | null, certificateId: string | undefined}) => {
+export const deleteCertificate = async (_data: {resumeId: string | undefined, certificateId: string | undefined}) => {
   const {data} = await client.post( `/deleteCertificate/${_data.resumeId}/${_data.certificateId}`, {}, {withCredentials: true} )
   return data
 }

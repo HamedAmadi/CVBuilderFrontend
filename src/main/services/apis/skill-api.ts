@@ -14,12 +14,12 @@ export const insertSkill = async ( _data: Skill ) => {
     return data
 }
 
-export const deleteSkill = async (_data: {resumeId: string | null, skillId: string | undefined}) => {
+export const deleteSkill = async (_data: {resumeId: string | undefined, skillId: string | undefined}) => {
   const {data} = await client.post( `/deleteSkill/${_data.resumeId}/${_data.skillId}`, {}, {withCredentials: true} )
   return data
 }
 
-export const getSkill = async ( id: string | null) => {
+export const getSkill = async ( id: string | undefined) => {
   const {data} = await client.get( `getSkill/${id}`, {withCredentials: true} )
   return data.data
 }

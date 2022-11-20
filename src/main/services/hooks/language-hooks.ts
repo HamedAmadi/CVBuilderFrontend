@@ -19,6 +19,6 @@ export const useDeleteLanguage = () => {
   }   )
 }
 
-export const useGetLanguage = ( id: string | null) => {
+export const useGetLanguage = ( id: string | undefined) => {
   return useQuery( ['language', id], () => api.getLanguage( id ) )
 }

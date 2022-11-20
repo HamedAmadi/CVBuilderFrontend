@@ -1,6 +1,7 @@
 import axios, {AxiosError} from "axios"
 import {ChangePassword} from "../../components/ChangePassword/ChangePassword"
 import {UserInfo} from "../../components/UserInfo/UserInfo"
+import {useUserContext} from "../../context/UserContext"
 import {SignIn} from "../../pages/SignIn/SignIn"
 import {SignUp} from "../../pages/SignUp/SignUp"
 
@@ -28,7 +29,6 @@ export const checkSignIn = async () => {
 
 export const sendEmailForSignIn = async ( _data: SignIn ) => {
   const {data} = await client.post( '/sendEmailForSignin', _data, {withCredentials: true} )
-
   return data
 }
 

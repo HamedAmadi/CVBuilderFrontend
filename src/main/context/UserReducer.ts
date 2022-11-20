@@ -1,7 +1,7 @@
-import {initialUserState, UserStateType} from "./UserContext"
+import {UserStateType} from "./UserContext"
 
 export type ActionType =
-  | {type: 'signIn'}
+  | {type: 'signIn', payload: boolean}
   | {type: 'signOut'}
   | {type: 'verify', payload: boolean}
   | {type: 'setEmail', payload: string}
@@ -12,7 +12,7 @@ export type ActionType =
   export const UserReducer = (state: UserStateType, action: ActionType) => {
   switch (action.type) {
     case 'signIn': {
-      return {...state, isSignIn: true}
+      return {...state, isSignIn: action.payload}
     }
     case 'signOut': {
       return {...state, isSignIn: false}
@@ -30,7 +30,13 @@ export type ActionType =
       return {...state, lastName: action.payload}
     }
     case 'reset': {
-      return initialUserState
+      return {
+        isSignIn: false,
+        isVerified: null,
+        email: null,
+        firstName: null,
+        lastName: null
+      }
     }
     default: return state
   }

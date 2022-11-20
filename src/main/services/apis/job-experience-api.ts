@@ -14,12 +14,12 @@ export const insertJobExperience = async ( _data: JobExperience ) => {
     return data
 }
 
-export const deleteJobExperience = async (_data: {resumeId: string | null, jobExperienceId: string | undefined}) => {
+export const deleteJobExperience = async (_data: {resumeId: string | undefined, jobExperienceId: string | undefined}) => {
   const {data} = await client.post( `/deleteJobExperience/${_data.resumeId}/${_data.jobExperienceId}`, {}, {withCredentials: true} )
   return data
 }
 
-export const getJobExperience = async ( id: string | null) => {
+export const getJobExperience = async ( id: string | undefined) => {
   const {data} = await client.get( `getJobExperience/${id}`, {withCredentials: true} )
   return data.data
 }

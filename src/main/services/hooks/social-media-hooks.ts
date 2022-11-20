@@ -19,6 +19,6 @@ export const useDeleteSocialMedia = () => {
   }   )
 }
 
-export const useGetSocialMedia = ( id: string | null) => {
+export const useGetSocialMedia = ( id: string | undefined) => {
   return useQuery( ['socialMedia', id], () => api.getSocialMedia( id ) )
 }

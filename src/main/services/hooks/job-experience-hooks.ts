@@ -19,6 +19,6 @@ export const useDeleteJobExperience = () => {
   }   )
 }
 
-export const useJobExperience = ( id: string | null) => {
+export const useJobExperience = ( id: string | undefined) => {
   return useQuery( ['jobExperience', id], () => api.getJobExperience( id ) )
 }

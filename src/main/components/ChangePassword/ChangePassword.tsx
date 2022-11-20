@@ -2,8 +2,8 @@ import './ChangePassword.scss'
 import {FC, Fragment, useState} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useChangePassword} from "../../services/hooks/user-hooks";
-import Button from "../Button/Button";
-import Input from "../Input/Input";
+import Button from "../../UI Component/Button/Button";
+import Input from "../../UI Component/Input/Input";
 import toast, {Toaster} from 'react-hot-toast';
 
 export interface ChangePassword {
@@ -34,7 +34,7 @@ const ChangePassword: FC = () => {
 
   return (
     <div className="change-password">
-      <Toaster />
+      {/* <Toaster /> */}
       <div className="container">
         <p className='text-danger text-center'>{errorMessage}</p>
         <form onSubmit={handleSubmit( onSubmit )} className='change-password-form' noValidate>
@@ -51,7 +51,7 @@ const ChangePassword: FC = () => {
             type='password'
             name='password'
             label='رمز عبور'
-            notice='حداقل 8 کاراکتر شامل حروف کوچک، بزرگ و اعداد'
+            notice='حداقل 8 کاراکتر شامل حروف کوچک، بزرگ، اعداد و یک کاراکتر خاص'
           />
           <Input
             errors={errors}
@@ -62,7 +62,7 @@ const ChangePassword: FC = () => {
                   value: /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,20}$/,
                   message: 'رمز عبور اشتباه وارد شده'
                 },
-                validate: ( value: string ) => value === getValues( 'password' ) || 'پسوزد یکسان نیست'
+                validate: ( value: string ) => value === getValues( 'password' ) || 'رمز های عبور یکسان نیستند'
               } )}
             type='password'
             name='passwordRepeat'

@@ -2,10 +2,11 @@ import {FC, Fragment, useEffect} from "react";
 import {SubmitHandler, useForm, useFieldArray} from 'react-hook-form';
 import {TbPlus} from "react-icons/tb";
 import {useDeleteProject, useGetProject, useInsertProject} from "../../services/hooks/project-hooks";
-import Button from "../Button/Button";
-import DeleteButton from "../DeleteButton/DeleteButton";
-import SelectDate from '../SelectDate/SelectDate';
+import Button from "../../UI Component/Button/Button";
+import DeleteButton from "../../UI Component/DeleteButton/DeleteButton";
+import SelectDate from '../../UI Component/SelectDate/SelectDate';
 import toast from 'react-hot-toast';
+import {useParams} from "react-router-dom";
 
 export interface ProjectItem {
   title: string
@@ -19,11 +20,11 @@ export interface ProjectItem {
 
 export interface Project {
   projectItem: ProjectItem[]
-  resumeId: string | null
+  resumeId?: string
 };
 
 const ProjectForm: FC = () => {
-  const resumeId = localStorage.getItem( 'resumeId' )
+  const {resumeId} = useParams()
   const {data: projectItem, isLoading: getIsLoading} = useGetProject( resumeId )
   const {mutate, isLoading: insertIsLoading} = useInsertProject()
   const {mutate: Delete, isLoading: deleleteIsLoading} = useDeleteProject()
@@ -70,7 +71,7 @@ const ProjectForm: FC = () => {
     } )
   };
 
-  const deleteProject = ( resumeId: string | null, projectId: string | undefined ) => {
+  const deleteProject = ( resumeId: string | undefined, projectId: string | undefined ) => {
     const data = {resumeId, projectId}
     Delete( data, {
       onSuccess: ( res ) => {
@@ -92,7 +93,7 @@ const ProjectForm: FC = () => {
           {fields.map( ( field, index ) => {
             return (
               <div className="d-flex" key={field.id}>
-                <DeleteButton onClick={() => {remove( index ); deleteProject( localStorage.getItem( 'resumeId' ), field._id )}} />
+                <DeleteButton onClick={() => {remove( index ); deleteProject( resumeId, field._id )}} />
                 <div className="row mb-4">
                   <div className="col-12">
                     <div className='input-wrapper'>

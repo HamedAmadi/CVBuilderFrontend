@@ -1,7 +1,7 @@
 import "./Home.scss";
 import {Fragment} from "react";
 import Banner from "../../../assets/banner3-2.webp"
-import Button from "../../components/Button/Button";
+import Button from "../../UI Component/Button/Button";
 import {Link} from "react-router-dom";
 
 const Home: React.FC = () => {

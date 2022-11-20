@@ -2,10 +2,11 @@ import {FC, Fragment, useEffect} from "react";
 import {SubmitHandler, useForm, useFieldArray} from 'react-hook-form';
 import {TbPlus} from "react-icons/tb";
 import {useDeleteLanguage, useGetLanguage, useInsertLanguage} from "../../services/hooks/language-hooks";
-import Button from "../Button/Button";
-import DeleteButton from "../DeleteButton/DeleteButton";
-import Select from "../Select/Select";
+import Button from "../../UI Component/Button/Button";
+import DeleteButton from "../../UI Component/DeleteButton/DeleteButton";
+import Select from "../../UI Component/Select/Select";
 import toast from 'react-hot-toast';
+import {useParams} from "react-router-dom";
 
 export interface LanguageItem {
   languageName: string
@@ -15,7 +16,7 @@ export interface LanguageItem {
 
 export interface Language {
   languageItem: LanguageItem[]
-  resumeId: string | null
+  resumeId?: string
 };
 
 const levelOptions = [
@@ -28,7 +29,7 @@ const levelOptions = [
 ]
 
 const LanguageForm: FC = () => {
-  const resumeId = localStorage.getItem( 'resumeId' )
+  const {resumeId} = useParams()
   const {data: languageItem, isLoading: getIsLoading} = useGetLanguage( resumeId )
   const {mutate, isLoading: insertIsLoading} = useInsertLanguage()
   const {mutate: Delete, isLoading: deleleteIsLoading} = useDeleteLanguage()
@@ -71,7 +72,7 @@ const LanguageForm: FC = () => {
     } )
   };
 
-  const deleteLanguage = ( resumeId: string | null, languageId: string | undefined ) => {
+  const deleteLanguage = ( resumeId: string | undefined, languageId: string | undefined ) => {
     const data = {resumeId, languageId}
     Delete( data, {
       onSuccess: ( res ) => {
@@ -93,7 +94,7 @@ const LanguageForm: FC = () => {
           {fields.map( ( field, index ) => {
             return (
               <div className="d-flex" key={field.id}>
-                <DeleteButton onClick={() => {remove( index ); deleteLanguage( localStorage.getItem( 'resumeId' ), field._id )}} />
+                <DeleteButton onClick={() => {remove( index ); deleteLanguage( resumeId, field._id )}} />
                 <div className="row mb-4 w-100">
                   <div className="col-md-6">
                     <div className='input-wrapper'>

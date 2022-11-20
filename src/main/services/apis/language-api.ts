@@ -14,12 +14,12 @@ export const insertLanguage = async ( _data: Language ) => {
     return data
 }
 
-export const deleteLanguage = async (_data: {resumeId: string | null, languageId: string | undefined}) => {
+export const deleteLanguage = async (_data: {resumeId: string | undefined, languageId: string | undefined}) => {
   const {data} = await client.post( `/deleteLanguage/${_data.resumeId}/${_data.languageId}`, {}, {withCredentials: true} )
   return data
 }
 
-export const getLanguage = async ( id: string | null) => {
+export const getLanguage = async ( id: string | undefined) => {
   const {data} = await client.get( `getLanguage/${id}`, {withCredentials: true} )
   return data.data
 }

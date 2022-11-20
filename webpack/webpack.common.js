@@ -43,7 +43,6 @@ module.exports = {
   },
   output: {
     publicPath: '/',
-    // filename: 'bundle.js',
     filename: '[name].[contenthash].js',
     path: path.resolve( __dirname, '..', 'build' ),
   },

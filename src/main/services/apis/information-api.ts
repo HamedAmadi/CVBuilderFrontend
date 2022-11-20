@@ -14,7 +14,7 @@ export const insertBasicInformation = async ( _data: BasicInformation ) => {
     return data
 }
 
-export const getBasicInformation = async ( id: string | null) => {
+export const getBasicInformation = async ( id: string | undefined) => {
     const {data} = await client.get( `getBasicInformation/${id}`, {withCredentials: true} )
       return data.data
 }

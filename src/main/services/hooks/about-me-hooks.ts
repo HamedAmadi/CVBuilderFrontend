@@ -11,6 +11,6 @@ export const useInsertAboutMe = () => {
   }  )
 }
 
-export const useGetAboutMe = ( id: string | null) => {
+export const useGetAboutMe = ( id: string | undefined) => {
   return useQuery( ['aboutMe', id], () => api.getAboutMe( id ) )
 }

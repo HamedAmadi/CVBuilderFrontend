@@ -1,18 +1,19 @@
 import {FC, Fragment, useEffect} from 'react';
 import {SubmitHandler, useForm} from 'react-hook-form';
 import toast from 'react-hot-toast';
+import {useParams} from 'react-router-dom';
 import {useGetAboutMe, useInsertAboutMe} from '../../services/hooks/about-me-hooks';
-import Button from '../Button/Button';
-import Input from '../Input/Input';
+import Button from '../../UI Component/Button/Button';
+import Input from '../../UI Component/Input/Input';
 import './UserAboutUs.scss'
 
 export interface UserAboutUs {
   description: string
-  resumeId: string | null
+  resumeId?: string
 }
 
 const UserAboutUs: FC = () => {
-  const resumeId = localStorage.getItem( 'resumeId' )
+  const {resumeId} = useParams()
   const {data: aboutMe, isLoading: getIsLoading} = useGetAboutMe( resumeId )
   const {register, handleSubmit, setValue, formState: {errors}} = useForm<UserAboutUs>();
   const {mutate, isLoading: insertIsLoading} = useInsertAboutMe()

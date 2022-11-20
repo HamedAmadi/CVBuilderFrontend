@@ -14,7 +14,7 @@ export const insertAboutMe = async ( _data: UserAboutUs ) => {
     return data
 }
 
-export const getAboutMe = async ( id: string | null) => {
+export const getAboutMe = async ( id: string | undefined) => {
   const {data} = await client.get( `getAboutMe/${id}`, {withCredentials: true} )
   return data.data
 }

@@ -11,6 +11,6 @@ export const useInsertBasicInformation = () => {
   } )
 }
 
-export const useGetBasicInformation = ( id: string | null) => {
+export const useGetBasicInformation = ( id: string | undefined) => {
   return useQuery( ['basicInformation', id], () => api.getBasicInformation( id ))
 }

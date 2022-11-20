@@ -7,13 +7,12 @@ import TemplateImage4 from '../../../assets/4-1.webp'
 import TemplateImage5 from '../../../assets/5-1.webp'
 import TemplateImage6 from '../../../assets/6-1.webp'
 import PdfEditViewer from '../../components/PdfEditViewer/PdfEditViewer';
-import {useChangeTemplate, useGetResume} from '../../services/hooks/resume-hooks';
+import {useChangeTemplate} from '../../services/hooks/resume-hooks';
 import {TbX} from 'react-icons/tb';
-import {Link, useNavigate} from 'react-router-dom';
-import SideDrawer from '../../components/SideDrawer/SideDrawer';
-import Backdrop from '../../components/Backdrop/Backdrop';
-import Button from '../../components/Button/Button';
-import Skeleton from 'react-loading-skeleton';
+import {Link, useNavigate, useParams} from 'react-router-dom';
+import SideDrawer from '../../UI Component/SideDrawer/SideDrawer';
+import Backdrop from '../../UI Component/Backdrop/Backdrop';
+import Button from '../../UI Component/Button/Button';
 import toast, {Toaster} from 'react-hot-toast';
 
 const images = [
@@ -26,10 +25,10 @@ const images = [
 ];
 
 const ChangeTemplate: FC = () => {
-  const navigate = useNavigate()
+  const {resumeId} = useParams()
   const [sideDrawerShow, setSideDrawerShow] = useState<boolean>( false );
-  const {data: resume, isLoading: getIsLoading, isError} = useGetResume( localStorage.getItem( 'resumeId' ) )
   const {mutate: changeTemplate, isLoading: changeTemplateIsLoading} = useChangeTemplate()
+
 
   const sideDrawerToggle = () => {
     setSideDrawerShow( !sideDrawerShow )
@@ -37,7 +36,6 @@ const ChangeTemplate: FC = () => {
 
   const ChangeTemplateHandler = ( templateNumber: string ) => {
     setSideDrawerShow( false )
-    const resumeId = localStorage.getItem( 'resumeId' )
     changeTemplate( {resumeId, templateNumber}, {
       onSuccess: ( res ) => {
         if ( res.isSuccess ) {
@@ -58,19 +56,15 @@ const ChangeTemplate: FC = () => {
     backdrop = <Backdrop close={() => {setSideDrawerShow( false )}} />;
   }
 
-  if ( localStorage.getItem( 'resumeId' ) === null || isError ) {
-    navigate( '/resume-list' )
-  }
-
   return (
     <div className="change-template">
-      <Toaster />
+      {/* <Toaster /> */}
       <div className="change-template-header">
         <div className="side-drawer-btn my-auto d-lg-none">
           <Button onClick={sideDrawerToggle} size={'small'} style={'solid'} borderRadius={'normal'}>قالب ها</Button>
         </div>
         <div className="close-btn">
-          <Link to="/resume-completion"><TbX /></Link>
+          <Link to={`/resume-completion/${resumeId}`}><TbX /></Link>
         </div>
       </div>
       <div className="change-template-body">
@@ -89,9 +83,7 @@ const ChangeTemplate: FC = () => {
         </div>
         <div className="left-section">
           <div className="pdf-wrapper">
-            {/* {getIsLoading ? <Skeleton borderRadius={0} width='100%' height='100%'></Skeleton> : <PdfEditViewer templateNumber={resume.templateNumber} resume={resume} width={1600} isChangeTemplate={true} />} */}
-            {!getIsLoading && <PdfEditViewer templateNumber={resume.templateNumber} resume={resume} width={1600} isChangeTemplate={true} />}
-            {/* <Skeleton borderRadius={0} width='100%' height='100%'></Skeleton> */}
+            <PdfEditViewer width={1600} isChangeTemplate={true} />
           </div>
         </div>
       </div>

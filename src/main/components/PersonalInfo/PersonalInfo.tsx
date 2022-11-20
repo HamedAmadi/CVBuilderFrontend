@@ -1,16 +1,17 @@
-import {FC, Fragment, useEffect, useState} from 'react';
+import {FC, Fragment, memo, useEffect, useState} from 'react';
 import './PersonalInfo.scss'
 import Image from '../../../assets/images.webp'
-import Button from '../Button/Button';
-import Input from '../Input/Input';
-import {FieldValues, SubmitHandler, useForm, ValidationRule} from 'react-hook-form';
-import Upload from '../Upload/Upload';
+import Button from '../../UI Component/Button/Button';
+import Input from '../../UI Component/Input/Input';
+import {SubmitHandler, useForm} from 'react-hook-form';
+import Upload from '../../UI Component/Upload/Upload';
 import {useGetBasicInformation, useInsertBasicInformation} from '../../services/hooks/information-hooks';
-import BirthDate from '../BirthDate/BirthDate';
-import Select from '../Select/Select';
+import BirthDate from '../../UI Component/BirthDate/BirthDate';
+import Select from '../../UI Component/Select/Select';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import toast, {Toaster} from 'react-hot-toast';
+import {useParams} from 'react-router-dom';
 
 export interface BasicInformation {
   firstName: string
@@ -24,7 +25,7 @@ export interface BasicInformation {
   city: string
   address: string
   userImageBase64: string | undefined
-  resumeId: string | null
+  resumeId?: string
 }
 
 const maritalOptions = [
@@ -45,9 +46,8 @@ const soldieringOptions = [
 ]
 
 const PersonalInfo: FC = () => {
-  // const navigate = useNavigate()
-  const resumeId = localStorage.getItem( 'resumeId' )
-  const {data: basicInformation, isLoading: getIsLoading, isError} = useGetBasicInformation( resumeId )
+  const {resumeId} = useParams()
+  const {data: basicInformation, isLoading: getIsLoading} = useGetBasicInformation( resumeId )
   const [userImageBase64, setProfileBase64String] = useState<string | undefined>();
   const {mutate, isLoading: insertIsLoading} = useInsertBasicInformation()
   const {register, handleSubmit, setValue, formState: {errors}} = useForm<BasicInformation>();
@@ -55,6 +55,7 @@ const PersonalInfo: FC = () => {
   const setProfileImage = ( image: string ) => {
     setProfileBase64String( image )
   }
+
 
   useEffect( () => {
     if ( !getIsLoading ) {
@@ -89,7 +90,7 @@ const PersonalInfo: FC = () => {
   };
   return (
     <Fragment>
-      <Toaster />
+      {/* <Toaster /> */}
       <div className="personal-info-form">
         <div className="image-uploader row">
           <div className="col-md-3">

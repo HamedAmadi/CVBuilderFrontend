@@ -14,12 +14,12 @@ export const insertEducation = async ( _data: Education ) => {
   return data
 }
 
-export const deleteEducation = async (_data: {resumeId: string | null, educationId: string | undefined}) => {
+export const deleteEducation = async (_data: {resumeId: string | undefined, educationId: string | undefined}) => {
   const {data} = await client.post( `/deleteEducation/${_data.resumeId}/${_data.educationId}`, {}, {withCredentials: true} )
   return data
 }
 
-export const getEducation = async ( id: string | null) => {
+export const getEducation = async ( id: string | undefined) => {
   const {data} = await client.get( `getEducation/${id}`, {withCredentials: true} )
   return data.data
 }

@@ -2,9 +2,10 @@ import {FC, Fragment, useEffect} from "react";
 import {SubmitHandler, useForm, useFieldArray, FieldValues, FieldArray} from 'react-hook-form';
 import {TbPlus} from "react-icons/tb";
 import {useDeleteSocialMedia, useGetSocialMedia, useInsertSocialMedia} from "../../services/hooks/social-media-hooks";
-import Button from "../Button/Button";
-import DeleteButton from "../DeleteButton/DeleteButton";
+import Button from "../../UI Component/Button/Button";
+import DeleteButton from "../../UI Component/DeleteButton/DeleteButton";
 import toast from 'react-hot-toast';
+import {useParams} from "react-router-dom";
 
 export interface SocialMediaItem {
   title: string
@@ -14,11 +15,11 @@ export interface SocialMediaItem {
 
 export interface SocialMedia {
   socialMediaItem: SocialMediaItem[]
-  resumeId: string | null
+  resumeId?: string
 };
 
 const SocialMediaForm: FC = () => {
-  const resumeId = localStorage.getItem( 'resumeId' )
+  const {resumeId} = useParams()
   const {data: socialMediaItem, isLoading: getIsLoading} = useGetSocialMedia( resumeId )
   const {mutate, isLoading: insertIsLoading} = useInsertSocialMedia()
   const {mutate: Delete, isLoading: deleleteIsLoading} = useDeleteSocialMedia()
@@ -61,7 +62,7 @@ const SocialMediaForm: FC = () => {
     } )
   };
 
-  const deleteSocialMedia = ( resumeId: string | null, socialMediaId: string | undefined ) => {
+  const deleteSocialMedia = ( resumeId: string | undefined, socialMediaId: string | undefined ) => {
     const data = {resumeId, socialMediaId}
     Delete( data, {
       onSuccess: ( res ) => {
@@ -83,7 +84,7 @@ const SocialMediaForm: FC = () => {
           {fields.map( ( field, index ) => {
             return (
               <div className="d-flex" key={field.id}>
-                <DeleteButton onClick={() => {remove( index ); deleteSocialMedia( localStorage.getItem( 'resumeId' ), field._id )}} />
+                <DeleteButton onClick={() => {remove( index ); deleteSocialMedia( resumeId, field._id )}} />
                 <div className="row mb-4 w-100">
                   <div className="col-md-6">
                     <div className='input-wrapper'>

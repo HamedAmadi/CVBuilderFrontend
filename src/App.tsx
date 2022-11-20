@@ -1,25 +1,15 @@
 import './App.scss'
 import "bootstrap/scss/bootstrap.scss";
+import 'react-loading-skeleton/dist/skeleton.css'
 import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
-import {FC, lazy, Suspense, useEffect, ComponentType} from 'react';
-import {useUserContext} from './main/context/UserContext';
-import {useCheckSignIn} from './main/services/hooks/user-hooks';
-import {checkSignIn} from './main/services/apis/auth-api';
+import {FC, Suspense, useEffect} from 'react';
+import {lazyWithPreload} from "react-lazy-with-preload";
 import MainLayout from "./main/layout/MainLayout"
 import Home from './main/pages/Home/Home';
-// import ResumeCompletion from './main/pages/ResumeCompletion/ResumeCompletion';
-// import ChooseTemplates from './main/pages/ChooseTemplates/ChooseTemplates';
-// import SignUp from './main/pages/SignUp/SignUp';
-// import SignIn from './main/pages/SignIn/SignIn';
-// import ResumeList from './main/pages/ResumeList/ResumeList';
-// import SendEmail from './main/pages/SendEmail/SendEmail';
-// import SignInWithoutPassword from './main/components/SignInWithoutPassword/SignInWithoutPassword';
-// import UserSetting from './main/pages/UserSetting/UserSetting';
-// import VerifyEmail from './main/components/VerifyEmail/VerifyEmail';
-// import ChangeTemplate from './main/pages/ChangeTemplate/ChangeTemplate';
-// import SendEmailForLogin from './main/pages/SendEmailForLogin/SendEmailForLogin';
-import {lazyWithPreload} from "react-lazy-with-preload";
-import Loading from './main/components/Loading/Loading';
+import Loading from './main/UI Component/Loading/Loading';
+import PrivateRoutes from './main/util/PrivateRoutes';
+import CheckSignIn from './main/util/CheckSignIn';
+import {Toaster} from 'react-hot-toast';
 const ResumeCompletion = lazyWithPreload( () => import( './main/pages/ResumeCompletion/ResumeCompletion' ) );
 const ChooseTemplates = lazyWithPreload( () => import( './main/pages/ChooseTemplates/ChooseTemplates' ) );
 const SignUp = lazyWithPreload( () => import( './main/pages/SignUp/SignUp' ) );
@@ -31,22 +21,8 @@ const UserSetting = lazyWithPreload( () => import( './main/pages/UserSetting/Use
 const VerifyEmail = lazyWithPreload( () => import( './main/components/VerifyEmail/VerifyEmail' ) );
 const ChangeTemplate = lazyWithPreload( () => import( './main/pages/ChangeTemplate/ChangeTemplate' ) );
 const SendEmailForLogin = lazyWithPreload( () => import( './main/pages/SendEmailForLogin/SendEmailForLogin' ) );
-// const ResumeCompletion = lazy( () => import( './main/pages/ResumeCompletion/ResumeCompletion' ) );
-// const ChooseTemplates = lazy( () => import( './main/pages/ChooseTemplates/ChooseTemplates' ) );
-// const SignUp = lazy( () => import( './main/pages/SignUp/SignUp' ) );
-// const SignIn = lazy( () => import( './main/pages/SignIn/SignIn' ) );
-// const ResumeList = lazy( () => import( './main/pages/ResumeList/ResumeList' ) );
-// const SendEmail = lazy( () => import( './main/pages/SendEmail/SendEmail' ) );
-// const SignInWithoutPassword = lazy( () => import( './main/components/SignInWithoutPassword/SignInWithoutPassword' ) );
-// const UserSetting = lazy( () => import( './main/pages/UserSetting/UserSetting' ) );
-// const VerifyEmail = lazy( () => import( './main/components/VerifyEmail/VerifyEmail' ) );
-// const ChangeTemplate = lazy( () => import( './main/pages/ChangeTemplate/ChangeTemplate' ) );
-// const SendEmailForLogin = lazy( () => import( './main/pages/SendEmailForLogin/SendEmailForLogin' ) );
 
 const App: FC = () => {
-  const {data: userDetail, isLoading} = useCheckSignIn()
-  const {state, dispatch} = useUserContext()
-
   useEffect( () => {
     ResumeCompletion.preload()
     ChooseTemplates.preload()
@@ -61,61 +37,31 @@ const App: FC = () => {
     SendEmailForLogin.preload()
   }, [] );
 
-  useEffect( () => {
-    if ( !isLoading ) {
-      if ( userDetail.isSuccess ) {
-        dispatch( {type: 'signIn'} )
-        dispatch( {type: 'setEmail', payload: userDetail.email} )
-        dispatch( {type: 'verify', payload: userDetail.verified} )
-        if ( userDetail.firstName ) {
-          dispatch( {type: 'setFirstName', payload: userDetail.firstName} )
-        }
-        if ( userDetail.lastName ) {
-          dispatch( {type: 'setLastName', payload: userDetail.lastName} )
-        }
-      }
-      else {
-      }
-    }
-  }, [userDetail] );
-
-  if ( isLoading ) return null
-
   return (
     <BrowserRouter>
-      <Suspense fallback={<Loading />}>
-        {userDetail.isSuccess || state.isSignIn ?
-          <Routes>
-            <Route element={<MainLayout />}>
-              <Route path='/' element={<Home />} />
-              <Route path='/choose-templates' element={<ChooseTemplates />} />
-              <Route path='/signup' element={<SignUp />} />
-              <Route path='/signin' element={<SignIn />} />
-              <Route path='/resume-list' element={<ResumeList />} />
-              <Route path='/send-email' element={<SendEmail />} />
-              <Route path='/send-email-for-login' element={<SendEmailForLogin />} />
-              <Route path='/user-setting' element={<UserSetting />} />
-              <Route path='/signin-without-password/:token' element={<SignInWithoutPassword />} />
-              <Route path='/verify-email/:token' element={<VerifyEmail />} />
-            </Route>
-            <Route path='/resume-completion' element={<ResumeCompletion />} />
-            <Route path='/change-template' element={<ChangeTemplate />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
-          :
-          <Routes>
-            <Route element={<MainLayout />}>
-              <Route path='/' element={<Home />} />
-              <Route path='/choose-templates' element={<ChooseTemplates />} />
-              <Route path='/signup' element={<SignUp />} />
-              <Route path='/signin' element={<SignIn />} />
-              <Route path='/send-email-for-login' element={<SendEmailForLogin />} />
-              <Route path='/signin-without-password/:token' element={<SignInWithoutPassword />} />
-              <Route path='*' element={<Navigate to="/" />} />
-            </Route>
-          </Routes>
-        }
-      </Suspense>
+      <Toaster />
+      <CheckSignIn />
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path='/' element={<Home />} />
+          <Route path='/choose-templates' element={<Suspense fallback={<Loading />}><ChooseTemplates /></Suspense>} />
+          <Route path='/signup' element={<Suspense fallback={<Loading />}><SignUp /></Suspense>} />
+          <Route path='/signin' element={<Suspense fallback={<Loading />}><SignIn /></Suspense>} />
+          <Route path='/send-email' element={<Suspense fallback={<Loading />}><SendEmail /></Suspense>} />
+          <Route path='/send-email-for-login' element={<Suspense fallback={<Loading />}><SendEmailForLogin /></Suspense>} />
+          <Route path='/signin-without-password/:token' element={<Suspense fallback={<Loading />}><SignInWithoutPassword /></Suspense>} />
+          <Route element={<PrivateRoutes />}>
+            <Route path='/resume-list' element={<Suspense fallback={<Loading />}><ResumeList /></Suspense>} />
+            <Route path='/user-setting' element={<Suspense fallback={<Loading />}><UserSetting /></Suspense>} />
+            <Route path='/verify-email/:token' element={<Suspense fallback={<Loading />}><VerifyEmail /></Suspense>} />
+          </Route>
+        </Route>
+        <Route element={<PrivateRoutes />}>
+          <Route path='/resume-completion/:resumeId' element={<Suspense fallback={<Loading />}><ResumeCompletion /></Suspense>} />
+          <Route path='/change-template/:resumeId' element={<Suspense fallback={<Loading />}><ChangeTemplate /></Suspense>} />
+        </Route>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
     </BrowserRouter>
   )
 }

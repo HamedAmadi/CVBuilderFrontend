@@ -2,10 +2,11 @@ import {FC, Fragment, useEffect} from "react";
 import {SubmitHandler, useForm, useFieldArray} from 'react-hook-form';
 import {TbPlus} from "react-icons/tb";
 import {useDeleteCertificate, useGetCertificate, useInsertCertificate} from "../../services/hooks/certificate-hooks";
-import Button from "../Button/Button";
-import DeleteButton from "../DeleteButton/DeleteButton";
-import SelectDate from '../SelectDate/SelectDate';
+import Button from "../../UI Component/Button/Button";
+import DeleteButton from "../../UI Component/DeleteButton/DeleteButton";
+import SelectDate from '../../UI Component/SelectDate/SelectDate';
 import toast from 'react-hot-toast';
+import {useParams} from "react-router-dom";
 
 export interface CertificateItem {
   certificateName: string
@@ -17,11 +18,11 @@ export interface CertificateItem {
 
 export interface Certificate {
   certificateItem: CertificateItem[]
-  resumeId: string | null
+  resumeId?: string
 };
 
 const CertificateForm: FC = () => {
-  const resumeId = localStorage.getItem( 'resumeId' )
+  const {resumeId} = useParams()
   const {data: certificateItem, isLoading: getIsLoading} = useGetCertificate( resumeId )
   const {mutate, isLoading: insertIsLoading} = useInsertCertificate()
   const {mutate: Delete, isLoading: deleleteIsLoading} = useDeleteCertificate()
@@ -67,7 +68,7 @@ const CertificateForm: FC = () => {
     } )
   };
 
-  const deleteCertificate = ( resumeId: string | null, certificateId: string | undefined ) => {
+  const deleteCertificate = ( resumeId: string | undefined, certificateId: string | undefined ) => {
     const data = {resumeId, certificateId}
     Delete( data, {
       onSuccess: ( res ) => {
@@ -89,7 +90,7 @@ const CertificateForm: FC = () => {
           {fields.map( ( field, index ) => {
             return (
               <div className="d-flex" key={field.id}>
-                <DeleteButton onClick={() => {remove( index ); deleteCertificate( localStorage.getItem( 'resumeId' ), field._id )}} />
+                <DeleteButton onClick={() => {remove( index ); deleteCertificate( resumeId, field._id )}} />
                 <div className="row mb-4">
                   <div className="col-md-6">
                     <div className='input-wrapper'>

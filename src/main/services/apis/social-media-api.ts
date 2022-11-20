@@ -16,12 +16,12 @@ export const insertSocialMedia = async ( _data: SocialMedia ) => {
   return data
 }
 
-export const deleteSocialMedia = async (_data: {resumeId: string | null, socialMediaId: string | undefined}) => {
+export const deleteSocialMedia = async (_data: {resumeId: string | undefined, socialMediaId: string | undefined}) => {
   const {data} = await client.post( `/deleteSocialMedia/${_data.resumeId}/${_data.socialMediaId}`, {}, {withCredentials: true} )
   return data
 }
 
-export const getSocialMedia = async ( id: string | null) => {
+export const getSocialMedia = async ( id: string | undefined) => {
   const {data} = await client.get( `getSocialMedia/${id}`, {withCredentials: true} )
   return data.data
 }

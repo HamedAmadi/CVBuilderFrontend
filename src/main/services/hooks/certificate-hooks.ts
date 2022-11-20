@@ -19,6 +19,6 @@ export const useDeleteCertificate = () => {
   }   )
 }
 
-export const useGetCertificate = ( id: string | null) => {
+export const useGetCertificate = ( id: string | undefined) => {
   return useQuery( ['certificate', id], () => api.getCertificate( id ))
 }
