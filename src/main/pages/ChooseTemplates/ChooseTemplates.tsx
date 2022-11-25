@@ -1,5 +1,5 @@
 import './ChooseTemplates.scss'
-import {Fragment, useState, useCallback} from "react";
+import {Fragment, useState, useCallback, Suspense} from "react";
 import TemplateImage1 from '../../../assets/1-1.webp'
 import TemplateImage2 from '../../../assets/2-1.webp'
 import TemplateImage3 from '../../../assets/3-1.webp'
@@ -10,6 +10,8 @@ import {useNavigate} from "react-router-dom";
 import {useUserContext} from '../../context/UserContext';
 import {useCreateResume} from '../../services/hooks/resume-hooks';
 import toast from 'react-hot-toast';
+import Skeleton from 'react-loading-skeleton';
+import ResumeImage from '../../components/ResumeImage/ResumeImage';
 
 const images = [
   TemplateImage1,
@@ -53,13 +55,14 @@ const ChooseTemplates: React.FC = () => {
           <p className="text-center mb-1">همچنین می توانید هنگام تکمیل رزومه و بعد از تکمیل رزومه قالب را تغییر دهید</p>
           <div className="row p-4">
             {
-              images.map( ( src: string, index: number ) => (
-                <div className="col-lg-4 col-md-6 px-lg-4 my-4" key={index}>
-                  <div className="template-img" onClick={() => selectTemplateHandler( index + 1 )}>
-                    <img className="w-100 m-auto" src={src} alt="template" />
+              images.map( ( src: string, index: number ) => {
+                console.log( src )
+                return (
+                  < div className="col-lg-4 col-md-6 px-lg-4 my-4" onClick={() => selectTemplateHandler( index + 1 )} key={index}>
+                    <ResumeImage src={src} />
                   </div>
-                </div>
-              ) )
+                )
+              } )
             }
           </div>
         </div>

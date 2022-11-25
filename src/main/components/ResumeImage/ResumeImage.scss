@@ -1,0 +1,16 @@
+.template-img {
+  transition: all 0.3s ease;
+  box-shadow: 0 0 17px 1px rgb(0 0 0 / 10%);
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.03);
+    // width: 386px;
+    // height: auto;
+  }
+}
+
+.img-skeleton {
+  width: 100%;
+  aspect-ratio: 500/ 708;
+}
