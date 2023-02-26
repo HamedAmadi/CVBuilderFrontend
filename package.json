@@ -39,7 +39,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@hookform/error-message": "^2.0.0",
+    "@hookform/error-message": "^2.0.1",
     "@react-pdf/renderer": "^3.0.0",
     "@tanstack/react-query": "^4.2.3",
     "@types/pdf-viewer-reactjs": "^2.2.2",
