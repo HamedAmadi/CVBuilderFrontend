@@ -19,6 +19,7 @@ interface Props {
 }
 
 const Upload: React.FC<Props> = ( props ) => {
+  console.log( 'upload' )
   const [image, setImage] = useState<string>();
   const [crop, setCrop] = useState<Point>( {x: 0, y: 0} )
   const [rotation, setRotation] = useState( 0 )

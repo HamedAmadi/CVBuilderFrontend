@@ -3,7 +3,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import {FC, Fragment, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {useUserContext} from '../../context/UserContext';
-import {TbChevronDown, TbUser, TbFileText, TbLogout} from 'react-icons/tb';
+import {TbChevronDown, TbUser, TbFileText, TbLogout, TbUserCircle} from 'react-icons/tb';
 import Backdrop from '../../UI Component/Backdrop/Backdrop';
 import {useLogout} from '../../services/hooks/user-hooks';
 import Skeleton from 'react-loading-skeleton';
@@ -50,21 +50,26 @@ const UserWidget: FC = () => {
             :
             state.isSignIn ?
               <div className="profile-button" onClick={toggleDate}>
-                {
-                  ( state.firstName && state.lastName ) ?
-                    <div>{state.firstName} {state.lastName}</div>
-                    :
-                    ( state.firstName ) ?
-                      <div>{state.firstName}</div>
-                      :
-                      ( state.lastName ) ?
-                        <div>{state.lastName}</div>
-                        :
-                        <div>{state.email}</div>
+                <TbUserCircle className="user-icon" />
 
-                }
                 <TbChevronDown className="me-1 mt-1" />
                 <ul className={dropdownClasses}>
+                  {/* <div className='user-name'> */}
+                  {
+                    ( state.firstName && state.lastName ) ?
+
+                      <div className='user-name'><TbUserCircle /> {state.firstName} {state.lastName}</div>
+                      :
+                      ( state.firstName ) ?
+                        <div className='user-name'><TbUserCircle /> {state.firstName}</div>
+                        :
+                        ( state.lastName ) ?
+                          <div className='user-name'><TbUserCircle /> {state.lastName}</div>
+                          :
+                          <div className='user-email'>{state.email}</div>
+
+                  }
+                  {/* </div> */}
                   <li onClick={toggleDate}><Link className='stretched-link' to="/resume-list"><TbFileText /> لیست رزومه ها</Link></li>
                   <li onClick={toggleDate}><Link className='stretched-link' to="/user-setting"><TbUser /> تنظیمات کاربری</Link></li>
                   <li onClick={toggleDate}><Link className='stretched-link' to="#" onClick={logoutHandler}><TbLogout /> خروج</Link></li>

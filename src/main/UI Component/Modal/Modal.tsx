@@ -11,7 +11,6 @@ interface Props {
 }
 
 const stopPropagation: MouseEventHandler<HTMLDivElement> = e => {
-  e.persist();
   e.stopPropagation();
 };
 

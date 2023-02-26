@@ -1,3 +1,4 @@
+import {FC} from 'react';
 import './Button.scss';
 
 const STYLES = ["solid", "outline"];
@@ -15,7 +16,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const Button: React.FC<Props> = ( props ) => {
+const Button: FC<Props> = ( props ) => {
   const checkStyle = STYLES.includes( props.style ) && props.style;
   const checkSize = SIZES.includes( props.size ) && props.size;
   const checkBorderRadius = BORDER_RADIUS.includes( props.borderRadius ) && props.borderRadius;

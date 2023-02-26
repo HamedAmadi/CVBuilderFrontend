@@ -1,6 +1,6 @@
 import './SignIn.scss'
 import {FC, Fragment, useState} from "react";
-import {FieldValue, FieldValues, SubmitHandler, useForm, ValidationRule} from 'react-hook-form';
+import {SubmitHandler, useForm} from 'react-hook-form';
 import Input from '../../UI Component/Input/Input';
 import Button from '../../UI Component/Button/Button';
 import {Link, useNavigate} from 'react-router-dom';

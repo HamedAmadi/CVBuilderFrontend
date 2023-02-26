@@ -1,5 +1,5 @@
 import './Input.scss'
-import {forwardRef, Fragment} from "react";
+import {DetailedHTMLProps, forwardRef, Fragment, InputHTMLAttributes, ReactElement, RefObject} from "react";
 import {FieldErrorsImpl, FieldValues, useForm} from 'react-hook-form';
 import {ErrorMessage} from '@hookform/error-message';
 import Skeleton from 'react-loading-skeleton'
@@ -83,21 +83,6 @@ const Input = forwardRef<any, InputProps>( ( {type, errors, name, label, notice,
         </div>
       </Fragment>
     )
-    // case 'select': return (
-    //   <Fragment>
-    //     <div className='input-wrapper'>
-    //       <label className="d-block fw-bold text-secondary mx-2">{label}</label>
-    //       {/* <input className="text-input" ref={ref} name={name} {...rest} type="text" /> */}
-    //       <select className="text-input" ref={ref} name={name} {...rest}>
-    //         {options && options.map( ( {label, value} ) => (
-    //           <option key={value} value={value}>
-    //             {label}
-    //           </option>
-    //         ) )}
-    //       </select>
-    //     </div>
-    //   </Fragment>
-    // );
     case 'textarea': return (
       <Fragment>
         <div className='input-wrapper'>
@@ -110,41 +95,5 @@ const Input = forwardRef<any, InputProps>( ( {type, errors, name, label, notice,
   }
 
 } )
-
-// const Input: React.FC<InputProps> = ( {type, error, name, register, label, notice} ) => {
-
-//   switch ( type ) {
-//     case 'text': return (
-//       <Fragment>
-//         <div className='input-wrapper'>
-//           <label className="d-block fw-bold text-secondary">{label}</label>
-//           {/* <input className="text-input" type="text" name={name} id={id} /> */}
-//           <input className="text-input" />
-//           {error && <span className='notice'>{notice}</span>}
-//           {notice && <span className='notice'>{notice}</span>}
-//         </div>
-//       </Fragment>
-//     );
-//     case 'email': return (
-//       <Fragment>
-//         <div className='input-wrapper'>
-//           <label className="d-block fw-bold text-secondary">{label}</label>
-//           <input className="text-input" />
-//           <span className='notice'>{notice}</span>
-//         </div>
-//       </Fragment>
-//     )
-//     case 'password': return (
-//       <Fragment>
-//         <div className='input-wrapper'>
-//           <label className="d-block fw-bold text-secondary">{label}</label>
-//           <input className="text-input" />
-//           <span className='notice'>{notice}</span>
-//         </div>
-//       </Fragment>
-//     )
-//     default: return null
-//   }
-// };
 
 export default Input;

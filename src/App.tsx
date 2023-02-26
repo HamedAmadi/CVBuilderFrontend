@@ -2,8 +2,8 @@ import './App.scss'
 import "bootstrap/scss/bootstrap.scss";
 import 'react-loading-skeleton/dist/skeleton.css'
 import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
-import {FC, Suspense, useEffect, lazy} from 'react';
-import {lazyWithPreload} from "react-lazy-with-preload";
+import {FC, Suspense, lazy} from 'react';
+// import {lazyWithPreload} from "react-lazy-with-preload";
 import MainLayout from "./main/layout/MainLayout"
 import Home from './main/pages/Home/Home';
 import Loading from './main/UI Component/Loading/Loading';
@@ -19,10 +19,18 @@ const SendEmail = lazy( () => import( './main/pages/SendEmail/SendEmail' ) );
 const SignInWithoutPassword = lazy( () => import( './main/components/SignInWithoutPassword/SignInWithoutPassword' ) );
 const UserSetting = lazy( () => import( './main/pages/UserSetting/UserSetting' ) );
 const VerifyEmail = lazy( () => import( './main/components/VerifyEmail/VerifyEmail' ) );
-const ChangeTemplate = lazyWithPreload( () => import( './main/pages/ChangeTemplate/ChangeTemplate' ) );
+const ChangeTemplate = lazy( () => import( './main/pages/ChangeTemplate/ChangeTemplate' ) );
 const SendEmailForLogin = lazy( () => import( './main/pages/SendEmailForLogin/SendEmailForLogin' ) );
 
 const App: FC = () => {
+  // const myObject = {
+  //   myMethod: () => {
+  //     console.log( this );
+  //   }
+  // };
+
+  // myObject.myMethod()
+
   //   useEffect( () => {
   //     ResumeCompletion.preload()
   //     ChooseTemplates.preload()

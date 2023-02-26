@@ -2,7 +2,7 @@ import './ResumeList.scss'
 import {FC} from "react";
 import {Link} from "react-router-dom";
 import Button from "../../UI Component/Button/Button";
-import {useDeleteResume, useGetResumeList} from '../../services/hooks/resume-hooks';
+import {useDeleteResume, useGetResumeList, MyCustomHook} from '../../services/hooks/resume-hooks';
 import PdfViewerAsImage from '../../components/PdfViewerAsImage/PdfViewerAsImage';
 import {useUserContext} from '../../context/UserContext';
 import {Resume} from '../../PDF Templates/PDFTemplate6/PDFTemplate6';
@@ -15,6 +15,10 @@ import ResumeCard from '../../components/ResumeCard/ResumeCard';
 const ResumeList: FC = () => {
   const {state} = useUserContext()
   const {data, isLoading: ResumeListIsLoading} = useGetResumeList()
+
+  // MyCustomHook( 'abol' );
+
+  // console.log( MyCustomHook( 'abol' ) )
 
   return (
     <div className="resume-list">

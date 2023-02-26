@@ -1,5 +1,4 @@
 import {createContext, ReactNode, useContext, useReducer} from "react";
-import {checkSignIn} from "../services/apis/auth-api";
 import {ActionType, UserReducer} from "./UserReducer";
 
 type UserContextType = {
@@ -51,5 +50,3 @@ export const useUserContext = () => {
   }
   return context
 }
-
-// export {UserContextProvider, useUserContext}

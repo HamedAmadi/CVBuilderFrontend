@@ -21,17 +21,9 @@
       color: var(--third-color);
     }
 
-    div {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 160px;
-      // text-align: left;
-      white-space: nowrap;
-      direction: ltr;
-
-      @media(max-width: 575px) {
-        max-width: 120px;
-      }
+    .user-icon {
+      width: 24px;
+      height: 24px;
     }
 
     .nav-dropdown {
@@ -50,6 +42,45 @@
       // transition: all 0.25s;
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.18);
       z-index: 101 !important;
+
+      .user-email {
+        font-size: 14px;
+        color: var(--eighth-color);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 180px;
+        text-align: left;
+        white-space: nowrap;
+        direction: ltr;
+        margin: 0;
+        padding: 0 16px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--seventh-color);
+        cursor: default;
+
+        @media(max-width: 575px) {
+          // max-width: 160px;
+        }
+      }
+
+      .user-name {
+        font-size: 16px;
+        font-weight: bold;
+        color: var(--eighth-color);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 180px;
+        white-space: nowrap;
+        margin: 0;
+        padding: 0 16px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--seventh-color);
+        cursor: default;
+
+        @media(max-width: 575px) {
+          // max-width: 160px;
+        }
+      }
 
       li {
         padding: 6px 16px;

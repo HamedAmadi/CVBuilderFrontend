@@ -1,3 +1,4 @@
+import {useEffect, useState} from "react"
 import {useMutation, useQuery} from "react-query"
 import {queryClient} from "../../.."
 import * as api from "../apis/resume-api"
@@ -33,4 +34,15 @@ export const useChangeTemplate = () => {
       queryClient.invalidateQueries( ['resumeList'] )
     }
   })
+}
+
+export function MyCustomHook(someDataKey: string) {
+
+    const [someValue, setSomeValue] = useState<string>('');
+
+    useEffect(() => {
+        setSomeValue(someDataKey);
+    }, [someDataKey]);
+
+    return someValue;
 }
