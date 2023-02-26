@@ -1,6 +1,6 @@
 import './Input.scss'
-import {DetailedHTMLProps, forwardRef, Fragment, InputHTMLAttributes, ReactElement, RefObject} from "react";
-import {FieldErrorsImpl, FieldValues, useForm} from 'react-hook-form';
+import {forwardRef, Fragment} from "react";
+import {FieldErrorsImpl} from 'react-hook-form';
 import {ErrorMessage} from '@hookform/error-message';
 import Skeleton from 'react-loading-skeleton'
 
@@ -17,7 +17,7 @@ type InputProps = {
   notice?: string
   reqMessage?: string
   patternMessage?: string
-  errors?: FieldErrorsImpl
+  errors: FieldErrorsImpl
   options?: Option[],
   isLoading?: boolean
 }
