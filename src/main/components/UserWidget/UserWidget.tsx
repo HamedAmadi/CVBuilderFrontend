@@ -54,7 +54,6 @@ const UserWidget: FC = () => {
 
                 <TbChevronDown className="me-1 mt-1" />
                 <ul className={dropdownClasses}>
-                  {/* <div className='user-name'> */}
                   {
                     ( state.firstName && state.lastName ) ?
 
@@ -69,7 +68,6 @@ const UserWidget: FC = () => {
                           <div className='user-email'>{state.email}</div>
 
                   }
-                  {/* </div> */}
                   <li onClick={toggleDate}><Link className='stretched-link' to="/resume-list"><TbFileText /> لیست رزومه ها</Link></li>
                   <li onClick={toggleDate}><Link className='stretched-link' to="/user-setting"><TbUser /> تنظیمات کاربری</Link></li>
                   <li onClick={toggleDate}><Link className='stretched-link' to="#" onClick={logoutHandler}><TbLogout /> خروج</Link></li>
