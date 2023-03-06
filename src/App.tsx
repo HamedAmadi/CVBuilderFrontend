@@ -7,8 +7,8 @@ import MainLayout from "./main/layout/MainLayout"
 import Home from './main/pages/Home/Home';
 import Loading from './main/UI Component/Loading/Loading';
 import PrivateRoutes from './main/util/PrivateRoutes';
-import CheckSignIn from './main/util/CheckSignIn';
 import {Toaster} from 'react-hot-toast';
+import {useCheckSignIn} from './main/hooks/user-hooks';
 const ResumeCompletion = lazy( () => import( './main/pages/ResumeCompletion/ResumeCompletion' ) );
 const ChooseTemplates = lazy( () => import( './main/pages/ChooseTemplates/ChooseTemplates' ) );
 const SignUp = lazy( () => import( './main/pages/SignUp/SignUp' ) );
@@ -22,10 +22,11 @@ const ChangeTemplate = lazy( () => import( './main/pages/ChangeTemplate/ChangeTe
 const SendEmailForLogin = lazy( () => import( './main/pages/SendEmailForLogin/SendEmailForLogin' ) );
 
 const App: FC = () => {
+  useCheckSignIn()
+
   return (
     <BrowserRouter>
       <Toaster />
-      <CheckSignIn />
       <Routes>
         <Route element={<MainLayout />}>
           <Route path='/' element={<Suspense fallback={<Loading />}><Home /></Suspense>} />
