@@ -4,7 +4,7 @@ import {FieldValues, SubmitHandler, useForm, ValidationRule} from 'react-hook-fo
 import Input from '../../UI Component/Input/Input';
 import Button from '../../UI Component/Button/Button';
 import {Link, useNavigate} from 'react-router-dom';
-import {useSignUp} from '../../services/hooks/user-hooks';
+import {useSignUp} from '../../hooks/user-hooks';
 import {useUserContext} from '../../context/UserContext';
 
 export interface SignUp {
@@ -86,8 +86,6 @@ const SignUp: React.FC = () => {
     mutate( values, {
       onSuccess: ( res ) => {
         dispatch( {type: 'signIn', payload: true} )
-        // dispatch( {type: 'setFirstName', payload: res.data.firstName} )
-        // dispatch( {type: 'setLastName', payload: res.data.lastName} )
         dispatch( {type: 'setEmail', payload: res.data.email} )
         dispatch( {type: 'verify', payload: res.data.isVerified} )
 

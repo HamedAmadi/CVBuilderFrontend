@@ -5,7 +5,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {useUserContext} from '../../context/UserContext';
 import {TbChevronDown, TbUser, TbFileText, TbLogout, TbUserCircle} from 'react-icons/tb';
 import Backdrop from '../../UI Component/Backdrop/Backdrop';
-import {useLogout} from '../../services/hooks/user-hooks';
+import {useLogout} from '../../hooks/user-hooks';
 import Skeleton from 'react-loading-skeleton';
 
 const UserWidget: FC = () => {

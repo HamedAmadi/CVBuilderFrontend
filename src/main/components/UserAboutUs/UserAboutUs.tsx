@@ -2,7 +2,7 @@ import {FC, Fragment, useEffect} from 'react';
 import {SubmitHandler, useForm} from 'react-hook-form';
 import toast from 'react-hot-toast';
 import {useParams} from 'react-router-dom';
-import {useGetAboutMe, useInsertAboutMe} from '../../services/hooks/about-me-hooks';
+import {useGetAboutMe, useInsertAboutMe} from '../../hooks/about-me-hooks';
 import Button from '../../UI Component/Button/Button';
 import Input from '../../UI Component/Input/Input';
 import './UserAboutUs.scss'

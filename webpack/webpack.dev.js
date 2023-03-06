@@ -43,7 +43,4 @@ module.exports = {
     open: true,
     port: 3000
   },
-  // plugins: [
-  //    new BundleAnalyzerPlugin(),
-  // ],
 }

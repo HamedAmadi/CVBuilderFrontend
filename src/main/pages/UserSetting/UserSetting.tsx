@@ -3,7 +3,7 @@ import {FC, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import ChangePassword from "../../components/ChangePassword/ChangePassword";
 import UserInfo from "../../components/UserInfo/UserInfo";
-import {useSendVerifyEmail} from "../../services/hooks/user-hooks";
+import {useSendVerifyEmail} from "../../hooks/user-hooks";
 import {useUserContext} from '../../context/UserContext';
 
 const UserSetting: FC = () => {

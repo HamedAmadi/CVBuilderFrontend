@@ -1,7 +1,7 @@
 import {FC, Fragment, useEffect} from "react";
 import {SubmitHandler, useForm, useFieldArray} from 'react-hook-form';
 import {TbPlus} from "react-icons/tb";
-import {useDeleteJobExperience, useInsertJobExperience, useJobExperience} from "../../services/hooks/job-experience-hooks";
+import {useDeleteJobExperience, useInsertJobExperience, useJobExperience} from "../../hooks/job-experience-hooks";
 import Button from "../../UI Component/Button/Button";
 import DeleteButton from "../../UI Component/DeleteButton/DeleteButton";
 import SelectDate from '../../UI Component/SelectDate/SelectDate';

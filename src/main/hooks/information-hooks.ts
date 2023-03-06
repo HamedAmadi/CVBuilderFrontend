@@ -1,6 +1,6 @@
 import {useMutation, useQuery} from "react-query"
-import {queryClient} from "../../.."
-import * as api from "../apis/information-api"
+import {queryClient} from "../.."
+import * as api from "../services/information-api"
 
 export const useInsertBasicInformation = () => {
   return useMutation( api.insertBasicInformation, {

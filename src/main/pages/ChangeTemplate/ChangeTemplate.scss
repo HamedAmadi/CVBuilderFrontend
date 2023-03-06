@@ -17,8 +17,6 @@
         color: var(--first-color) !important;
       }
     }
-
-    // .side-drawer-btn {}
   }
 
   .change-template-body {
@@ -67,7 +65,6 @@
     .left-section {
       width: 70%;
       height: 100%;
-      // padding-bottom: 40px;
       background-color: var(--fifth-color);
 
       @media(max-width: 992px) {
@@ -78,7 +75,6 @@
         overflow-y: auto;
         width: 100%;
         height: 100%;
-        // scrollbar-width: 5px;
         scrollbar-width: thin;
         scrollbar-color: var(--eighth-color) var(--fourth-color);
 
@@ -130,31 +126,6 @@
             line-height: unset !important;
           }
         }
-
-        // .react-pdf__Page {
-        //   height: 100%;
-        // canvas {
-        //   border-radius: 0;
-        //   width: 80% !important;
-        //   height: auto !important;
-        //   padding-bottom: 100px;
-        //   @media (max-width: 768px) {
-        //     width: 100% !important;
-        //     height: auto !important;
-        //   }
-        // }
-        // .pdf-skeleton {
-        //   border-radius: 0;
-        //   width: 80% !important;
-        //   // height: auto !important;
-        //   // padding-bottom: 100px;
-        //   aspect-ratio: 600 / 848;
-        //   @media (max-width: 768px) {
-        //     width: 100% !important;
-        //     aspect-ratio: 600 / 848;
-        //     // height: auto !important;
-        //   }
-        // }
       }
     }
   }

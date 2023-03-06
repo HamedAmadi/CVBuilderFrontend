@@ -45,7 +45,6 @@ const styles = StyleSheet.create( {
   },
   section: {
     flexDirection: 'row-reverse',
-    // marginBottom: 20,
   },
   sectionTitle: {
     width: '16%',

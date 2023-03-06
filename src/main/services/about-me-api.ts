@@ -1,5 +1,5 @@
 import axios from "axios"
-import {UserAboutUs} from "../../components/UserAboutUs/UserAboutUs"
+import {UserAboutUs} from "../components/UserAboutUs/UserAboutUs"
 
 
 const client = axios.create( {

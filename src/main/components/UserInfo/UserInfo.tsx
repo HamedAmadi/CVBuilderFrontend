@@ -2,7 +2,7 @@ import './UserInfo.scss'
 import {FC, useEffect} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useUserContext} from "../../context/UserContext";
-import {useCompleteProfile, useGetUserInfo} from "../../services/hooks/user-hooks";
+import {useCompleteProfile, useGetUserInfo} from "../../hooks/user-hooks";
 import Button from "../../UI Component/Button/Button";
 import Input from "../../UI Component/Input/Input";
 import toast from 'react-hot-toast';

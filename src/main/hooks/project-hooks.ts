@@ -1,6 +1,6 @@
 import {useMutation, useQuery} from "react-query"
-import {queryClient} from "../../.."
-import * as api from "../apis/project-api"
+import {queryClient} from "../.."
+import * as api from "../services/project-api"
 
 export const useInsertProject = () => {
   return useMutation(api.insertProject, {

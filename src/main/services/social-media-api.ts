@@ -1,5 +1,5 @@
 import axios from "axios"
-import {SocialMedia} from "../../components/SocialMediaForm/SocialMediaForm"
+import {SocialMedia} from "../components/SocialMediaForm/SocialMediaForm"
 
 
 const client = axios.create( {

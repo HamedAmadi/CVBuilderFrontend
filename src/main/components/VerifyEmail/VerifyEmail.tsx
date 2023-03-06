@@ -1,7 +1,7 @@
 import {FC, Fragment, useEffect} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {useUserContext} from "../../context/UserContext";
-import {useVerifyEmail} from "../../services/hooks/user-hooks";
+import {useVerifyEmail} from "../../hooks/user-hooks";
 
 const VerifyEmail: FC = () => {
   const {dispatch} = useUserContext()

@@ -1,6 +1,6 @@
 import {useMutation, useQuery} from "react-query"
-import {queryClient} from "../../.."
-import * as api from "../apis/about-me-api"
+import {queryClient} from "../.."
+import * as api from "../services/about-me-api"
 
 export const useInsertAboutMe = () => {
   return useMutation(api.insertAboutMe, {

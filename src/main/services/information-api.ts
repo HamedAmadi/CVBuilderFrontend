@@ -1,5 +1,5 @@
 import axios from "axios"
-import {BasicInformation} from "../../components/PersonalInfo/PersonalInfo"
+import {BasicInformation} from "../components/PersonalInfo/PersonalInfo"
 
 
 const client = axios.create( {

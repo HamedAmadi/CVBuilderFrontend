@@ -2,7 +2,7 @@ import {FC} from "react";
 import toast from "react-hot-toast";
 import {Link} from "react-router-dom";
 import {Resume} from "../../PDF Templates/PDFTemplate6/PDFTemplate6";
-import {useDeleteResume} from "../../services/hooks/resume-hooks";
+import {useDeleteResume} from "../../hooks/resume-hooks";
 import Button from "../../UI Component/Button/Button";
 import PdfViewerAsImage from "../PdfViewerAsImage/PdfViewerAsImage";
 

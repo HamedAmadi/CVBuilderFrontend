@@ -4,7 +4,6 @@
 
   .text-input {
     background-image: url("../../../assets/angle-down.webp");
-    // background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
     background-repeat: no-repeat;
     background-size: 12px;
     background-position-x: 13px;
@@ -22,15 +21,10 @@
     background-color: var(--fourth-color);
     color: #333333;
     -webkit-touch-callout: none;
-    /* iOS Safari */
     -webkit-user-select: none;
-    /* Safari */
     -khtml-user-select: none;
-    /* Konqueror HTML */
     -moz-user-select: none;
-    /* Old versions of Firefox */
     -ms-user-select: none;
-    /* Internet Explorer/Edge */
     user-select: none;
 
     ul {
@@ -43,7 +37,6 @@
         font-size: 14px;
         padding: 4px 16px;
 
-        // height: 32px;
         &:hover {
           background-color: var(--second-color-hover);
           color: var(--first-color);

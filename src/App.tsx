@@ -3,7 +3,6 @@ import "bootstrap/scss/bootstrap.scss";
 import 'react-loading-skeleton/dist/skeleton.css'
 import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
 import {FC, Suspense, lazy} from 'react';
-// import {lazyWithPreload} from "react-lazy-with-preload";
 import MainLayout from "./main/layout/MainLayout"
 import Home from './main/pages/Home/Home';
 import Loading from './main/UI Component/Loading/Loading';
@@ -23,28 +22,6 @@ const ChangeTemplate = lazy( () => import( './main/pages/ChangeTemplate/ChangeTe
 const SendEmailForLogin = lazy( () => import( './main/pages/SendEmailForLogin/SendEmailForLogin' ) );
 
 const App: FC = () => {
-  // const myObject = {
-  //   myMethod: () => {
-  //     console.log( this );
-  //   }
-  // };
-
-  // myObject.myMethod()
-
-  //   useEffect( () => {
-  //     ResumeCompletion.preload()
-  //     ChooseTemplates.preload()
-  //     SignUp.preload()
-  //     SignIn.preload()
-  //     ResumeList.preload()
-  //     SendEmail.preload()
-  //     SignInWithoutPassword.preload()
-  //     UserSetting.preload()
-  //     VerifyEmail.preload()
-  // ChangeTemplate.preload()
-  //     SendEmailForLogin.preload()
-  //   }, [] );
-
   return (
     <BrowserRouter>
       <Toaster />

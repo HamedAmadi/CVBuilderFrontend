@@ -1,6 +1,5 @@
 import {Text, View, StyleSheet, Page} from '@react-pdf/renderer';
 import {Key} from 'react';
-// import {} from 'react-pdf';
 
 interface Props {
   text: string
@@ -17,7 +16,6 @@ const PersianText: React.FC<Props> = ( props ) => {
       flexWrap: 'wrap',
       marginTop: props.marginTop,
       marginBottom: props.marginBottom,
-      // alignContent: ''
     },
     Text: {
       flexDirection: 'row-reverse',

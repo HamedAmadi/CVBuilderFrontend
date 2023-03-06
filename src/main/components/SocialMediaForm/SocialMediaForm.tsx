@@ -1,7 +1,7 @@
 import {FC, Fragment, useEffect} from "react";
 import {SubmitHandler, useForm, useFieldArray, FieldValues, FieldArray} from 'react-hook-form';
 import {TbPlus} from "react-icons/tb";
-import {useDeleteSocialMedia, useGetSocialMedia, useInsertSocialMedia} from "../../services/hooks/social-media-hooks";
+import {useDeleteSocialMedia, useGetSocialMedia, useInsertSocialMedia} from "../../hooks/social-media-hooks";
 import Button from "../../UI Component/Button/Button";
 import DeleteButton from "../../UI Component/DeleteButton/DeleteButton";
 import toast from 'react-hot-toast';

@@ -5,7 +5,7 @@ import Button from '../../UI Component/Button/Button';
 import Input from '../../UI Component/Input/Input';
 import {SubmitHandler, useForm} from 'react-hook-form';
 import Upload from '../../UI Component/Upload/Upload';
-import {useGetBasicInformation, useInsertBasicInformation} from '../../services/hooks/information-hooks';
+import {useGetBasicInformation, useInsertBasicInformation} from '../../hooks/information-hooks';
 import BirthDate from '../../UI Component/BirthDate/BirthDate';
 import Select from '../../UI Component/Select/Select';
 import Skeleton from 'react-loading-skeleton'

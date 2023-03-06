@@ -1,7 +1,7 @@
 import './ChangePassword.scss'
 import {FC, Fragment, useState} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
-import {useChangePassword} from "../../services/hooks/user-hooks";
+import {useChangePassword} from "../../hooks/user-hooks";
 import Button from "../../UI Component/Button/Button";
 import Input from "../../UI Component/Input/Input";
 import toast, {Toaster} from 'react-hot-toast';

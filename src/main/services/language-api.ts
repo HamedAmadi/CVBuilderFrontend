@@ -1,5 +1,5 @@
 import axios from "axios"
-import {Language} from "../../components/LanguageForm/LanguageForm"
+import {Language} from "../components/LanguageForm/LanguageForm"
 
 
 const client = axios.create( {

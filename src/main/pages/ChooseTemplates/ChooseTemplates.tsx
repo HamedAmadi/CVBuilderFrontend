@@ -8,7 +8,7 @@ import TemplateImage5 from '../../../assets/5-1.webp'
 import TemplateImage6 from '../../../assets/6-1.webp'
 import {useNavigate} from "react-router-dom";
 import {useUserContext} from '../../context/UserContext';
-import {useCreateResume} from '../../services/hooks/resume-hooks';
+import {useCreateResume} from '../../hooks/resume-hooks';
 import toast from 'react-hot-toast';
 import Skeleton from 'react-loading-skeleton';
 import ResumeImage from '../../components/ResumeImage/ResumeImage';

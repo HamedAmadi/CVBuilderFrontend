@@ -2,27 +2,19 @@ import './ResumeList.scss'
 import {FC} from "react";
 import {Link} from "react-router-dom";
 import Button from "../../UI Component/Button/Button";
-import {useDeleteResume, useGetResumeList, MyCustomHook} from '../../services/hooks/resume-hooks';
-import PdfViewerAsImage from '../../components/PdfViewerAsImage/PdfViewerAsImage';
+import {useGetResumeList} from '../../hooks/resume-hooks';
 import {useUserContext} from '../../context/UserContext';
 import {Resume} from '../../PDF Templates/PDFTemplate6/PDFTemplate6';
-import Skeleton from 'react-loading-skeleton';
 import {TbPlus} from "react-icons/tb";
 import Loading from '../../UI Component/Loading/Loading';
-import {Toaster} from 'react-hot-toast';
 import ResumeCard from '../../components/ResumeCard/ResumeCard';
 
 const ResumeList: FC = () => {
   const {state} = useUserContext()
   const {data, isLoading: ResumeListIsLoading} = useGetResumeList()
 
-  // MyCustomHook( 'abol' );
-
-  // console.log( MyCustomHook( 'abol' ) )
-
   return (
     <div className="resume-list">
-      {/* <Toaster /> */}
       {
         !state.isVerified &&
         <div className="warning-banner">

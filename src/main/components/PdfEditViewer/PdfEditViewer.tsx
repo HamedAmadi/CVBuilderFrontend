@@ -12,7 +12,7 @@ import Button from '../../UI Component/Button/Button';
 import {TbChevronRight, TbChevronLeft, TbMaximize} from 'react-icons/tb';
 import {Link, useParams} from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
-import {useGetResume} from '../../services/hooks/resume-hooks';
+import {useGetResume} from '../../hooks/resume-hooks';
 
 
 

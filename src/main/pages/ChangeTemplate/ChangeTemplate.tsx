@@ -7,7 +7,7 @@ import TemplateImage4 from '../../../assets/4-1.webp'
 import TemplateImage5 from '../../../assets/5-1.webp'
 import TemplateImage6 from '../../../assets/6-1.webp'
 import PdfEditViewer from '../../components/PdfEditViewer/PdfEditViewer';
-import {useChangeTemplate} from '../../services/hooks/resume-hooks';
+import {useChangeTemplate} from '../../hooks/resume-hooks';
 import {TbX} from 'react-icons/tb';
 import {Link, useNavigate, useParams} from 'react-router-dom';
 import SideDrawer from '../../UI Component/SideDrawer/SideDrawer';

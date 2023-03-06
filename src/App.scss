@@ -10,14 +10,6 @@ $sixth-color: #59665a;
 $seventh-color: #ebf7e9;
 $eighth-color: #454545;
 
-// $first-color: #ffffff;
-// $second-color: #C4D7E0;
-// $third-color: #6E85B7;
-// $third-color-hover: #1572A1;
-// $fourth-color: #f2f5fa;
-// $fifth-color: #6c757d;
-// $sixth-color: #192a56;
-// 6E85B7
 :root {
   --first-color: #{$first-color};
   --second-color: #{$second-color};
@@ -35,15 +27,9 @@ $eighth-color: #454545;
   font-family: IRANSans-FaNum;
   font-style: normal;
   font-weight: 500;
-  // src: url('./assets/fonts/IRANSans/_persian-number/eot/IRANSansWeb\(FaNum\)_Light.eot');
   src:
-    // url('./assets/fonts/IRANSans/_persian-number/eot/IRANSansWeb(FaNum)_Light.eot?#iefix') format('embedded-opentype'),
-    /* IE6-8 */
     url('./assets/fonts/IRANSans/_persian-number/woff2/IRANSansWeb(FaNum)_Light.woff2') format('woff2'),
-    /* FF39+,Chrome36+, Opera24+*/
     url('./assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum)_Light.woff') format('woff'),
-    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-    // url('./assets/fonts/IRANSans/_persian-number/ttf/IRANSansWeb(FaNum)_Light.ttf') format('truetype');
 }
 
 body {

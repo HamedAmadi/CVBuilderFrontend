@@ -1,6 +1,6 @@
 import {useMutation, useQuery} from "react-query"
-import {queryClient} from "../../.."
-import * as api from "../apis/language-api"
+import {queryClient} from "../.."
+import * as api from "../services/language-api"
 
 export const useInsertLanguage = () => {
   return useMutation(api.insertLanguage, {

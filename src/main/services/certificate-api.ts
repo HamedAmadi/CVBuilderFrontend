@@ -1,5 +1,5 @@
 import axios from "axios"
-import {Certificate} from "../../components/CertificateForm/CertificateForm"
+import {Certificate} from "../components/CertificateForm/CertificateForm"
 
 
 const client = axios.create( {

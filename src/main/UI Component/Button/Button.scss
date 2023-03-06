@@ -5,7 +5,6 @@
   cursor: pointer;
 
   &:hover {
-    // background-color: var(--second-color-hover);
     border: 2px solid var(--second-color-hover);
     color: var(--third-color);
   }
@@ -49,7 +48,3 @@
 .normal {
   border-radius: 5px;
 }
-
-// .rounded {
-//   border-radius: 100px;
-// }

@@ -1,5 +1,5 @@
 import axios from "axios"
-import {Project} from "../../components/ProjectForm/ProjectForm"
+import {Project} from "../components/ProjectForm/ProjectForm"
 
 
 const client = axios.create( {

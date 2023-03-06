@@ -1,7 +1,7 @@
 import {FC, Fragment, useEffect} from "react";
 import {SubmitHandler, useForm, useFieldArray} from 'react-hook-form';
 import {TbPlus} from "react-icons/tb";
-import {useDeleteSkill, useGetSkill, useInsertSkill} from "../../services/hooks/skill-hooks";
+import {useDeleteSkill, useGetSkill, useInsertSkill} from "../../hooks/skill-hooks";
 import Button from "../../UI Component/Button/Button";
 import DeleteButton from "../../UI Component/DeleteButton/DeleteButton";
 import Select from "../../UI Component/Select/Select";

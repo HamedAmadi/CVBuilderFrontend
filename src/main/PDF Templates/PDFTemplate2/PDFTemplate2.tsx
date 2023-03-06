@@ -126,7 +126,6 @@ const styles = StyleSheet.create( {
     flexDirection: 'row',
     color: 'black',
     top: -3,
-    // paddingVertical: 0,
   },
   socialMediaSection: {
     margin: '6 0',

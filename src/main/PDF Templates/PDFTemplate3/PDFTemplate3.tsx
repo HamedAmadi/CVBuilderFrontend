@@ -5,7 +5,6 @@ import IranSanseB from '../../../assets/fonts/IRANSans/_persian-number/woff/IRAN
 import IranSanseUL from '../../../assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum)_UltraLight.woff'
 import IranSanse from '../../../assets/fonts/IRANSans/_persian-number/woff/IRANSansWeb(FaNum).woff'
 import MobileIcon from '../../../assets/smartphone.png'
-// import Mobile from '../../../assets/smartphone.png'
 import EnvelopeIcon from '../../../assets/envelope.png'
 import LocationIcon from '../../../assets/location-pin.png'
 import PersianText from "../PersianText/PersianText";
@@ -49,13 +48,7 @@ const styles = StyleSheet.create( {
   },
   name: {
     justifyContent: 'center',
-    // textAlign: 'center',
-    // width: '100%',
     flexDirection: 'row-reverse',
-    // fontFamily: 'IranSanse',
-    // alignSelf: 'center',
-    // fontSize: 19,
-    // fontStyle: "normal"
   },
   position: {
     color: '#00668f',
@@ -98,7 +91,6 @@ const styles = StyleSheet.create( {
   img: {
     width: 10,
     height: 10,
-    // color: '#007baa',
     margin: '2 0 auto 8',
   },
   progressBorder: {

@@ -1,5 +1,5 @@
 import axios from "axios"
-import {Skill} from "../../components/SkillForm/SkillForm"
+import {Skill} from "../components/SkillForm/SkillForm"
 
 
 const client = axios.create( {

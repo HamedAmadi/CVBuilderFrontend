@@ -1,6 +1,6 @@
 import {useMutation, useQuery} from "react-query"
-import {queryClient} from "../../.."
-import * as api from "../apis/job-experience-api"
+import {queryClient} from "../.."
+import * as api from "../services/job-experience-api"
 
 export const useInsertJobExperience = () => {
   return useMutation(api.insertJobExperience, {

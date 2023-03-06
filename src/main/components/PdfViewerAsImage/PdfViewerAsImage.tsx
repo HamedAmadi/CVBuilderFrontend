@@ -29,29 +29,6 @@ const PdfViewerAsImage: FC<PdfAsImageProps> = ( props ) => {
 
   const Component = components[( props.templateNumber ) - 1]
 
-  // const PDFTemplate = () => {
-  //   switch ( props.resume.templateNumber ) {
-  //     case '1': return (
-  //       <PDFTemplate1 resume={props.resume} />
-  //     )
-  //     case '2': return (
-  //       <PDFTemplate2 resume={props.resume} />
-  //     )
-  //     case '3': return (
-  //       <PDFTemplate3 resume={props.resume} />
-  //     )
-  //     case '4': return (
-  //       <PDFTemplate4 resume={props.resume} />
-  //     )
-  //     case '5': return (
-  //       <PDFTemplate5 resume={props.resume} />
-  //     )
-  //     case '6': return (
-  //       <PDFTemplate6 resume={props.resume} />
-  //     )
-  //     default: return <PDFTemplate1 resume={props.resume} />
-  //   }
-  // }
   return (
     <div className="pdf-viewer-as-image h-100">
       <BlobProvider document={Component}>

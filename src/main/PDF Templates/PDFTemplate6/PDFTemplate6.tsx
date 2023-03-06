@@ -70,7 +70,6 @@ const styles = StyleSheet.create( {
   name: {
     flexDirection: 'row-reverse',
     alignSelf: 'center',
-    // marginLeft: -8
   },
   position: {
     width: '100%',
@@ -109,7 +108,6 @@ const styles = StyleSheet.create( {
   },
   contactBox: {
     width: '14%',
-    // width: 26,
     height: 22,
     marginLeft: '4px',
     backgroundColor: '#393836',

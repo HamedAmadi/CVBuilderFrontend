@@ -4,7 +4,7 @@ import {SubmitHandler, useForm} from 'react-hook-form';
 import Input from '../../UI Component/Input/Input';
 import Button from '../../UI Component/Button/Button';
 import {Link, useNavigate} from 'react-router-dom';
-import {useSendEmailForSignIn, useSignIn} from '../../services/hooks/user-hooks';
+import {useSendEmailForSignIn, useSignIn} from '../../hooks/user-hooks';
 import {useUserContext} from '../../context/UserContext';
 
 export interface SignIn {

@@ -1,5 +1,5 @@
 import axios from "axios"
-import {JobExperience} from "../../components/JobExperienceForm/JobExperienceForm"
+import {JobExperience} from "../components/JobExperienceForm/JobExperienceForm"
 
 
 const client = axios.create( {

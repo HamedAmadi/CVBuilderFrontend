@@ -1,6 +1,6 @@
 import {useMutation, useQuery} from "react-query"
-import {queryClient} from "../../.."
-import * as api from "../apis/social-media-api"
+import {queryClient} from "../.."
+import * as api from "../services/social-media-api"
 
 export const useInsertSocialMedia = () => {
   return useMutation(api.insertSocialMedia, {

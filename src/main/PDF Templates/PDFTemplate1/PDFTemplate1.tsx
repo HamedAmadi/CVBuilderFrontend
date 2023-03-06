@@ -39,13 +39,7 @@ const styles = StyleSheet.create( {
   },
   name: {
     justifyContent: 'center',
-    // textAlign: 'center',
-    // width: '100%',
     flexDirection: 'row-reverse',
-    // fontFamily: 'IranSanse',
-    // alignSelf: 'center',
-    // fontSize: 19,
-    // fontStyle: "normal"
   },
   position: {
     fontFamily: 'IranSanse',
@@ -54,10 +48,7 @@ const styles = StyleSheet.create( {
     fontStyle: 'normal',
   },
   info: {
-    // alignSelf: 'center',
     justifyContent: 'center',
-    // textAlign: 'center',
-    // width: '100%',
     flexDirection: 'row-reverse',
   },
   address: {
@@ -115,11 +106,9 @@ const styles = StyleSheet.create( {
     width: '50%',
     flexDirection: 'row-reverse',
     alignSelf: 'flex-end'
-    // justifyContent: 'flex-start'
   },
   link: {
     textDecoration: 'underline',
-    // marginRight: '20',
     cursor: 'pointer'
   },
   projectLink: {

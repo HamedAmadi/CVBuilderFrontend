@@ -1,7 +1,7 @@
 import {FC, Fragment, useEffect} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {useUserContext} from "../../context/UserContext";
-import {useSignInWithoutPassword} from "../../services/hooks/user-hooks";
+import {useSignInWithoutPassword} from "../../hooks/user-hooks";
 
 const SignInWithoutPassword: FC = () => {
   const {dispatch} = useUserContext()

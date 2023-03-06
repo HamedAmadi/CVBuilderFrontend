@@ -1,5 +1,5 @@
 import axios from "axios"
-import {Education} from "../../components/EducationForm/EducationForm"
+import {Education} from "../components/EducationForm/EducationForm"
 
 
 const client = axios.create( {

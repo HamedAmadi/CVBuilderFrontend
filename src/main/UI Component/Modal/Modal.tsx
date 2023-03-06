@@ -1,7 +1,6 @@
 import './Modal.scss'
 import {MouseEventHandler} from 'react';
 import {createPortal} from "react-dom";
-// import * as ReactDOM from 'react-dom';
 
 interface Props {
   onBackdropClick: () => void;

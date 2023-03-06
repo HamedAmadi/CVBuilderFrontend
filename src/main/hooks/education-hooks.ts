@@ -1,6 +1,6 @@
 import {useMutation, useQuery} from "react-query"
-import {queryClient} from "../../.."
-import * as api from "../apis/education-api"
+import {queryClient} from "../.."
+import * as api from "../services/education-api"
 
 export const useInsertEducation = () => {
   return useMutation(api.insertEducation, {

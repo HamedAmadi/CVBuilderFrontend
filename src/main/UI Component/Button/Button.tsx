@@ -6,7 +6,6 @@ const SIZES = ["small", "medium", "large"];
 const BORDER_RADIUS = ["normal", "rounded-pill"];
 
 interface Props {
-  // type: "button" | "submit" | "reset";
   size: "small" | "medium" | "large";
   style: "solid" | "outline";
   borderRadius: "normal" | "rounded-pill";

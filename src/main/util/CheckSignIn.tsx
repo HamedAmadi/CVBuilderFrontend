@@ -1,6 +1,6 @@
 import React, {FC, Fragment, useEffect} from "react";
 import {useUserContext} from "../context/UserContext";
-import {useCheckSignIn} from "../services/hooks/user-hooks";
+import {useCheckSignIn} from "../hooks/user-hooks";
 
 const CheckSignIn: FC = () => {
   const {data: userDetail, isLoading} = useCheckSignIn()

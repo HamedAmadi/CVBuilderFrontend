@@ -15,7 +15,6 @@ import MrtarboardIcon from '../../../assets/mortarboard.png'
 import PencilAndRulerIcon from '../../../assets/pencil-and-ruler.png'
 import SuitCaseIcon from '../../../assets/suitcase.png'
 import UserIcon from '../../../assets/user.png'
-// import ProfilePicture from '../../../assets/images.png'
 import ProfilePicture from '../../../assets/images.png'
 import PersianText from "../PersianText/PersianText";
 import Star from "../PDFTemplate1/Star";
@@ -58,7 +57,6 @@ const styles = StyleSheet.create( {
     marginTop: 43,
   },
   name: {
-    // justifyContent: 'center',
     flexDirection: 'row-reverse',
     color: '#d62246'
   },
@@ -110,13 +108,11 @@ const styles = StyleSheet.create( {
     width: 10,
     height: 10,
     margin: 'auto'
-    // padding: 4
   },
   titleBorder: {
     flexDirection: 'row-reverse',
     marginRight: 12,
     marginTop: 6,
-    // marginBottom: 8,
   },
   titleTextBorder: {
     height: 1.5,
@@ -135,7 +131,6 @@ const styles = StyleSheet.create( {
     padding: '0 12',
     flexDirection: 'row-reverse',
     justifyContent: 'space-between',
-    // marginBottom: 8,
     marginTop: 8
   },
   ratingStar: {
@@ -155,13 +150,11 @@ const styles = StyleSheet.create( {
   link: {
     padding: '2 6',
     borderRadius: 4,
-    // marginBottom: 10,
     fontSize: 10,
     backgroundColor: '#d62246',
     color: 'white',
     textDecoration: 'none',
     textAlign: 'center',
-    // margin: '4 0'
   },
   basicInfo: {
     backgroundColor: '#e8e8e8',

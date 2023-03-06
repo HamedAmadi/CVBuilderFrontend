@@ -1,6 +1,6 @@
 import {useMutation, useQuery} from "react-query"
-import {queryClient} from "../../.."
-import * as api from "../apis/certificate-api"
+import {queryClient} from "../.."
+import * as api from "../services/certificate-api"
 
 export const useInsertCertificate = () => {
   return useMutation(api.insertCertificate, {

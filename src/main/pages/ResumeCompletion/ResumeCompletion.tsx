@@ -1,7 +1,5 @@
 import './ResumeCompletion.scss'
 import {FC, Fragment, useRef} from 'react';
-import {lazyWithPreload} from "react-lazy-with-preload";
-// const ChangeTemplate = lazyWithPreload( () => import( '../ChangeTemplate/ChangeTemplate' ) );
 import PersonalInfo from '../../components/PersonalInfo/PersonalInfo';
 import UserAboutUs from '../../components/UserAboutUs/UserAboutUs';
 import EducationForm from '../../components/EducationForm/EducationForm';
@@ -20,10 +18,6 @@ import {useUserContext} from '../../context/UserContext';
 const ResumeCompletion: FC = () => {
   const ref = useRef<HTMLDivElement | null>( null )
   const {state} = useUserContext()
-
-  // useEffect( () => {
-  //   ChangeTemplate.preload()
-  // }, [] );
 
   const showRefElement = () => {
     const span = ref.current

@@ -1,6 +1,6 @@
 import {useMutation, useQuery} from "react-query"
-import {queryClient} from "../../.."
-import * as api from "../apis/skill-api"
+import {queryClient} from "../.."
+import * as api from "../services/skill-api"
 
 export const useInsertSkill = () => {
   return useMutation(api.insertSkill, {
