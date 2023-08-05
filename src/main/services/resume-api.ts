@@ -20,6 +20,7 @@ export const getResume = async ( id: string | undefined ) => {
 
 export const getResumeList = async () => {
     const {data} = await client.get( `/getResumeList`, {withCredentials: true, } )
+    console.log(data)
     return data.data
 }
 

@@ -7,6 +7,7 @@ import DeleteButton from "../../UI Component/DeleteButton/DeleteButton";
 import SelectDate from '../../UI Component/SelectDate/SelectDate';
 import toast from 'react-hot-toast';
 import {useParams} from "react-router-dom";
+import Input from "../../UI Component/Input/Input";
 
 export interface EducationItem {
   degree: string
@@ -27,7 +28,7 @@ const EducationForm: FC = () => {
   const {data: educationItem, isLoading: getIsLoading} = useGetEducation( resumeId )
   const {mutate, isLoading: insertIsLoading} = useInsertEducation()
   const {mutate: Delete, isLoading: deleleteIsLoading} = useDeleteEducation()
-  const {register, handleSubmit, reset, control, setValue} = useForm<Education>( {
+  const {register, handleSubmit, reset, control, setValue, formState: {errors}} = useForm<Education>( {
     mode: "onBlur"
   } );
   const {fields, append, remove} = useFieldArray( {
@@ -94,10 +95,11 @@ const EducationForm: FC = () => {
                 <DeleteButton onClick={() => {remove( index ); deleteCertificate( resumeId, field._id )}} />
                 <div className="row mb-4">
                   <div className="col-12">
-                    <div className='input-wrapper'>
+                    <Input  {...register( `educationItem.${index}.study` as const )} type={"text"} name={`educationItem.${index}.study` as const} label={"رشته تحصیلی"} errors={errors} />
+                    {/* <div className='input-wrapper'>
                       <label className="d-block fw-bold text-secondary me-2">رشته تحصیلی</label>
                       <input className="text-input" type={'text'} {...register( `educationItem.${index}.study` as const )} />
-                    </div>
+                    </div> */}
                   </div>
                   <div className="col-md-6">
                     <div className='input-wrapper'>

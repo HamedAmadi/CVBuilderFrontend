@@ -12,7 +12,8 @@ import ResumeCard from '../../components/ResumeCard/ResumeCard';
 const ResumeList: FC = () => {
   const {state} = useUserContext()
   const {data, isLoading: ResumeListIsLoading} = useGetResumeList()
-
+  console.log( 'resumeList' )
+  console.log( data )
   return (
     <div className="resume-list">
       {

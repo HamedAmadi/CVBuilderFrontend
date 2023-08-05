@@ -5,7 +5,7 @@ import {useUserContext} from "../../context/UserContext";
 import {useCompleteProfile, useGetUserInfo} from "../../hooks/user-hooks";
 import Button from "../../UI Component/Button/Button";
 import Input from "../../UI Component/Input/Input";
-import toast from 'react-hot-toast';
+import toast, {Toaster} from 'react-hot-toast';
 
 export interface UserInfo {
   firstName: string
@@ -50,6 +50,7 @@ const UserInfo: FC = () => {
 
   return (
     <div className="user-info">
+      <Toaster />
       <form onSubmit={handleSubmit( onSubmit )} className='user-info-form' noValidate>
         <Input
           isLoading={getIsLoading}
